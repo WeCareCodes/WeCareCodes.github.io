@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>goodsvalu.com</title>
+<style>
+  :root { --bg:#f7f6f5; --fg:#1c1a19; --muted:#6b6767; --line:#ddd8d8; --accent:#c62d12; --card:#fff; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#171514; --fg:#eceaea; --muted:#a19c9c; --line:#35312f; --accent:#ff7a5e; --card:#201d1c; }
+  }
+  body {
+    margin:0; background:var(--bg); color:var(--fg); min-height:100vh;
+    display:flex; align-items:center; justify-content:center;
+    font:16px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC",
+         "PingFang TC", "Microsoft JhengHei", Roboto, sans-serif;
+  }
+  main { max-width:520px; padding:40px 24px; }
+  h1 { font-size:1.6rem; margin:0 0 6px; }
+  p { color:var(--muted); margin:0 0 28px; }
+  a.card {
+    display:block; background:var(--card); border:1px solid var(--line);
+    padding:16px 18px; text-decoration:none; color:var(--fg);
+  }
+  a.card strong { color:var(--accent); }
+  a.card span { display:block; color:var(--muted); font-size:.9rem; }
+  footer { margin-top:28px; font-size:.88rem; }
+  footer a { color:var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Goods Valu</h1>
+  <p>產品與服務條款頁面</p>
+  <a class="card" href="/bookaccounttracker/">
+    <strong>BookAccountTracker</strong>
+    <span>Privacy policy, terms of service and support · 隱私政策、服務條款與支援</span>
+  </a>
+  <footer><a href="mailto:support@goodsvalu.com">support@goodsvalu.com</a></footer>
+</main>
+</body>
+</html>

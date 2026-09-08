@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — BookAccountTracker</title>
+<style>
+  :root {
+    --bg: #f7f6f5; --fg: #1c1a19; --muted: #6b6767; --line: #ddd8d8;
+    --accent: #c62d12; --card: #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #171514; --fg: #eceaea; --muted: #a19c9c; --line: #35312f;
+            --accent: #ff7a5e; --card: #201d1c; }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--fg);
+    font: 16px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC",
+          "PingFang TC", "Microsoft JhengHei", Roboto, sans-serif;
+  }
+  main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+  h1 { font-size: 1.75rem; line-height: 1.3; margin: 0 0 6px; }
+  h2 { font-size: 1.2rem; margin: 40px 0 10px; padding-top: 16px; border-top: 1px solid var(--line); }
+  h3 { font-size: 1rem; margin: 24px 0 6px; }
+  .meta { color: var(--muted); font-size: .9rem; margin: 0 0 8px; }
+  .langbar { margin: 20px 0 8px; font-size: .9rem; }
+  .langbar a { color: var(--accent); }
+  a { color: var(--accent); }
+  ul { padding-left: 22px; }
+  li { margin: 6px 0; }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: .92rem; display: block; overflow-x: auto; }
+  th, td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: var(--card); font-weight: 600; }
+  .callout {
+    background: var(--card); border: 1px solid var(--line);
+    border-left: 3px solid var(--accent); padding: 14px 16px; margin: 18px 0;
+  }
+  code { background: var(--card); border: 1px solid var(--line); padding: 1px 5px; font-size: .88em; }
+  footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: .88rem; }
+</style>
+</head>
+<body>
+<main>
+
+<h1>Privacy Policy</h1>
+<p class="meta">BookAccountTracker · Last updated: 7 September 2026</p>
+<p class="langbar"><strong>English</strong> · <a href="#zh">繁體中文</a></p>
+
+<div class="callout">
+<strong>In one sentence:</strong> your bookkeeping data never leaves your phone. The only
+thing that is ever sent off the device is a receipt photo or a line of text you
+explicitly submit for AI recognition — and only after you have agreed to it.
+</div>
+
+<h2>1. Who we are</h2>
+<p>
+BookAccountTracker (“the App”) is developed and operated by Goods Valu (“we”, “us”).
+For any privacy question, contact
+<a href="mailto:support@goodsvalu.com">support@goodsvalu.com</a>.
+</p>
+
+<h2>2. What stays on your device</h2>
+<p>
+The App is local-first. All of the following is stored in a database file on your
+phone and is <strong>never uploaded to us</strong>:
+</p>
+<ul>
+  <li>Ledgers, accounts, categories and budgets</li>
+  <li>Every transaction — amount, date, merchant, notes, currency</li>
+  <li>Your app settings, including your display language and currency</li>
+  <li>Reminder schedules (all notifications are scheduled locally on the device;
+      the App does not use push notifications and never registers a push token)</li>
+</ul>
+<p>
+Backups are produced on demand and handed to your operating system’s share sheet.
+Where a backup file goes — your own cloud drive, email, or local storage — is
+entirely your choice. We never receive it.
+</p>
+
+<h2>3. What is sent off the device, and when</h2>
+<p>
+Only when you use AI recognition, and only after you have given consent on the
+in-app consent screen. There are exactly two cases:
+</p>
+<table>
+<tr><th>You do this</th><th>What is sent</th></tr>
+<tr>
+  <td>Take or pick a receipt photo and confirm</td>
+  <td>The image, resized and re-encoded as JPEG on your device before it is sent</td>
+</tr>
+<tr>
+  <td>Type or dictate a description and tap submit</td>
+  <td>That text</td>
+</tr>
+</table>
+<p>
+The request also carries the names of your expense categories, so the AI can pick
+one that already exists in your books, plus today’s date, your app version and a
+random one-time request identifier.
+</p>
+
+<h3>Photos</h3>
+<ul>
+  <li>A photo is <strong>never written to permanent storage</strong> and is
+      <strong>never displayed anywhere in the App</strong>.</li>
+  <li>Before sending, the image is resized and re-encoded. This process does not
+      carry over the original file’s EXIF metadata, so <strong>location data is
+      not transmitted</strong>.</li>
+  <li>As soon as recognition finishes — whether it succeeded or failed — the
+      temporary file is deleted from your device.</li>
+</ul>
+
+<h3>Voice</h3>
+<p>
+The App has no speech-recognition component and requests no microphone permission
+for this purpose. When you “speak” an entry you are using your phone keyboard’s own
+dictation button, which is a function of your operating system. The App only ever
+receives the finished text. <strong>No audio is ever recorded, accessed or
+transmitted by the App.</strong>
+</p>
+
+<h2>4. What our server stores</h2>
+<p>
+Requests pass through our own server before reaching the AI provider, so that we
+can count usage and keep costs under control. That server keeps no content. Its
+database has no column capable of holding an image or any text you wrote — this is
+a structural guarantee, not just a promise.
+</p>
+<table>
+<tr><th>Stored</th><th>Why</th></tr>
+<tr><td>An anonymous account identifier</td><td>To count your monthly free allowance</td></tr>
+<tr><td>Number of recognitions used this month</td><td>Enforcing the free allowance</td></tr>
+<tr><td>Per-request: timestamp, whether it was a photo or text, success or failure, token counts, cost, response time, model name, app version, a one-time request identifier</td><td>Cost accounting, abuse detection, debugging</td></tr>
+</table>
+
+<h2>5. What we never collect</h2>
+<ul>
+  <li>No name, email address, phone number or password — the App has no sign-up</li>
+  <li>No contacts, calendar, location or photo library contents</li>
+  <li>No advertising identifiers; there is no advertising in the App</li>
+  <li>No analytics or crash-reporting SDK of any kind is included in the App</li>
+  <li>No financial account credentials — the App does not connect to any bank</li>
+</ul>
+
+<h2>6. Your account</h2>
+<p>
+To use AI recognition the App creates an <strong>anonymous account</strong> for you
+in the background. It has no email and no password, and it exists only to keep your
+monthly free allowance attached to you rather than to an easily-reset device
+identifier. A credential for that account is held in your device’s secure keychain.
+</p>
+
+<h2>7. Third parties</h2>
+<table>
+<tr><th>Who</th><th>What they receive</th><th>Where</th></tr>
+<tr>
+  <td>Anthropic PBC</td>
+  <td>The receipt photo or text you submit, and your category names</td>
+  <td>United States</td>
+</tr>
+<tr>
+  <td>Supabase (our hosting and authentication provider)</td>
+  <td>The usage records in section 4. Photos and text pass through in memory and are not stored.</td>
+  <td>Servers located in Tokyo, Japan</td>
+</tr>
+</table>
+<p>
+Anthropic processes your submission to produce the extracted amount, date and
+merchant. Under Anthropic’s commercial API terms, inputs submitted through the API
+are not used to train their models. Anthropic’s own handling and retention are
+governed by their privacy policy at
+<a href="https://www.anthropic.com/legal/privacy" rel="noreferrer">anthropic.com/legal/privacy</a>.
+</p>
+<p>We do not sell or share your data with anyone else, for any purpose.</p>
+
+<h2>8. International transfer</h2>
+<p>
+If you are located outside the United States, submitting a photo or text for AI
+recognition transfers that content to the United States for processing by Anthropic
+PBC. You are told this on the consent screen before the first transfer, and this
+transfer only happens because you chose to use the feature.
+</p>
+
+<h2>9. Legal bases (EEA/UK users)</h2>
+<ul>
+  <li><strong>Consent</strong> — for sending photos or text to the AI provider. You
+      give it on the consent screen and may withdraw it at any time in
+      Settings → Privacy, with no effect on the rest of the App.</li>
+  <li><strong>Legitimate interests</strong> — for the usage records in section 4,
+      to enforce the free allowance, detect abuse and keep the service financially
+      sustainable.</li>
+</ul>
+
+<h2>10. Retention</h2>
+<ul>
+  <li><strong>Photos and text:</strong> not retained by us at any point. Held in
+      memory only for the duration of the request.</li>
+  <li><strong>Usage records:</strong> kept while your anonymous account exists.</li>
+  <li><strong>Your bookkeeping data:</strong> kept on your device until you delete
+      it. We cannot access it and cannot delete it for you.</li>
+</ul>
+
+<h2>11. Your rights and controls</h2>
+<ul>
+  <li><strong>Withdraw AI consent:</strong> Settings → Privacy → AI Recognition &amp;
+      Data Processing. Nothing is sent afterwards.</li>
+  <li><strong>Delete your account:</strong> Settings → About &amp; Support → Delete
+      Account. This permanently deletes the anonymous account and all usage records
+      described in section 4. It does <em>not</em> delete the books on your phone,
+      because we cannot reach them.</li>
+  <li><strong>Delete your local data:</strong> Settings → Data → Reset, or simply
+      uninstall the App.</li>
+  <li><strong>Export your data:</strong> Settings → Data → Backup produces a
+      complete database file; transaction lists can also be exported as CSV, Excel
+      or PDF.</li>
+  <li><strong>Access, rectification, objection:</strong> since we hold no personal
+      content, these mostly apply to the usage records — write to
+      <a href="mailto:support@goodsvalu.com">support@goodsvalu.com</a>.</li>
+</ul>
+
+<h2>12. Children</h2>
+<p>
+The App is not directed at children under 13 (or the minimum age of digital consent
+in your country) and we do not knowingly collect data from them.
+</p>
+
+<h2>13. Changes to this policy</h2>
+<p>
+If we change how data is handled in a way that affects you, we will update this page
+and, where the change concerns AI processing, ask for your consent again inside the
+App rather than relying on your previous agreement.
+</p>
+
+<h2>14. Contact</h2>
+<p><a href="mailto:support@goodsvalu.com">support@goodsvalu.com</a></p>
+
+<hr id="zh" style="margin:64px 0 40px;border:0;border-top:1px solid var(--line)">
+
+<h1 lang="zh-Hant">隱私政策</h1>
+<p class="meta">BookAccountTracker · 最後更新:2026 年 9 月 7 日</p>
+<p class="langbar"><a href="#">English</a> · <strong>繁體中文</strong></p>
+
+<div class="callout" lang="zh-Hant">
+<strong>一句話:</strong>你的帳目資料從不離開手機。唯一會送出裝置的,只有你明確
+送出去做 AI 辨識的那一張收據照片或那一段文字,而且必須你先同意過。
+</div>
+
+<div lang="zh-Hant">
+
+<h2>1. 我們是誰</h2>
+<p>
+BookAccountTracker(以下稱「本 App」)由 Goods Valu(以下稱「我們」)開發與營運。
+隱私相關問題請聯絡
+<a href="mailto:support@goodsvalu.com">support@goodsvalu.com</a>。
+</p>
+
+<h2>2. 留在你裝置上的資料</h2>
+<p>本 App 以本機為主。以下全部存在你手機裡的資料庫檔案,<strong>從不上傳給我們</strong>:</p>
+<ul>
+  <li>帳本、帳戶、分類與預算</li>
+  <li>每一筆交易——金額、日期、商家、備註、幣別</li>
+  <li>你的 App 設定,包含顯示語言與幣別</li>
+  <li>提醒排程(所有通知都在裝置本機排程;本 App 不使用推播通知,也從不註冊推播 token)</li>
+</ul>
+<p>
+備份檔是你按下按鈕才產生,並交給作業系統的分享面板。檔案最後去哪裡——你自己的
+雲端硬碟、信箱、或本機儲存空間——完全由你決定,我們不會收到。
+</p>
+
+<h2>3. 什麼情況下會送出資料</h2>
+<p>只有你使用 AI 辨識時,而且必須你已經在 App 內的同意畫面上同意過。就兩種情況:</p>
+<table>
+<tr><th>你做的動作</th><th>送出的內容</th></tr>
+<tr><td>拍照或選相簿照片並確認</td><td>該圖片(在你的裝置上先縮小並重新編碼成 JPEG 才送出)</td></tr>
+<tr><td>輸入或口述一段描述後按送出</td><td>那段文字</td></tr>
+</table>
+<p>
+請求另外會帶上你的支出分類名稱(讓 AI 從你已有的分類裡挑一個)、今天的日期、
+App 版本,以及一個隨機的一次性請求識別碼。
+</p>
+
+<h3>照片</h3>
+<ul>
+  <li>照片<strong>絕不寫入永久儲存空間</strong>,也<strong>絕不在 App 的任何畫面顯示</strong>。</li>
+  <li>送出前會先縮小並重新編碼。這個過程不會沿用原始檔的 EXIF 中繼資料,因此
+      <strong>不會傳送位置資訊</strong>。</li>
+  <li>辨識一結束——不論成功或失敗——暫存檔立刻從你的裝置刪除。</li>
+</ul>
+
+<h3>語音</h3>
+<p>
+本 App 沒有任何語音辨識元件,也不為此請求麥克風權限。你「口述」記帳時用的是手機
+鍵盤自己的聽寫按鈕,那是作業系統的功能。本 App 從頭到尾只拿到聽寫完成的文字。
+<strong>本 App 從不錄製、讀取或傳送任何音訊。</strong>
+</p>
+
+<h2>4. 我們的伺服器存了什麼</h2>
+<p>
+請求會先經過我們自己的伺服器再送到 AI 服務,以便計算用量與控制成本。那台伺服器
+不保留內容:資料表裡根本沒有任何欄位能存放圖片或你寫的文字——這是結構上的保證,
+不只是一句承諾。
+</p>
+<table>
+<tr><th>存了什麼</th><th>為什麼</th></tr>
+<tr><td>一個匿名帳號識別碼</td><td>計算你每月的免費額度</td></tr>
+<tr><td>這個月已使用的辨識次數</td><td>執行免費額度上限</td></tr>
+<tr><td>每次請求:時間、是照片還是文字、成功或失敗、token 數、成本、回應時間、模型名稱、App 版本、一次性請求識別碼</td><td>成本歸屬、濫用偵測、除錯</td></tr>
+</table>
+
+<h2>5. 我們不會蒐集的東西</h2>
+<ul>
+  <li>不蒐集姓名、電子郵件、電話或密碼——本 App 沒有註冊流程</li>
+  <li>不讀取通訊錄、行事曆、位置或相簿內容</li>
+  <li>沒有廣告識別碼;本 App 沒有廣告</li>
+  <li>App 內不含任何分析或當機回報 SDK</li>
+  <li>不蒐集金融帳戶憑證——本 App 不連接任何銀行</li>
+</ul>
+
+<h2>6. 你的帳號</h2>
+<p>
+為了使用 AI 辨識,本 App 會在背景幫你建立一個<strong>匿名帳號</strong>。它沒有電子
+郵件、沒有密碼,存在的唯一目的是讓每月免費額度綁在你身上,而不是綁在一個重設就
+歸零的裝置識別碼上。該帳號的憑證存放在你裝置的安全金鑰儲存區。
+</p>
+
+<h2>7. 第三方</h2>
+<table>
+<tr><th>對象</th><th>會收到什麼</th><th>所在地</th></tr>
+<tr><td>Anthropic PBC</td><td>你送出的收據照片或文字,以及你的分類名稱</td><td>美國</td></tr>
+<tr><td>Supabase(我們的主機與認證服務商)</td><td>第 4 節的用量紀錄。照片與文字只在記憶體中經過,不落地儲存。</td><td>伺服器位於日本東京</td></tr>
+</table>
+<p>
+Anthropic 處理你送出的內容以產生擷取後的金額、日期與商家。依 Anthropic 的商用 API
+條款,透過 API 送出的輸入不會被用於訓練其模型。Anthropic 自身的處理與保存方式,
+以其隱私政策為準:
+<a href="https://www.anthropic.com/legal/privacy" rel="noreferrer">anthropic.com/legal/privacy</a>。
+</p>
+<p>我們不會為任何目的把你的資料販售或分享給其他人。</p>
+
+<h2>8. 跨境傳輸</h2>
+<p>
+若你不在美國境內,送出照片或文字做 AI 辨識時,該內容會傳輸到美國由 Anthropic PBC
+處理。第一次傳輸之前,同意畫面上會先告知你這件事;而且這個傳輸只會因為你自己選擇
+使用該功能才發生。
+</p>
+
+<h2>9. 法律依據(歐洲經濟區/英國使用者)</h2>
+<ul>
+  <li><strong>同意</strong>——用於把照片或文字送給 AI 服務。你在同意畫面上給予,
+      並可隨時在「設定 → 隱私」撤回,不影響 App 其餘功能。</li>
+  <li><strong>正當利益</strong>——用於第 4 節的用量紀錄,以執行免費額度、偵測濫用,
+      並讓服務在財務上可持續。</li>
+</ul>
+
+<h2>10. 保存期限</h2>
+<ul>
+  <li><strong>照片與文字:</strong>我們在任何階段都不保存,僅在請求期間存在於記憶體中。</li>
+  <li><strong>用量紀錄:</strong>在你的匿名帳號存在期間保留。</li>
+  <li><strong>你的帳目資料:</strong>留在你的裝置上直到你自己刪除。我們讀不到,也沒辦法替你刪。</li>
+</ul>
+
+<h2>11. 你的權利與控制方式</h2>
+<ul>
+  <li><strong>撤回 AI 同意:</strong>設定 → 隱私 → AI 辨識與資料處理。撤回後不會再送出任何東西。</li>
+  <li><strong>刪除帳號:</strong>設定 → 關於與支援 → 刪除帳號。會永久刪除匿名帳號與第 4 節
+      所述的全部用量紀錄。<em>不會</em>刪除你手機裡的帳目,因為我們碰不到它。</li>
+  <li><strong>刪除本機資料:</strong>設定 → 資料 → 重新設定,或直接解除安裝本 App。</li>
+  <li><strong>匯出你的資料:</strong>設定 → 資料 → 備份資料會產生完整的資料庫檔案;
+      交易清單另可匯出成 CSV、Excel 或 PDF。</li>
+  <li><strong>查閱、更正、反對:</strong>由於我們不持有任何個人內容,這些權利主要適用於
+      用量紀錄,請來信 <a href="mailto:support@goodsvalu.com">support@goodsvalu.com</a>。</li>
+</ul>
+
+<h2>12. 兒童</h2>
+<p>
+本 App 並非以未滿 13 歲(或你所在國家的數位同意最低年齡)的兒童為對象,我們也不會
+在知情的情況下蒐集他們的資料。
+</p>
+
+<h2>13. 本政策的變更</h2>
+<p>
+若我們變更資料處理方式且會影響到你,我們會更新本頁面;涉及 AI 處理的變更,我們會
+在 App 內重新請求你的同意,而不會沿用你先前的同意。
+</p>
+
+<h2>14. 聯絡我們</h2>
+<p><a href="mailto:support@goodsvalu.com">support@goodsvalu.com</a></p>
+
+</div>
+
+<footer>
+  <a href="../">BookAccountTracker</a> ·
+  <a href="../terms/">Terms of Service 服務條款</a> ·
+  <a href="../support/">Support 支援</a>
+</footer>
+
+</main>
+</body>
+</html>
