@@ -130,9 +130,9 @@ a structural guarantee, not just a promise.
 <table>
 <tr><th>Stored</th><th>Why</th></tr>
 <tr><td>Your email address and an account identifier</td><td>To keep your monthly free allowance attached to you rather than to a device</td></tr>
-<tr><td>Number of recognitions used this month</td><td>Enforcing the free allowance</td></tr>
+<tr><td>Number of recognitions used this month, stored against the hashes below rather than against your account</td><td>Enforcing the free allowance. Storing it against the hashes is what stops the allowance resetting each time an account is deleted and recreated.</td></tr>
 <tr><td>Per-request: timestamp, whether it was a photo or text, success or failure, token counts, cost, response time, model name, app version, a one-time request identifier</td><td>Cost accounting, abuse detection, debugging</td></tr>
-<tr><td>A one-way, salted hash of your email address and of a device identifier — the hash only, never the address or the identifier itself</td><td>So the larger first-month allowance can only be claimed once. Without it, deleting the account and signing up again would hand out a fresh allowance every time, which we would ultimately pay for.</td></tr>
+<tr><td>A one-way, salted hash of your email address and of a device identifier — the hash only, never the address or the identifier itself</td><td>So the monthly allowance, and the larger first-month allowance, follow the person rather than the account. Without this, deleting the account and signing up again would hand out a fresh allowance every time, which we would ultimately pay for.</td></tr>
 </table>
 
 <h2>5. What we never collect</h2>
@@ -143,8 +143,8 @@ a structural guarantee, not just a promise.
   <li>No contacts, calendar, location or photo library contents</li>
   <li>No advertising identifiers; there is no advertising in the App. The App does
       read one device identifier provided by your operating system (Apple's vendor
-      identifier, or Android's SSAID), used <strong>only</strong> to stop the
-      first-month allowance being claimed over and over. It is not used for
+      identifier, or Android's SSAID), used <strong>only</strong> to stop the free
+      allowance being claimed over and over. It is not used for
       advertising or for tracking you across other apps or websites, and it is
       <strong>never sent to Anthropic</strong> — our own server hashes it and keeps
       only the hash.</li>
@@ -218,11 +218,14 @@ Japan and are accessible to us in the United States.
 <ul>
   <li><strong>Photos and text:</strong> not retained by us at any point. Held in
       memory only for the duration of the request.</li>
-  <li><strong>Usage records:</strong> kept while your account exists.</li>
-  <li><strong>The first-month allowance hashes:</strong> kept even after you delete
-      your account. That is deliberate — deleting them would defeat their only
-      purpose. They cannot be turned back into your email address or device
-      identifier, and they are not used for anything else.</li>
+  <li><strong>Per-request usage records:</strong> kept while your account exists.</li>
+  <li><strong>The allowance hashes, and the count of recognitions used in the
+      current month:</strong> kept even after you delete your account. That is
+      deliberate — deleting them would defeat their only purpose, which is to stop
+      the allowance being reset by deleting and recreating an account. The hashes
+      cannot be turned back into your email address or device identifier, the count
+      is a single number, and neither is used for anything else. The monthly count
+      is discarded when the month ends.</li>
   <li><strong>Your bookkeeping data:</strong> kept on your device until you delete
       it. We cannot access it and cannot delete it for you.</li>
 </ul>
@@ -232,11 +235,12 @@ Japan and are accessible to us in the United States.
   <li><strong>Withdraw AI consent:</strong> Settings → Privacy → AI Recognition &amp;
       Data Processing. Nothing is sent afterwards.</li>
   <li><strong>Delete your account:</strong> Settings → About &amp; Support → Delete
-      Account. This permanently deletes your account, your email address and all usage records
-      described in section 4, with one deliberate exception: the one-way hashes that
-      stop the first-month allowance being claimed repeatedly are kept (see section
-      10). It does <em>not</em> delete the books on your phone, because we cannot
-      reach them.</li>
+      Account. This permanently deletes your account, your email address and the
+      per-request usage records described in section 4, with one deliberate
+      exception: the one-way hashes, and this month's recognition count stored
+      against them, are kept — otherwise deleting and recreating an account would
+      simply reset the allowance (see section 10). It does <em>not</em> delete the
+      books on your phone, because we cannot reach them.</li>
   <li><strong>Delete your local data:</strong> Settings → Data → Reset, or simply
       uninstall the App.</li>
   <li><strong>Export your data:</strong> Settings → Data → Backup produces a
@@ -332,9 +336,9 @@ App 版本,以及一個隨機的一次性請求識別碼。
 <table>
 <tr><th>存了什麼</th><th>為什麼</th></tr>
 <tr><td>你的電子郵件位址與一個帳號識別碼</td><td>讓每月免費額度綁在你身上,而不是綁在裝置上</td></tr>
-<tr><td>這個月已使用的辨識次數</td><td>執行免費額度上限</td></tr>
+<tr><td>這個月已使用的辨識次數,記在下方的雜湊上而不是記在你的帳號上</td><td>執行免費額度上限。記在雜湊上正是為了讓額度不會因為「刪除帳號再重建」而重置。</td></tr>
 <tr><td>每次請求:時間、是照片還是文字、成功或失敗、token 數、成本、回應時間、模型名稱、App 版本、一次性請求識別碼</td><td>成本歸屬、濫用偵測、除錯</td></tr>
-<tr><td>你的電子郵件位址與一個裝置識別碼的<strong>單向加鹽雜湊</strong>——只有雜湊,絕不存位址或識別碼本身</td><td>讓較大的首月額度只能領一次。沒有它的話,刪除帳號再重新註冊每次都能再領一份,而那筆錢最終是我們付。</td></tr>
+<tr><td>你的電子郵件位址與一個裝置識別碼的<strong>單向加鹽雜湊</strong>——只有雜湊,絕不存位址或識別碼本身</td><td>讓每月額度與較大的首月額度都跟著「人」而不是跟著帳號走。沒有它的話,刪除帳號再重新註冊每次都能再領一份,而那筆錢最終是我們付。</td></tr>
 </table>
 
 <h2>5. 我們不會蒐集的東西</h2>
@@ -343,7 +347,7 @@ App 版本,以及一個隨機的一次性請求識別碼。
   <li>沒有密碼——登入用的是寄到你信箱的一次性驗證碼,所以沒有密碼可存、也沒有密碼可外洩</li>
   <li>不讀取通訊錄、行事曆、位置或相簿內容</li>
   <li>沒有廣告識別碼;本 App 沒有廣告。本 App 確實會讀取一個由作業系統提供的裝置識別碼
-      (Apple 的 vendor identifier 或 Android 的 SSAID),**僅用於**防止首月額度被反覆領取。
+      (Apple 的 vendor identifier 或 Android 的 SSAID),**僅用於**防止免費額度被反覆領取。
       它不用於廣告,也不用於跨其他 App 或網站追蹤你,而且**絕不會傳給 Anthropic**——
       是我們自己的伺服器把它雜湊後只保留雜湊值。</li>
   <li>App 內不含任何分析或當機回報 SDK</li>
@@ -396,10 +400,11 @@ Anthropic 處理你送出的內容以產生擷取後的金額、日期與商家�
 <h2>10. 保存期限</h2>
 <ul>
   <li><strong>照片與文字:</strong>我們在任何階段都不保存,僅在請求期間存在於記憶體中。</li>
-  <li><strong>用量紀錄:</strong>在你的帳號存在期間保留。</li>
-  <li><strong>首月額度的雜湊值:</strong>即使你刪除帳號之後仍然保留。這是刻意的——刪掉它
-      就等於讓它唯一的用途失效。它無法還原成你的電子郵件位址或裝置識別碼,也不會用於
-      其他任何用途。</li>
+  <li><strong>逐次的用量紀錄:</strong>在你的帳號存在期間保留。</li>
+  <li><strong>額度雜湊值,以及記在雜湊上的本月已用次數:</strong>即使你刪除帳號之後仍然
+      保留。這是刻意的——刪掉就等於讓它唯一的用途失效,也就是防止「刪除帳號再重建」把額度
+      重置一次。雜湊無法還原成你的電子郵件位址或裝置識別碼,已用次數只是一個數字,兩者都
+      不會用於其他任何用途。本月的次數會在月份結束時作廢。</li>
   <li><strong>你的帳目資料:</strong>留在你的裝置上直到你自己刪除。我們讀不到,也沒辦法替你刪。</li>
 </ul>
 
@@ -407,8 +412,9 @@ Anthropic 處理你送出的內容以產生擷取後的金額、日期與商家�
 <ul>
   <li><strong>撤回 AI 同意:</strong>設定 → 隱私 → AI 辨識與資料處理。撤回後不會再送出任何東西。</li>
   <li><strong>刪除帳號:</strong>設定 → 關於與支援 → 刪除帳號。會永久刪除你的帳號、電子郵件位址與
-      第 4 節所述的全部用量紀錄,但有一個刻意的例外:防止首月額度被反覆領取的那個單向雜湊
-      值會被保留(見第 10 節)。<em>不會</em>刪除你手機裡的帳目,因為我們碰不到它。</li>
+      第 4 節所述的逐次用量紀錄,但有一個刻意的例外:那些單向雜湊值,以及記在雜湊上的本月
+      已用次數,會被保留——否則刪除帳號再重建就等於把額度重置一次(見第 10 節)。
+      <em>不會</em>刪除你手機裡的帳目,因為我們碰不到它。</li>
   <li><strong>刪除本機資料:</strong>設定 → 資料 → 重新設定,或直接解除安裝本 App。</li>
   <li><strong>匯出你的資料:</strong>設定 → 資料 → 備份資料會產生完整的資料庫檔案;
       交易清單另可匯出成 CSV、Excel 或 PDF。</li>
