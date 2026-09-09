@@ -104,9 +104,12 @@ random one-time request identifier.
 <ul>
   <li>A photo is <strong>never written to permanent storage</strong> and is
       <strong>never displayed anywhere in the App</strong>.</li>
-  <li>Before sending, the image is resized and re-encoded. This process does not
-      carry over the original file’s EXIF metadata, so <strong>location data is
-      not transmitted</strong>.</li>
+  <li>Before sending, the image is resized, re-encoded, and its metadata
+      segments (EXIF, XMP, IPTC and comments) are <strong>explicitly
+      removed</strong> — not left to the re-encoding step to discard. That
+      metadata is where a camera records GPS coordinates, so <strong>location
+      data is not transmitted</strong>. Our server checks every image it
+      receives and raises an alert if any metadata survived.</li>
   <li>As soon as recognition finishes — whether it succeeded or failed — the
       temporary file is deleted from your device.</li>
 </ul>
@@ -315,8 +318,10 @@ App 版本,以及一個隨機的一次性請求識別碼。
 <h3>照片</h3>
 <ul>
   <li>照片<strong>絕不寫入永久儲存空間</strong>,也<strong>絕不在 App 的任何畫面顯示</strong>。</li>
-  <li>送出前會先縮小並重新編碼。這個過程不會沿用原始檔的 EXIF 中繼資料,因此
-      <strong>不會傳送位置資訊</strong>。</li>
+  <li>送出前會先縮小、重新編碼,並<strong>主動移除</strong>中繼資料區段
+      (EXIF、XMP、IPTC 與註解)——不是交給重新編碼順便處理。相機記錄 GPS 座標的
+      位置就在那些區段裡,所以<strong>不會傳送位置資訊</strong>。我們的伺服器會
+      檢查每一張收到的圖片,一旦還殘留中繼資料就發出警報。</li>
   <li>辨識一結束——不論成功或失敗——暫存檔立刻從你的裝置刪除。</li>
 </ul>
 
