@@ -3,40 +3,350 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>goodsvalu.com</title>
+<title>Goodsvalu Inc.</title>
+<meta name="description" content="Goodsvalu Inc. builds Siaupoa, a personal bookkeeping app that keeps your records on your own device.">
 <style>
-  :root { --bg:#f7f6f5; --fg:#1c1a19; --muted:#6b6767; --line:#ddd8d8; --accent:#c62d12; --card:#fff; }
-  @media (prefers-color-scheme: dark) {
-    :root { --bg:#171514; --fg:#eceaea; --muted:#a19c9c; --line:#35312f; --accent:#ff7a5e; --card:#201d1c; }
+/* Modernist — design-system tokens and component classes. This file is the source of truth for the system's look; retune it here and see readme.md. */
+:root {
+  --color-bg: #f3f2f2;
+  --color-surface: #eae9e9;
+  --color-text: #201e1d;
+  --color-accent: #ec3013;
+  --color-accent-2: #e15b47;
+  --color-divider: color-mix(in srgb, #201e1d 40%, transparent);
+
+  /* Tonal ramps — generated in OKLCH on one shared lightness scale, so the
+     same step of any role matches the others in visual value. */
+  --color-neutral-100: #f8f4f4;
+  --color-neutral-200: #eae7e7;
+  --color-neutral-300: #d7d3d3;
+  --color-neutral-400: #bab6b6;
+  --color-neutral-500: #9b9797;
+  --color-neutral-600: #7d7979;
+  --color-neutral-700: #605d5d;
+  --color-neutral-800: #444141;
+  --color-neutral-900: #2d2b2b;
+
+  --color-accent-100: #fff2ef;
+  --color-accent-200: #ffe0d9;
+  --color-accent-300: #ffc4b8;
+  --color-accent-400: #ff9783;
+  --color-accent-500: #ff563c;
+  --color-accent-600: #dd2b0f;
+  --color-accent-700: #ae1800;
+  --color-accent-800: #7c1405;
+  --color-accent-900: #4d170e;
+
+  --color-accent-2-100: #fff2ef;
+  --color-accent-2-200: #ffe0da;
+  --color-accent-2-300: #ffc4b9;
+  --color-accent-2-400: #ff9784;
+  --color-accent-2-500: #ef6853;
+  --color-accent-2-600: #c94b39;
+  --color-accent-2-700: #9e3526;
+  --color-accent-2-800: #71261b;
+  --color-accent-2-900: #471d16;
+
+  --font-heading: "Archivo", system-ui, sans-serif;
+  --font-heading-weight: 800;
+  --font-body: "Archivo", system-ui, sans-serif;
+
+  --space-1: 4.0px;
+  --space-2: 8.0px;
+  --space-3: 12.0px;
+  --space-4: 16.0px;
+  --space-6: 24.0px;
+  --space-8: 32.0px;
+
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+
+  /* Elevation — derived from the ground: soft ink-tinted shadows on a
+     light theme, a hairline edge + ambient darkness on a dark one. */
+  --shadow-sm: 0 1px 2px color-mix(in srgb, #2d2b2b 14%, transparent);
+  --shadow-md: 0 3px 10px color-mix(in srgb, #2d2b2b 16%, transparent);
+  --shadow-lg: 0 12px 32px color-mix(in srgb, #2d2b2b 22%, transparent);
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: var(--font-heading-weight); }
+
+.grayscale{filter:grayscale(1) contrast(1.08)}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Components — built with the tokens above. Plain CSS
+   on plain HTML: no JavaScript, no build step. Each class is documented in
+   readme.md and demonstrated in foundations/ and components/.
+   ══════════════════════════════════════════════════════════════════════ */
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; font-size: 15px; line-height: 1.55; font-weight: 400; }
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  line-height: 1.12; letter-spacing: -0.015em; margin: 0 0 var(--space-2);
+}
+h1 { font-size: 42px; }
+h2 { font-size: 32px; }
+h3 { font-size: 25px; }
+h4 { font-size: 20px; }
+h5 { font-size: 16px; }
+h6 { font-size: 13px; }
+h6 { letter-spacing: 0.08em; text-transform: uppercase; }
+p { margin: 0 0 var(--space-3); }
+a { color: var(--color-accent); text-underline-offset: 3px; }
+img { display: block; max-width: 100%; }
+figure { margin: 0; }
+figcaption {
+  font-size: 11px; margin-top: var(--space-1);
+  color: color-mix(in srgb, var(--color-text) 55%, transparent);
+}
+.text-muted { color: color-mix(in srgb, var(--color-text) 55%, transparent); }
+:focus { outline: none; }
+:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+::selection { background: color-mix(in srgb, var(--color-accent) 30%, transparent); }
+
+/* — rules — */
+.hr {
+  height: 2px; border: 0; margin: var(--space-4) 0;
+  background: var(--color-divider);
+}
+
+/* — buttons — */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  cursor: pointer; text-decoration: none;
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 14px; line-height: 1.2; color: var(--color-text); /* matches the .input's 14px —
+     the pair sits side by side in sign-up rows */
+  background: transparent; border: 1px solid transparent;
+  padding: var(--space-2) calc(var(--space-3) * 1.2);
+  border-radius: var(--radius-md);
+}
+.btn svg { display: block; }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn-primary { background: var(--color-accent); color: var(--color-bg); }
+.btn-primary:hover { background: var(--color-accent-600); }
+.btn-primary:active { background: var(--color-accent-700); }
+.btn-secondary { border-color: var(--color-divider); }
+.btn-secondary:hover { background: color-mix(in srgb, var(--color-text) 7%, transparent); }
+.btn-secondary:active { background: color-mix(in srgb, var(--color-text) 14%, transparent); }
+.btn-ghost { color: var(--color-accent); padding-inline: var(--space-1); }
+.btn-ghost:hover { background: color-mix(in srgb, var(--color-accent) 10%, transparent); }
+.btn-ghost:active { background: color-mix(in srgb, var(--color-accent) 18%, transparent); }
+.btn-icon { width: 36px; height: 36px; padding: 0; }
+.btn-block { width: 100%; margin-top: var(--space-2); justify-content: flex-start; text-align: left; }
+
+/* — forms — */
+.field > label {
+  display: block; font-size: 12px; margin-bottom: 5px;
+  color: color-mix(in srgb, var(--color-text) 70%, transparent);
+}
+.input {
+  width: 100%; min-height: 36px; padding: 6px 10px; font: inherit;
+  font-size: 14px; color: var(--color-text); caret-color: var(--color-accent);
+  background: var(--color-surface);
+  border: 1px solid var(--color-divider); border-radius: var(--radius-md);
+}
+.input:hover { border-color: color-mix(in srgb, var(--color-text) 45%, transparent); }
+.input:focus-visible { border-color: var(--color-accent); outline-offset: 0; }
+textarea.input { min-height: 90px; resize: vertical; }
+.radio { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px; }
+.radio input, .seg-opt input {
+  position: absolute; opacity: 0; width: 0; height: 0; pointer-events: none;
+}
+.radio .dot {
+  width: 16px; height: 16px; flex: none; border-radius: 50%;
+  border: 1.5px solid var(--color-divider);
+}
+.radio:hover .dot { border-color: var(--color-accent); }
+.radio input:checked + .dot {
+  border-color: var(--color-accent); background: var(--color-accent);
+  box-shadow: inset 0 0 0 4px var(--color-bg);
+}
+.radio input:focus-visible + .dot { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+.seg {
+  display: inline-flex; overflow: hidden;
+  border: 1px solid var(--color-divider); border-radius: var(--radius-md);
+}
+.seg-opt {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 12px; font-size: 13px; cursor: pointer;
+}
+.seg-opt + .seg-opt { border-left: 1px solid var(--color-divider); }
+.seg-opt:has(input:checked) { background: var(--color-accent); color: var(--color-bg); }
+.seg-opt:not(:has(input:checked)):hover { background: color-mix(in srgb, var(--color-text) 7%, transparent); }
+.seg-opt:has(input:focus-visible) { outline: 2px solid var(--color-accent); outline-offset: -2px; }
+
+/* — cards — */
+.card {
+  display: flex; flex-direction: column; gap: var(--space-2);
+  padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-surface);
+}
+.card-kicker { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent); }
+.card-title {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 17px; line-height: 1.2;
+}
+.card-body { margin: 0; font-size: 13px; opacity: 0.8; flex: 1; }
+.card-meta {
+  display: flex; align-items: center; gap: 6px; font-size: 11px;
+  color: color-mix(in srgb, var(--color-text) 50%, transparent);
+}
+.elev-sm { box-shadow: var(--shadow-sm); }
+.elev-md { box-shadow: var(--shadow-md); }
+.elev-lg { box-shadow: var(--shadow-lg); }
+
+/* — tags — */
+.tag {
+  display: inline-flex; align-items: center; font-size: 11px;
+  letter-spacing: 0.02em; padding: 3px 10px;
+  border-radius: calc(var(--radius-md) * 0.75);
+}
+.tag-accent { background: var(--color-accent-100); color: var(--color-accent-800); }
+.tag-accent-2 { background: var(--color-accent-2-100); color: var(--color-accent-2-800); }
+.tag-neutral { background: var(--color-neutral-100); color: var(--color-neutral-800); }
+.tag-outline { border: 1px solid var(--color-accent); color: var(--color-accent); }
+
+/* — navigation — */
+.nav {
+  display: flex; align-items: center; gap: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 2px solid var(--color-divider);
+}
+.nav-brand {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 18px; margin-right: auto;
+}
+.nav a { color: inherit; text-decoration: none; font-size: 14px; }
+.nav a:hover, .nav a[aria-current='page'] { color: var(--color-accent); }
+
+/* — tables — */
+.table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.table th {
+  text-align: left; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-text) 60%, transparent);
+  padding: var(--space-2); border-bottom: 2px solid var(--color-divider);
+}
+.table td {
+  padding: var(--space-2);
+  border-bottom: 1px solid var(--color-divider);
+}
+.table tbody tr:hover { background: color-mix(in srgb, var(--color-text) 4%, transparent); }
+
+/* — dialog — */
+.dialog-backdrop {
+  position: fixed; inset: 0; display: grid; place-items: center;
+  padding: var(--space-4);
+  background: color-mix(in srgb, var(--color-neutral-900) 50%, transparent);
+}
+.dialog {
+  width: min(440px, 100%); display: flex; flex-direction: column; gap: var(--space-3);
+  padding: var(--space-4); border-radius: var(--radius-lg);
+  background: var(--color-surface); box-shadow: var(--shadow-lg);
+}
+.dialog-title {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 20px;
+}
+.dialog-body { font-size: 14px; opacity: 0.85; }
+.dialog-actions { display: flex; justify-content: flex-end; gap: var(--space-2); margin-top: var(--space-2); }
+
+/* 深色模式 —— 舊版根頁面有,不要在改版時弄丟。設計系統本身只有淺色,
+   所以在這裡覆寫它的變數,而不是另外寫一套規則。 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #171514;
+    --color-surface: #201d1c;
+    --color-text: #eceaea;
+    --color-divider: color-mix(in srgb, #eceaea 30%, transparent);
+    --color-neutral-600: #a19c9c;
+    --color-neutral-700: #b8b4b4;
+    --color-accent: #ff7a5e;
+    --color-accent-700: #ff9783;
+    --color-accent-100: #2a1f1c;
   }
-  body {
-    margin:0; background:var(--bg); color:var(--fg); min-height:100vh;
-    display:flex; align-items:center; justify-content:center;
-    font:16px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC",
-         "PingFang TC", "Microsoft JhengHei", Roboto, sans-serif;
-  }
-  main { max-width:520px; padding:40px 24px; }
-  h1 { font-size:1.6rem; margin:0 0 6px; }
-  p { color:var(--muted); margin:0 0 28px; }
-  a.card {
-    display:block; background:var(--card); border:1px solid var(--line);
-    padding:16px 18px; text-decoration:none; color:var(--fg);
-  }
-  a.card strong { color:var(--accent); }
-  a.card span { display:block; color:var(--muted); font-size:.9rem; }
-  footer { margin-top:28px; font-size:.88rem; }
-  footer a { color:var(--accent); }
+}
+
+body { margin:0; background:var(--color-bg); color:var(--color-text);
+       font-family:var(--font-body); }
+a { color:var(--color-accent-700); text-decoration:none; }
+a:hover { color:var(--color-accent); text-decoration:underline; }
+.wrap { max-width:720px; margin:0 auto; padding:0 var(--space-6); }
+.rule { border:0; border-top:2px solid var(--color-divider); margin:var(--space-8) 0; }
+.label { font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase;
+         color:var(--color-neutral-600); margin:0 0 var(--space-4); }
+h1 { font-family:var(--font-heading); font-size:clamp(2.2rem,6vw,3.2rem);
+     line-height:1.05; margin:0 0 var(--space-4); }
+.lede { font-size:1.12rem; line-height:1.6; margin:0; color:var(--color-neutral-700);
+        max-width:34em; }
+.product { display:flex; gap:var(--space-6); align-items:flex-start; }
+.product img { width:72px; height:72px; border-radius:16px; display:block; flex:none; }
+.product h2 { font-family:var(--font-heading); font-size:1.5rem; margin:0 0 var(--space-2); }
+.product p { margin:0 0 var(--space-4); line-height:1.6; color:var(--color-neutral-700); }
+.links { display:flex; flex-wrap:wrap; gap:var(--space-2) var(--space-4); font-size:0.95rem; }
+.links .sep { color:var(--color-neutral-400); }
+.go { font-weight:600; }
+footer { border-top:2px solid var(--color-divider); margin-top:var(--space-8);
+         padding:var(--space-6) 0 var(--space-8); font-size:0.9rem;
+         color:var(--color-neutral-600); }
+@media (max-width:520px) {
+  .product { flex-direction:column; gap:var(--space-4); }
+}
 </style>
 </head>
 <body>
-<main>
-  <h1>Goodsvalu Inc.</h1>
-  <p>產品與服務條款頁面</p>
-  <a class="card" href="/siaupoa/">
-    <strong>Siaupoa</strong>
-    <span>Privacy policy, terms of service and support · 隱私政策、服務條款與支援</span>
-  </a>
-  <footer><a href="mailto:support@goodsvalu.com">support@goodsvalu.com</a></footer>
-</main>
+
+<div class="wrap">
+
+  <header style="padding:calc(var(--space-8) * 2) 0 0">
+    <h1>Goodsvalu Inc.</h1>
+    <p class="lede">We build Siaupoa, a personal bookkeeping app that keeps your
+    records on your own device.</p>
+  </header>
+
+  <hr class="rule">
+
+  <section>
+    <p class="label">App</p>
+    <div class="product">
+      <img src="data:image/jpeg;base64,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" alt="Siaupoa app icon">
+      <div>
+        <h2>Siaupoa</h2>
+        <p>Double-entry bookkeeping for your own money. Your ledgers, accounts and
+        every transaction live in a database file on your phone &mdash; photograph a
+        receipt or say one sentence, and it becomes an entry.</p>
+        <div class="links">
+          <a class="go" href="/siaupoa/">Visit Siaupoa &rarr;</a>
+          <span class="sep">&middot;</span>
+          <a href="/siaupoa/privacy/">Privacy Policy</a>
+          <span class="sep">&middot;</span>
+          <a href="/siaupoa/terms/">Terms of Service</a>
+          <span class="sep">&middot;</span>
+          <a href="/siaupoa/support/">Support</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section>
+    <p class="label">Contact</p>
+    <p style="margin:0;font-size:1.05rem">
+      <a href="mailto:support@goodsvalu.com">support@goodsvalu.com</a>
+    </p>
+    <p style="margin:var(--space-2) 0 0;color:var(--color-neutral-600);font-size:0.95rem">
+      We typically respond within 1&ndash;3 business days.</p>
+  </section>
+
+  <footer>&copy; 2026 Goodsvalu Inc. All rights reserved.</footer>
+
+</div>
+
 </body>
 </html>
