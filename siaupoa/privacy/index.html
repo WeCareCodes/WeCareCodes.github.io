@@ -5,513 +5,457 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Privacy Policy — Siaupoa</title>
 <style>
-  :root {
-    --bg: #f7f6f5; --fg: #1c1a19; --muted: #6b6767; --line: #ddd8d8;
-    --accent: #c62d12; --card: #ffffff;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root { --bg: #171514; --fg: #eceaea; --muted: #a19c9c; --line: #35312f;
-            --accent: #ff7a5e; --card: #201d1c; }
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0; background: var(--bg); color: var(--fg);
-    font: 16px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC",
-          "PingFang TC", "Microsoft JhengHei", Roboto, sans-serif;
-  }
-  main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
-  h1 { font-size: 1.75rem; line-height: 1.3; margin: 0 0 6px; }
-  h2 { font-size: 1.2rem; margin: 40px 0 10px; padding-top: 16px; border-top: 1px solid var(--line); }
-  h3 { font-size: 1rem; margin: 24px 0 6px; }
-  .meta { color: var(--muted); font-size: .9rem; margin: 0 0 8px; }
-  .langbar { margin: 20px 0 8px; font-size: .9rem; }
-  .langbar a { color: var(--accent); }
-  a { color: var(--accent); }
-  ul { padding-left: 22px; }
-  li { margin: 6px 0; }
-  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: .92rem; display: block; overflow-x: auto; }
-  th, td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
-  th { background: var(--card); font-weight: 600; }
-  .callout {
-    background: var(--card); border: 1px solid var(--line);
-    border-left: 3px solid var(--accent); padding: 14px 16px; margin: 18px 0;
-  }
-  code { background: var(--card); border: 1px solid var(--line); padding: 1px 5px; font-size: .88em; }
-  footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: .88rem; }
+/* Modernist — design-system tokens and component classes. This file is the source of truth for the system's look; retune it here and see readme.md. */
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap');
+
+:root {
+  --color-bg: #f3f2f2;
+  --color-surface: #eae9e9;
+  --color-text: #201e1d;
+  --color-accent: #ec3013;
+  --color-accent-2: #e15b47;
+  --color-divider: color-mix(in srgb, #201e1d 40%, transparent);
+
+  /* Tonal ramps — generated in OKLCH on one shared lightness scale, so the
+     same step of any role matches the others in visual value. */
+  --color-neutral-100: #f8f4f4;
+  --color-neutral-200: #eae7e7;
+  --color-neutral-300: #d7d3d3;
+  --color-neutral-400: #bab6b6;
+  --color-neutral-500: #9b9797;
+  --color-neutral-600: #7d7979;
+  --color-neutral-700: #605d5d;
+  --color-neutral-800: #444141;
+  --color-neutral-900: #2d2b2b;
+
+  --color-accent-100: #fff2ef;
+  --color-accent-200: #ffe0d9;
+  --color-accent-300: #ffc4b8;
+  --color-accent-400: #ff9783;
+  --color-accent-500: #ff563c;
+  --color-accent-600: #dd2b0f;
+  --color-accent-700: #ae1800;
+  --color-accent-800: #7c1405;
+  --color-accent-900: #4d170e;
+
+  --color-accent-2-100: #fff2ef;
+  --color-accent-2-200: #ffe0da;
+  --color-accent-2-300: #ffc4b9;
+  --color-accent-2-400: #ff9784;
+  --color-accent-2-500: #ef6853;
+  --color-accent-2-600: #c94b39;
+  --color-accent-2-700: #9e3526;
+  --color-accent-2-800: #71261b;
+  --color-accent-2-900: #471d16;
+
+  --font-heading: "Archivo", system-ui, sans-serif;
+  --font-heading-weight: 800;
+  --font-body: "Archivo", system-ui, sans-serif;
+
+  --space-1: 4.0px;
+  --space-2: 8.0px;
+  --space-3: 12.0px;
+  --space-4: 16.0px;
+  --space-6: 24.0px;
+  --space-8: 32.0px;
+
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+
+  /* Elevation — derived from the ground: soft ink-tinted shadows on a
+     light theme, a hairline edge + ambient darkness on a dark one. */
+  --shadow-sm: 0 1px 2px color-mix(in srgb, #2d2b2b 14%, transparent);
+  --shadow-md: 0 3px 10px color-mix(in srgb, #2d2b2b 16%, transparent);
+  --shadow-lg: 0 12px 32px color-mix(in srgb, #2d2b2b 22%, transparent);
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: var(--font-heading-weight); }
+
+.grayscale{filter:grayscale(1) contrast(1.08)}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Components — built with the tokens above. Plain CSS
+   on plain HTML: no JavaScript, no build step. Each class is documented in
+   readme.md and demonstrated in foundations/ and components/.
+   ══════════════════════════════════════════════════════════════════════ */
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; font-size: 15px; line-height: 1.55; font-weight: 400; }
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  line-height: 1.12; letter-spacing: -0.015em; margin: 0 0 var(--space-2);
+}
+h1 { font-size: 42px; }
+h2 { font-size: 32px; }
+h3 { font-size: 25px; }
+h4 { font-size: 20px; }
+h5 { font-size: 16px; }
+h6 { font-size: 13px; }
+h6 { letter-spacing: 0.08em; text-transform: uppercase; }
+p { margin: 0 0 var(--space-3); }
+a { color: var(--color-accent); text-underline-offset: 3px; }
+img { display: block; max-width: 100%; }
+figure { margin: 0; }
+figcaption {
+  font-size: 11px; margin-top: var(--space-1);
+  color: color-mix(in srgb, var(--color-text) 55%, transparent);
+}
+.text-muted { color: color-mix(in srgb, var(--color-text) 55%, transparent); }
+:focus { outline: none; }
+:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+::selection { background: color-mix(in srgb, var(--color-accent) 30%, transparent); }
+
+/* — rules — */
+.hr {
+  height: 2px; border: 0; margin: var(--space-4) 0;
+  background: var(--color-divider);
+}
+
+/* — buttons — */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  cursor: pointer; text-decoration: none;
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 14px; line-height: 1.2; color: var(--color-text); /* matches the .input's 14px —
+     the pair sits side by side in sign-up rows */
+  background: transparent; border: 1px solid transparent;
+  padding: var(--space-2) calc(var(--space-3) * 1.2);
+  border-radius: var(--radius-md);
+}
+.btn svg { display: block; }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn-primary { background: var(--color-accent); color: var(--color-bg); }
+.btn-primary:hover { background: var(--color-accent-600); }
+.btn-primary:active { background: var(--color-accent-700); }
+.btn-secondary { border-color: var(--color-divider); }
+.btn-secondary:hover { background: color-mix(in srgb, var(--color-text) 7%, transparent); }
+.btn-secondary:active { background: color-mix(in srgb, var(--color-text) 14%, transparent); }
+.btn-ghost { color: var(--color-accent); padding-inline: var(--space-1); }
+.btn-ghost:hover { background: color-mix(in srgb, var(--color-accent) 10%, transparent); }
+.btn-ghost:active { background: color-mix(in srgb, var(--color-accent) 18%, transparent); }
+.btn-icon { width: 36px; height: 36px; padding: 0; }
+.btn-block { width: 100%; margin-top: var(--space-2); justify-content: flex-start; text-align: left; }
+
+/* — forms — */
+.field > label {
+  display: block; font-size: 12px; margin-bottom: 5px;
+  color: color-mix(in srgb, var(--color-text) 70%, transparent);
+}
+.input {
+  width: 100%; min-height: 36px; padding: 6px 10px; font: inherit;
+  font-size: 14px; color: var(--color-text); caret-color: var(--color-accent);
+  background: var(--color-surface);
+  border: 1px solid var(--color-divider); border-radius: var(--radius-md);
+}
+.input:hover { border-color: color-mix(in srgb, var(--color-text) 45%, transparent); }
+.input:focus-visible { border-color: var(--color-accent); outline-offset: 0; }
+textarea.input { min-height: 90px; resize: vertical; }
+.radio { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px; }
+.radio input, .seg-opt input {
+  position: absolute; opacity: 0; width: 0; height: 0; pointer-events: none;
+}
+.radio .dot {
+  width: 16px; height: 16px; flex: none; border-radius: 50%;
+  border: 1.5px solid var(--color-divider);
+}
+.radio:hover .dot { border-color: var(--color-accent); }
+.radio input:checked + .dot {
+  border-color: var(--color-accent); background: var(--color-accent);
+  box-shadow: inset 0 0 0 4px var(--color-bg);
+}
+.radio input:focus-visible + .dot { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+.seg {
+  display: inline-flex; overflow: hidden;
+  border: 1px solid var(--color-divider); border-radius: var(--radius-md);
+}
+.seg-opt {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 12px; font-size: 13px; cursor: pointer;
+}
+.seg-opt + .seg-opt { border-left: 1px solid var(--color-divider); }
+.seg-opt:has(input:checked) { background: var(--color-accent); color: var(--color-bg); }
+.seg-opt:not(:has(input:checked)):hover { background: color-mix(in srgb, var(--color-text) 7%, transparent); }
+.seg-opt:has(input:focus-visible) { outline: 2px solid var(--color-accent); outline-offset: -2px; }
+
+/* — cards — */
+.card {
+  display: flex; flex-direction: column; gap: var(--space-2);
+  padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-surface);
+}
+.card-kicker { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent); }
+.card-title {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 17px; line-height: 1.2;
+}
+.card-body { margin: 0; font-size: 13px; opacity: 0.8; flex: 1; }
+.card-meta {
+  display: flex; align-items: center; gap: 6px; font-size: 11px;
+  color: color-mix(in srgb, var(--color-text) 50%, transparent);
+}
+.elev-sm { box-shadow: var(--shadow-sm); }
+.elev-md { box-shadow: var(--shadow-md); }
+.elev-lg { box-shadow: var(--shadow-lg); }
+
+/* — tags — */
+.tag {
+  display: inline-flex; align-items: center; font-size: 11px;
+  letter-spacing: 0.02em; padding: 3px 10px;
+  border-radius: calc(var(--radius-md) * 0.75);
+}
+.tag-accent { background: var(--color-accent-100); color: var(--color-accent-800); }
+.tag-accent-2 { background: var(--color-accent-2-100); color: var(--color-accent-2-800); }
+.tag-neutral { background: var(--color-neutral-100); color: var(--color-neutral-800); }
+.tag-outline { border: 1px solid var(--color-accent); color: var(--color-accent); }
+
+/* — navigation — */
+.nav {
+  display: flex; align-items: center; gap: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 2px solid var(--color-divider);
+}
+.nav-brand {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 18px; margin-right: auto;
+}
+.nav a { color: inherit; text-decoration: none; font-size: 14px; }
+.nav a:hover, .nav a[aria-current='page'] { color: var(--color-accent); }
+
+/* — tables — */
+.table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.table th {
+  text-align: left; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-text) 60%, transparent);
+  padding: var(--space-2); border-bottom: 2px solid var(--color-divider);
+}
+.table td {
+  padding: var(--space-2);
+  border-bottom: 1px solid var(--color-divider);
+}
+.table tbody tr:hover { background: color-mix(in srgb, var(--color-text) 4%, transparent); }
+
+/* — dialog — */
+.dialog-backdrop {
+  position: fixed; inset: 0; display: grid; place-items: center;
+  padding: var(--space-4);
+  background: color-mix(in srgb, var(--color-neutral-900) 50%, transparent);
+}
+.dialog {
+  width: min(440px, 100%); display: flex; flex-direction: column; gap: var(--space-3);
+  padding: var(--space-4); border-radius: var(--radius-lg);
+  background: var(--color-surface); box-shadow: var(--shadow-lg);
+}
+.dialog-title {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 20px;
+}
+.dialog-body { font-size: 14px; opacity: 0.85; }
+.dialog-actions { display: flex; justify-content: flex-end; gap: var(--space-2); margin-top: var(--space-2); }
+body { margin: 0; background: var(--color-bg); color: var(--color-text); }
+    a { color: var(--color-accent-700); text-decoration: none; }
+    a:hover { color: var(--color-accent); text-decoration: underline; }
+    .pp-h2 { font-family: var(--font-heading); font-size: 1.4rem; margin: var(--space-8) 0 var(--space-4); }
+    .pp-h3 { font-weight: 700; margin: var(--space-4) 0 var(--space-2); }
+    .pp-p { margin: 0 0 var(--space-4); color: var(--color-text); line-height: 1.6; }
+    .pp-ul { margin: 0 0 var(--space-4); padding-left: 1.2em; line-height: 1.6; }
+    .pp-table-wrap { margin: 0 0 var(--space-4); overflow-x: auto; }
 </style>
 </head>
 <body>
-<main>
+<div style="min-height:100vh;display:flex;flex-direction:column;font-family:var(--font-body)">
 
-<h1>Privacy Policy</h1>
-<p class="meta">Siaupoa · Last updated: 14 September 2026</p>
-<p class="langbar"><strong>English</strong> · <a href="#zh">繁體中文</a></p>
+  <nav class="nav" style="display:flex;align-items:center;justify-content:center;padding:var(--space-4) var(--space-6);border-bottom:2px solid var(--color-divider);position:sticky;top:0;background:var(--color-bg);z-index:10">
+    <div style="display:flex;gap:var(--space-6);align-items:center">
+      <a href="../" style="color:var(--color-text);font-weight:600">Home</a>
+      <a href="../#features" style="color:var(--color-text);font-weight:600">Features</a>
+      <a href="../#pricing" style="color:var(--color-text);font-weight:600">Pricing</a>
+      <a href="../contact/" style="color:var(--color-text);font-weight:600">Contact Us</a>
+    </div>
+  </nav>
 
-<div class="callout">
-<strong>In one sentence:</strong> your bookkeeping data never leaves your phone. The only
-thing that is ever sent off the device is a receipt photo or a line of text you
-explicitly submit for AI recognition — and only after you have agreed to it.
-</div>
+  <div style="height:32px"></div>
 
-<h2>1. Who we are</h2>
-<p>
-Siaupoa (“the App”) is developed and operated by Goodsvalu Inc. (“we”, “us”).
-For any privacy question, contact
-<a href="mailto:support@goodsvalu.com">support@goodsvalu.com</a>.
-</p>
+  <section style="padding:0 var(--space-6) var(--space-8);max-width:760px;margin:0 auto;width:100%;box-sizing:border-box">
 
-<h2>2. What stays on your device</h2>
-<p>
-The App is local-first. All of the following is stored in a database file on your
-phone and is <strong>never uploaded to us</strong>:
-</p>
-<ul>
-  <li>Ledgers, accounts, categories and budgets</li>
-  <li>Every transaction — amount, date, merchant, notes, currency</li>
-  <li>Your app settings, including your display language and currency</li>
-  <li>Reminder schedules (all notifications are scheduled locally on the device;
-      the App does not use push notifications and never registers a push token)</li>
-</ul>
-<p>
-Backups are produced on demand and handed to your operating system’s share sheet.
-Where a backup file goes — your own cloud drive, email, or local storage — is
-entirely your choice. We never receive it.
-</p>
+    <h1 style="font-family:var(--font-heading);font-size:clamp(2rem,4vw,3rem);margin:0 0 var(--space-2)">Privacy Policy</h1>
+    <p style="color:var(--color-neutral-700);margin:0 0 var(--space-6)">Siaupoa · Last updated: 14 September 2026</p>
 
-<h2>3. What is sent off the device, and when</h2>
-<p>
-Nothing leaves your device unless you do something that needs it. There are three
-cases, and no others:
-</p>
-<table>
-<tr><th>You do this</th><th>What is sent</th><th>To whom</th></tr>
-<tr>
-  <td>Take or pick a receipt photo and confirm</td>
-  <td>The image, resized and re-encoded as JPEG on your device before it is sent</td>
-  <td>Our server, then the AI provider</td>
-</tr>
-<tr>
-  <td>Type or dictate a description and tap submit</td>
-  <td>That text</td>
-  <td>Our server, then the AI provider</td>
-</tr>
-<tr>
-  <td>Open Reports or Settings, open the subscription screen, or sign in</td>
-  <td>An identifier, and the question “does this person have a subscription?”</td>
-  <td>Our subscription provider</td>
-</tr>
-</table>
-<p>
-The first two happen only after you have given consent on the in-app consent
-screen, and only for the recognition you just asked for. The request also carries
-the names of your expense categories, so the AI can pick one that already exists in
-your books, plus today’s date, your app version and a random one-time request
-identifier.
-</p>
-<p>
-The third is deliberately not covered by the AI consent screen, because none of
-your content is involved: no photo, no text, no transaction, not even your email
-address. What is sent is an identifier — your account identifier once you have
-signed in, or one the subscription provider generates for the installation if you
-have not — so that the App can find out whether you are subscribed. Until the App
-needs that answer it does not contact the subscription provider at all, so
-launching the App, entering transactions and reading your books contact nobody.
-</p>
+    <div class="card elev-sm" style="border-left:4px solid var(--color-accent)">
+      <div><strong>In one sentence:</strong> Your bookkeeping data stays on your device. The only bookkeeping content sent to our servers is a receipt photo or text that you explicitly submit for AI recognition, and only after you have given your consent.</div>
+    </div>
 
-<h3>Photos</h3>
-<ul>
-  <li>A photo is <strong>never written to permanent storage</strong> and is
-      <strong>never displayed anywhere in the App</strong>.</li>
-  <li>Before sending, the image is resized, re-encoded, and its metadata
-      segments (EXIF, XMP, IPTC and comments) are <strong>explicitly
-      removed</strong> — not left to the re-encoding step to discard. That
-      metadata is where a camera records GPS coordinates, so <strong>location
-      data is not transmitted</strong>. Our server checks every image it
-      receives and raises an alert if any metadata survived.</li>
-  <li>As soon as recognition finishes — whether it succeeded or failed — the
-      temporary file is deleted from your device.</li>
-</ul>
+    <div class="hr" style="margin:var(--space-8) 0"></div>
 
-<h3>Voice</h3>
-<p>
-The App has no speech-recognition component and requests no microphone permission
-for this purpose. When you “speak” an entry you are using your phone keyboard’s own
-dictation button, which is a function of your operating system. The App only ever
-receives the finished text. <strong>No audio is ever recorded, accessed or
-transmitted by the App.</strong>
-</p>
+    <h2 class="pp-h2">1. Who we are</h2>
+    <p class="pp-p">Siaupoa ("the App") is developed and operated by Goodsvalu Inc. ("we", "us"). For any privacy question, contact <a href="mailto:support@goodsvalu.com">support@goodsvalu.com</a>.</p>
 
-<h2>4. What our server stores</h2>
-<p>
-Requests pass through our own server before reaching the AI provider, so that we
-can count usage and keep costs under control. That server keeps no content. Its
-database has no column capable of holding an image or any text you wrote — this is
-a structural guarantee, not just a promise.
-</p>
-<table>
-<tr><th>Stored</th><th>Why</th></tr>
-<tr><td>Your email address and an account identifier</td><td>To keep your monthly free allowance attached to you rather than to a device</td></tr>
-<tr><td>Number of recognitions used this month, stored against the hashes below rather than against your account</td><td>Enforcing the free allowance. Storing it against the hashes is what stops the allowance resetting each time an account is deleted and recreated.</td></tr>
-<tr><td>Per-request: timestamp, whether it was a photo or text, success or failure, token counts, cost, response time, model name, app version, a one-time request identifier</td><td>Cost accounting, abuse detection, debugging</td></tr>
-<tr><td>Your subscription level and the date it expires</td><td>The monthly AI allowance depends on it. Your phone cannot simply tell our server that it is entitled to a larger allowance — the server asks the subscription provider directly and stores the answer.</td></tr>
-<tr><td>A one-way, salted hash of your email address and of a device identifier — the hash only, never the address or the identifier itself</td><td>So the monthly allowance, and the larger first-month allowance, follow the person rather than the account. Without this, deleting the account and signing up again would hand out a fresh allowance every time, which we would ultimately pay for.</td></tr>
-</table>
+    <div class="hr" style="margin:var(--space-8) 0"></div>
 
-<h2>5. What we never collect</h2>
-<ul>
-  <li>No name and no phone number</li>
-  <li>No password — signing in uses a one-time code sent to your email, so there is
-      nothing to store and nothing to leak</li>
-  <li>No contacts, calendar, location or photo library contents</li>
-  <li>No advertising identifiers; there is no advertising in the App. The App does
-      read one device identifier provided by your operating system (Apple's vendor
-      identifier, or Android's SSAID), used <strong>only</strong> to stop the free
-      allowance being claimed over and over. It is not used for
-      advertising or for tracking you across other apps or websites, and it is
-      <strong>never sent to Anthropic</strong> — our own server hashes it and keeps
-      only the hash. Separately, our subscription provider generates an identifier
-      of its own for this installation, so that a subscription can be matched back
-      to the right person. That one is never combined with the hash above, and is
-      likewise never used for advertising or for tracking you elsewhere.</li>
-  <li>No analytics or crash-reporting SDK of any kind is included in the App. The
-      one third-party SDK we do include is our subscription provider’s, and
-      purchase and renewal events do appear on their dashboard — see section 7</li>
-  <li>No financial account credentials — the App does not connect to any bank</li>
-</ul>
+    <h2 class="pp-h2">2. What stays on your device</h2>
+    <p style="margin: 0">Your bookkeeping data is stored <b>only on your device</b>. The following information is kept in a local database on your phone and is never uploaded to our servers:</p>
+    <ul class="pp-ul">
+      <li>Ledgers, accounts, categories and budgets</li>
+      <li>Every transaction — amount, date, merchant, notes, currency</li>
+      <li>Your app settings, including your display language and currency</li>
+      <li>Reminder schedules — Reminders are scheduled entirely on your device. The App does not use push notifications or register your device for push notifications.</li>
+    </ul>
+    <p class="pp-p"><strong data-start="41" data-end="92">Backups are created only when you request them.</strong> You choose where to save or share the backup file using your device’s share menu, such as your personal cloud storage, email, or local storage. <strong data-start="237" data-end="286">We do not receive or store your backup files.</strong></p>
 
-<h2>6. Your account</h2>
-<p>
-AI recognition requires an account. You sign in with an email address and a one-time
-code we send to it — there is no password. Everything else in the App works without
-an account.
-</p>
-<p>
-The account exists for one purpose: to keep your monthly free allowance attached to
-<em>you</em> rather than to the device. Tying it to the device meant a reinstall
-handed out a fresh allowance, which we would ultimately have to pay for. Your email
-address is not used for marketing, and we do not send you anything other than sign-in
-codes. A credential for the session is held in your device’s secure keychain.
-</p>
+    <div class="hr" style="margin:var(--space-8) 0"></div>
 
-<h2>7. Third parties</h2>
-<table>
-<tr><th>Who</th><th>What they receive</th><th>Where</th></tr>
-<tr>
-  <td>Anthropic PBC</td>
-  <td>The receipt photo or text you submit, and your category names</td>
-  <td>United States</td>
-</tr>
-<tr>
-  <td>Our email delivery provider</td>
-  <td>Your email address, in order to deliver your sign-in code</td>
-  <td>See their privacy policy</td>
-</tr>
-<tr>
-  <td>RevenueCat (our subscription provider)</td>
-  <td>An identifier for this installation or for your account, and the fact that a
-      subscription was started, renewed, cancelled or expired. Never your email
-      address, and never anything from your books.</td>
-  <td>United States</td>
-</tr>
-<tr>
-  <td>Supabase (our hosting and authentication provider)</td>
-  <td>The usage records in section 4. Photos and text pass through in memory and are not stored.</td>
-  <td>Servers located in Tokyo, Japan</td>
-</tr>
-</table>
-<p>
-Anthropic processes your submission to produce the extracted amount, date and
-merchant. Under Anthropic’s commercial API terms, inputs submitted through the API
-are not used to train their models. Anthropic’s own handling and retention are
-governed by their privacy policy at
-<a href="https://www.anthropic.com/legal/privacy" rel="noreferrer">anthropic.com/legal/privacy</a>.
-</p>
-<p>
-<strong>We never see your payment details.</strong> Subscriptions are charged by the
-app store — Google Play or Apple — and your card or payment method stays with them.
-It does not pass through us, and it does not pass through RevenueCat.
-</p>
-<p>We do not sell or share your data with anyone else, for any purpose.</p>
+    <h2 class="pp-h2">3. What Data Leaves Your Device, and When</h2>
+    <p style="margin: 0">Your bookkeeping data stays on your device unless you explicitly use a feature that requires data to be sent. There are only three cases:<br><br></p>
+    <div class="pp-table-wrap">
+      <table class="table">
+        <thead><tr><th>You do this</th><th>What is sent</th><th>To whom</th></tr></thead>
+        <tbody>
+          <tr><td>When you take or select a receipt photo and confirm it</td><td>The receipt image, resized and converted to JPEG on your device before being sent</td><td>Our server, then securely forwarded to our AI provider</td></tr>
+          <tr><td>When you type or dictate a description and tap Submit</td><td>That text</td><td>Our server, then our AI provider for processing</td></tr>
+          <tr><td>When you open Reports or Settings, view the subscription screen, or sign in</td><td>An account identifier and a request to verify your subscription status</td><td>Our subscription provider</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="pp-p">The first two occur only after you have given consent through the in-app consent screen, and only when you submit an AI recognition request. Along with the receipt photo or text you submit, the request includes the names of your expense categories so the AI can select a category that already exists in your books. It also includes the current date, your app version, and a randomly generated one-time request identifier.</p>
+    <div class="pp-p"><p dir="auto" data-start="132" data-end="379" class="PDq2pG_selectionAnchorContainer"><strong data-start="132" data-end="282">The third case — checking your subscription status — is not covered by the AI consent screen because it does not involve your bookkeeping content.</strong> No receipt photo, recognition text, transaction data, or email address is sent for this purpose.<span aria-hidden="true" class="PDq2pG_selectionAnchor"></span></p>
+<p dir="auto" data-start="384" data-end="633">The App sends only an identifier: your account identifier if you are signed in, or an installation identifier generated by our subscription provider if you are not. This identifier is used solely to determine whether you have an active subscription.</p>
+<p dir="auto" data-start="638" data-end="882">The App contacts the subscription provider only when it needs to check your subscription status. <strong data-start="735" data-end="882">Simply opening the App, entering transactions, or viewing your books does not send your bookkeeping data to us or to the subscription provider.<br><br></strong></p></div>
 
-<h2>8. International transfer</h2>
-<p>
-We are established in the United States. If you are located outside the United
-States, submitting a photo or text for AI recognition transfers that content to the
-United States for processing by Anthropic PBC. You are told this on the consent
-screen before the first transfer, and this transfer only happens because you chose
-to use the feature. The usage records described in section 4 are held on servers in
-Japan and are accessible to us in the United States.
-</p>
+    <h3 class="pp-h3" style="font-size: 1rem">Photos</h3>
+    <ul class="pp-ul">
+      <li>Receipt photos are never saved to permanent storage or displayed anywhere in the App.</li>
+      <li>Before a receipt image is sent, it is resized and re-encoded on your device, and its metadata — including EXIF, XMP, IPTC, and comments — is explicitly removed. This metadata can contain information such as GPS coordinates, so removing it ensures that location data stored in the image is not transmitted. As an additional safeguard, our server checks every received image for metadata and alerts us if any metadata is detected.</li>
+      <li>As soon as recognition is complete — whether it succeeds or fails — the temporary image file is automatically deleted from your device.</li>
+    </ul>
 
-<h2>9. Legal bases (EEA/UK users)</h2>
-<ul>
-  <li><strong>Consent</strong> — for sending photos or text to the AI provider. You
-      give it on the consent screen and may withdraw it at any time in
-      Settings → Privacy, with no effect on the rest of the App.</li>
-  <li><strong>Legitimate interests</strong> — for the usage records in section 4,
-      to enforce the free allowance, detect abuse and keep the service financially
-      sustainable.</li>
-</ul>
+    <h3 class="pp-h3" style="font-size: 1rem">Voice</h3>
+    <p class="pp-p">The App does not include its own speech-recognition feature and does not request microphone access for this purpose. When you dictate an entry, you are using your phone keyboard’s built-in dictation feature, which is provided by your operating system. The App receives only the resulting text. No audio is ever recorded, accessed, or transmitted by the App.</p>
 
-<h2>10. Retention</h2>
-<ul>
-  <li><strong>Photos and text:</strong> not retained by us at any point. Held in
-      memory only for the duration of the request.</li>
-  <li><strong>Per-request usage records:</strong> kept while your account exists.</li>
-  <li><strong>The allowance hashes, and the count of recognitions used in the
-      current month:</strong> kept even after you delete your account. That is
-      deliberate — deleting them would defeat their only purpose, which is to stop
-      the allowance being reset by deleting and recreating an account. The hashes
-      cannot be turned back into your email address or device identifier, the count
-      is a single number, and neither is used for anything else. The monthly count
-      is discarded when the month ends.</li>
-  <li><strong>Your subscription record:</strong> kept while your account exists, and
-      deleted together with it. An expired record is kept until then rather than
-      removed, so that we can answer questions about a past subscription.</li>
-  <li><strong>Your bookkeeping data:</strong> kept on your device until you delete
-      it. We cannot access it and cannot delete it for you.</li>
-</ul>
+    <div class="hr" style="margin:var(--space-8) 0"></div>
 
-<h2>11. Your rights and controls</h2>
-<ul>
-  <li><strong>Withdraw AI consent:</strong> Settings → Privacy → AI Recognition &amp;
-      Data Processing. Nothing is sent afterwards.</li>
-  <li><strong>Delete your account:</strong> Settings → About &amp; Support → Delete
-      Account. This permanently deletes your account, your email address and the
-      per-request usage records described in section 4, with one deliberate
-      exception: the one-way hashes, and this month's recognition count stored
-      against them, are kept — otherwise deleting and recreating an account would
-      simply reset the allowance (see section 10). It does <em>not</em> delete the
-      books on your phone, because we cannot reach them, and it does <em>not</em>
-      cancel a paid subscription — subscriptions belong to your Google Play or
-      Apple account, so cancel one there.</li>
-  <li><strong>Delete your local data:</strong> Settings → Data → Reset, or simply
-      uninstall the App.</li>
-  <li><strong>Export your data:</strong> Settings → Data → Backup produces a
-      complete database file; transaction lists can also be exported as CSV, Excel
-      or PDF.</li>
-  <li><strong>Access, rectification, objection:</strong> since we hold no personal
-      content, these mostly apply to the usage records — write to
-      <a href="mailto:support@goodsvalu.com">support@goodsvalu.com</a>.</li>
-</ul>
+    <h2 class="pp-h2">4. What our server stores</h2>
+    <p class="pp-p">AI recognition requests pass through our server before reaching the AI provider so we can track usage and manage service costs. Our server does not store the content you submit. Its database has no fields designed to store receipt images or the text you provide. This protection is built into the system's architecture, rather than relying solely on a promise not to retain your content.</p>
+    <div class="pp-table-wrap">
+      <table class="table">
+        <thead><tr><th>Stored</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>Your email address and your account identifier</td><td>To keep your monthly free AI recognition allowance associated with your account rather than with a specific device.</td></tr>
+          <tr><td>The number of AI recognitions used during the current calendar month, associated with the hashed identifiers described below rather than with your account.</td><td>To enforce the free AI recognition allowance and prevent it from being reset or claimed again by deleting and re-creating an account.</td></tr>
+          <tr><td>For each AI recognition request: the timestamp, input type (photo or text), whether the recognition succeeded or failed, token usage, processing cost, response time, AI model used, app version, and a one-time request identifier.</td><td>To track service costs, detect abuse, and troubleshoot technical issues.</td></tr>
+          <tr><td>Your subscription tier and its expiration date</td><td>Your subscription status determines your monthly AI recognition allowance. To ensure the correct allowance is applied, our server verifies your subscription status directly with our subscription provider and stores the result.</td></tr>
+          <tr><td>One-way, salted hashes of your email address and device identifier. Only the hashes are stored — never the original email address or device identifier.</td><td>This allows the monthly AI recognition allowance, including the larger first-month allowance, to remain consistent even if an account is deleted and re-created. Without these limited records, deleting an account and signing up again could incorrectly grant a new free allowance each time.</td></tr>
+        </tbody>
+      </table>
+    </div>
 
-<h2>12. Children</h2>
-<p>
-The App is not directed at children under 13 (or the minimum age of digital consent
-in your country) and we do not knowingly collect data from them.
-</p>
+    <div class="hr" style="margin:var(--space-8) 0"></div>
 
-<h2>13. Changes to this policy</h2>
-<p>
-If we change how data is handled in a way that affects you, we will update this page
-and, where the change concerns AI processing, ask for your consent again inside the
-App rather than relying on your previous agreement.
-</p>
+    <h2 class="pp-h2">5. What we never collect</h2>
+    <ul class="pp-ul">
+      <li>We do not collect your name or phone number.</li>
+      <li>No password — sign-in uses a one-time code sent to your email, so the App never needs to collect or store a password.</li>
+      <li>No access to your contacts, calendar, location, or photo library</li>
+      <p style="margin: 0">No advertising identifiers — there is no advertising in the App. The App uses a device identifier provided by your operating system (Apple’s Identifier for Vendor, or Android’s SSAID) only to prevent the free AI recognition allowance from being claimed repeatedly. It is not used for advertising or to track you across other apps or websites, and it is never sent to our AI provider. Our server converts the identifier into a one-way hash and stores only the hash, not the original identifier.
 
-<h2>14. Contact</h2>
-<p><a href="mailto:support@goodsvalu.com">support@goodsvalu.com</a></p>
+Separately, our subscription provider generates its own identifier for the App installation. This is used to associate the installation with the correct subscription. It is kept separate from the hashed device identifier described above and is not used by us for advertising or cross-app or cross-website tracking.</p>
+      <li>No analytics or crash-reporting SDKs are included in the App. The only third-party SDK we use is provided by our subscription provider. Purchase and renewal events are processed through that SDK and may appear in the provider’s dashboard. See Section 7 for more information.</li>
+      <li>No financial account credentials — the App does not connect to your bank or other financial accounts.</li>
+    </ul>
 
-<hr id="zh" style="margin:64px 0 40px;border:0;border-top:1px solid var(--line)">
+    <div class="hr" style="margin:var(--space-8) 0"></div>
 
-<h1 lang="zh-Hant">隱私政策</h1>
-<p class="meta">Siaupoa · 最後更新:2026 年 9 月 14 日</p>
-<p class="langbar"><a href="#">English</a> · <strong>繁體中文</strong></p>
+    <h2 class="pp-h2">6. Your account</h2>
+    <p class="pp-p">An account is required only for AI recognition. You sign in with your email address and a one-time code sent to your email — no password is required or stored. All other features in the App work without an account.</p>
+    <p class="pp-p">The account is used to keep your monthly free AI recognition allowance consistent across reinstalls and device changes. Without an account, reinstalling the App could incorrectly grant a new free allowance. Your email address is used only for account access and is not used for marketing. We send you only the sign-in codes needed to access your account. A session credential is stored using your device’s secure credential storage.</p>
 
-<div class="callout" lang="zh-Hant">
-<strong>一句話:</strong>你的帳目資料從不離開手機。唯一會送出裝置的,只有你明確
-送出去做 AI 辨識的那一張收據照片或那一段文字,而且必須你先同意過。
-</div>
+    <div class="hr" style="margin:var(--space-8) 0"></div>
 
-<div lang="zh-Hant">
+    <h2 class="pp-h2">7. Third parties</h2>
+    <div class="pp-table-wrap">
+      <table class="table">
+        <thead><tr><th>Who</th><th>What they receive</th><th>Where</th></tr></thead>
+        <tbody>
+          <tr><td>Anthropic PBC</td><td>The receipt photo or text you submit, along with the names of your expense categories</td><td>United States</td></tr>
+          <tr><td>Our email delivery provider, solely for sending sign-in codes</td><td>Your email address, used to send you a one-time sign-in code</td><td>See their privacy policy</td></tr>
+          <tr><td>RevenueCat, our subscription provider</td><td>An identifier associated with the App installation or your account, along with subscription events such as when a subscription is started, renewed, cancelled, or expires. Your email address and bookkeeping data are never included.</td><td>United States</td></tr>
+          <tr><td>Supabase (our hosting and authentication provider)</td><td>The usage records described in Section 4. Receipt photos and submitted text pass through our server only in memory during processing and are not stored.</td><td>Servers located in Tokyo, Japan</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="pp-p">Anthropic processes the receipt photo or text you submit to extract information such as the amount, date, and merchant. Under Anthropic’s Commercial Terms, content submitted through the API is not used to train Anthropic’s models. Anthropic’s handling and retention of data are governed by its own privacy and data-retention policies.</p>
+    <p class="pp-p"><strong data-start="57" data-end="95">We never see your payment details.</strong> Subscriptions are processed and charged by the applicable app store — Google Play or Apple’s App Store. Your card details and other payment information remain with the app store and are never sent to us or to RevenueCat.</p>
+    <p class="pp-p">We do not sell your personal data. We share data only with the service providers described in this Privacy Policy, and only as necessary to provide and operate the App.</p>
 
-<h2>1. 我們是誰</h2>
-<p>
-Siaupoa(以下稱「本 App」)由 Goodsvalu Inc.(以下稱「我們」)開發與營運。
-隱私相關問題請聯絡
-<a href="mailto:support@goodsvalu.com">support@goodsvalu.com</a>。
-</p>
+    <div class="hr" style="margin:var(--space-8) 0"></div>
 
-<h2>2. 留在你裝置上的資料</h2>
-<p>本 App 以本機為主。以下全部存在你手機裡的資料庫檔案,<strong>從不上傳給我們</strong>:</p>
-<ul>
-  <li>帳本、帳戶、分類與預算</li>
-  <li>每一筆交易——金額、日期、商家、備註、幣別</li>
-  <li>你的 App 設定,包含顯示語言與幣別</li>
-  <li>提醒排程(所有通知都在裝置本機排程;本 App 不使用推播通知,也從不註冊推播 token)</li>
-</ul>
-<p>
-備份檔是你按下按鈕才產生,並交給作業系統的分享面板。檔案最後去哪裡——你自己的
-雲端硬碟、信箱、或本機儲存空間——完全由你決定,我們不會收到。
-</p>
+    <h2 class="pp-h2">8. International transfer</h2>
+    <div class="pp-p"><p dir="auto" data-start="120" data-end="576" class="PDq2pG_selectionAnchorContainer"><strong data-start="120" data-end="576"><span style="font-weight: normal;">We are established in the United States. If you are located outside the United States, when you submit a receipt photo or text for AI recognition, that content is transferred to the United States for processing by Anthropic PBC. Before the first such transfer, the App informs you of this transfer through the AI consent screen and asks for your consent. The transfer occurs only when you choose to use AI recognition and submit content for processing.</span></strong><span aria-hidden="true" class="PDq2pG_selectionAnchor"></span></p>
+<p dir="auto" data-start="581" data-end="714"><strong data-start="581" data-end="714"><span style="font-weight: normal;">The usage records described in Section 4 are stored on servers located in Japan and may be accessed by us from the United States.</span></strong></p></div>
 
-<h2>3. 什麼情況下會送出資料</h2>
-<p>除非你做了需要送出資料的事,否則不會有任何東西離開你的裝置。就三種情況,沒有別的:</p>
-<table>
-<tr><th>你做的動作</th><th>送出的內容</th><th>送給誰</th></tr>
-<tr><td>拍照或選相簿照片並確認</td><td>該圖片(在你的裝置上先縮小並重新編碼成 JPEG 才送出)</td><td>我們的伺服器,再轉送 AI 服務</td></tr>
-<tr><td>輸入或口述一段描述後按送出</td><td>那段文字</td><td>我們的伺服器,再轉送 AI 服務</td></tr>
-<tr><td>開啟「報表」或「設定」、開啟訂閱畫面,或登入</td><td>一個識別碼,以及「這個人有沒有訂閱」這個問題</td><td>我們的訂閱服務商</td></tr>
-</table>
-<p>
-前兩種必須你已經在 App 內的同意畫面上同意過才會發生,而且只針對你當下要求的那一次
-辨識。請求另外會帶上你的支出分類名稱(讓 AI 從你已有的分類裡挑一個)、今天的日期、
-App 版本,以及一個隨機的一次性請求識別碼。
-</p>
-<p>
-第三種<strong>刻意不受 AI 同意畫面的管轄</strong>,因為它完全不涉及你的內容:沒有照片、
-沒有文字、沒有任何一筆交易,連你的電子郵件位址都沒有。送出的是一個識別碼——你登入之後
-就是你的帳號識別碼,還沒登入的話則是訂閱服務商自己為這次安裝產生的一個——目的只是讓
-App 問出「你有沒有訂閱」。在 App 需要這個答案之前,它完全不會連線訂閱服務商;所以
-開啟 App、記帳、看自己的帳本,不會連到任何人。
-</p>
+    <div class="hr" style="margin:var(--space-8) 0"></div>
 
-<h3>照片</h3>
-<ul>
-  <li>照片<strong>絕不寫入永久儲存空間</strong>,也<strong>絕不在 App 的任何畫面顯示</strong>。</li>
-  <li>送出前會先縮小、重新編碼,並<strong>主動移除</strong>中繼資料區段
-      (EXIF、XMP、IPTC 與註解)——不是交給重新編碼順便處理。相機記錄 GPS 座標的
-      位置就在那些區段裡,所以<strong>不會傳送位置資訊</strong>。我們的伺服器會
-      檢查每一張收到的圖片,一旦還殘留中繼資料就發出警報。</li>
-  <li>辨識一結束——不論成功或失敗——暫存檔立刻從你的裝置刪除。</li>
-</ul>
+    <h2 class="pp-h2">9. Legal bases (EEA/UK users)</h2>
+    <ul class="pp-ul">
+      <li><strong data-start="76" data-end="87">Consent</strong> — for sending receipt photos or text to our AI provider for AI recognition. You provide consent through the in-app consent screen and may withdraw it at any time under <b>Settings → Privacy</b>. Withdrawing consent disables AI recognition but does not affect any other features of the App.</li>
+      <li><strong data-start="149" data-end="173">Legitimate interests</strong> — for maintaining the usage records described in Section 4 to enforce the free AI recognition allowance, prevent and detect abuse, and manage the operational costs of providing the AI recognition service.</li>
+    </ul>
 
-<h3>語音</h3>
-<p>
-本 App 沒有任何語音辨識元件,也不為此請求麥克風權限。你「口述」記帳時用的是手機
-鍵盤自己的聽寫按鈕,那是作業系統的功能。本 App 從頭到尾只拿到聽寫完成的文字。
-<strong>本 App 從不錄製、讀取或傳送任何音訊。</strong>
-</p>
+    <div class="hr" style="margin:var(--space-8) 0"></div>
 
-<h2>4. 我們的伺服器存了什麼</h2>
-<p>
-請求會先經過我們自己的伺服器再送到 AI 服務,以便計算用量與控制成本。那台伺服器
-不保留內容:資料表裡根本沒有任何欄位能存放圖片或你寫的文字——這是結構上的保證,
-不只是一句承諾。
-</p>
-<table>
-<tr><th>存了什麼</th><th>為什麼</th></tr>
-<tr><td>你的電子郵件位址與一個帳號識別碼</td><td>讓每月免費額度綁在你身上,而不是綁在裝置上</td></tr>
-<tr><td>這個月已使用的辨識次數,記在下方的雜湊上而不是記在你的帳號上</td><td>執行免費額度上限。記在雜湊上正是為了讓額度不會因為「刪除帳號再重建」而重置。</td></tr>
-<tr><td>每次請求:時間、是照片還是文字、成功或失敗、token 數、成本、回應時間、模型名稱、App 版本、一次性請求識別碼</td><td>成本歸屬、濫用偵測、除錯</td></tr>
-<tr><td>你的訂閱層級與到期日</td><td>每月 AI 額度取決於它。你的手機不能單方面告訴伺服器「我有較高的額度」——伺服器會自己向訂閱服務商查證,再把答案存下來。</td></tr>
-<tr><td>你的電子郵件位址與一個裝置識別碼的<strong>單向加鹽雜湊</strong>——只有雜湊,絕不存位址或識別碼本身</td><td>讓每月額度與較大的首月額度都跟著「人」而不是跟著帳號走。沒有它的話,刪除帳號再重新註冊每次都能再領一份,而那筆錢最終是我們付。</td></tr>
-</table>
+    <h2 class="pp-h2">10. Retention</h2>
+    <ul class="pp-ul">
+      <li><strong data-start="62" data-end="82">Photos and text:</strong> Not retained by us. They are processed only in memory for the duration of the AI recognition request and are discarded when processing is complete.</li>
+      <li><strong data-start="59" data-end="89">Per-request usage records:</strong> Retained for as long as your account remains active.</li>
+      <li><strong data-start="164" data-end="223">Allowance-related hashes and current-month usage count:</strong> Retained even after you delete your account. These limited records are retained to prevent the free AI recognition allowance from being reset or claimed again by deleting and re-creating an account. We do not retain your original email address or device identifier for this purpose; instead, we retain one-way, salted hashes of those identifiers. The usage count contains only the number of AI recognitions used during the current calendar month. These records are used only to enforce the free AI recognition allowance. The current-month usage count is deleted when the relevant calendar month ends.</li>
+      <li><strong data-start="150" data-end="179">Your subscription record:</strong> Retained for as long as your account exists and deleted when you delete your account. Expired subscription records are retained until account deletion so that we can respond to questions about your subscription history.</li>
+      <li><strong data-start="40" data-end="66">Your bookkeeping data:</strong> Stored only on your device and retained until you delete it. We cannot access, retrieve, or delete this data on your behalf.</li>
+    </ul>
 
-<h2>5. 我們不會蒐集的東西</h2>
-<ul>
-  <li>不蒐集姓名與電話號碼</li>
-  <li>沒有密碼——登入用的是寄到你信箱的一次性驗證碼,所以沒有密碼可存、也沒有密碼可外洩</li>
-  <li>不讀取通訊錄、行事曆、位置或相簿內容</li>
-  <li>沒有廣告識別碼;本 App 沒有廣告。本 App 確實會讀取一個由作業系統提供的裝置識別碼
-      (Apple 的 vendor identifier 或 Android 的 SSAID),**僅用於**防止免費額度被反覆領取。
-      它不用於廣告,也不用於跨其他 App 或網站追蹤你,而且**絕不會傳給 Anthropic**——
-      是我們自己的伺服器把它雜湊後只保留雜湊值。另外,訂閱服務商會為這次安裝產生一個
-      它自己的識別碼,用途是讓一筆訂閱能對應回正確的人。那個識別碼絕不會與上述雜湊
-      合併使用,同樣不用於廣告,也不用於在別處追蹤你。</li>
-  <li>App 內不含任何分析或當機回報 SDK。唯一內建的第三方 SDK 是訂閱服務商的,
-      購買與續訂事件確實會出現在它的後台——見第 7 節</li>
-  <li>不蒐集金融帳戶憑證——本 App 不連接任何銀行</li>
-</ul>
+    <div class="hr" style="margin:var(--space-8) 0"></div>
 
-<h2>6. 你的帳號</h2>
-<p>
-AI 辨識需要帳號。你用電子郵件加上我們寄給你的一次性驗證碼登入,<strong>沒有密碼</strong>。
-本 App 的其他功能都不需要帳號。
-</p>
-<p>
-帳號存在的唯一目的,是讓每月免費額度綁在<em>你</em>身上,而不是綁在裝置上——綁在
-裝置上的話,重新安裝就能再領一次額度,而那筆錢最終是我們付。你的信箱位址不會用於
-行銷,除了登入驗證碼之外我們不會寄任何東西給你。這次登入的憑證存放在你裝置的安全
-金鑰儲存區。
-</p>
+    <h2 class="pp-h2">11. Your rights and controls</h2>
+    <ul class="pp-ul">
+      <li><strong data-start="388" data-end="412">Withdraw AI consent:</strong> Go to <b>Settings → Privacy → AI Recognition &amp; Data Processing</b> to withdraw your consent at any time. After you withdraw consent, no receipt photos or text will be sent for AI recognition. All other features of the App will continue to work normally.</li>
+      <li><p dir="auto" data-start="139" data-end="801" class="PDq2pG_selectionAnchorContainer"><strong data-start="139" data-end="163">Delete your account:</strong> Go to <b>Settings → About &amp; Support → Delete Account</b>. Deleting your account permanently deletes your account, email address, and the per-request usage records described in Section 4. Limited allowance-related records are retained after account deletion: the one-way, salted hashes described in Section 10 and your AI recognition usage count for the current calendar month. These records are retained only to prevent the free AI recognition allowance from being reset or claimed again by deleting and re-creating an account. The current-month usage count is deleted when the relevant calendar month ends. See Section 10 for more information.<span aria-hidden="true" class="PDq2pG_selectionAnchor"></span></p>
+<p dir="auto" data-start="806" data-end="1111">Deleting your account does <strong data-start="833" data-end="840">not</strong> delete the bookkeeping data stored on your device, because we do not have access to that data. It also does <strong data-start="949" data-end="956">not</strong> cancel an active subscription. Subscriptions are managed through your Google Play or Apple account and must be cancelled through the applicable app store.</p></li>
+      <li><strong data-start="85" data-end="112">Delete your local data:</strong> Go to <b>Settings → Data → Reset</b> to delete the bookkeeping data stored on your device. Uninstalling the App will also remove its locally stored data.</li>
+      <li><strong data-start="353" data-end="374">Export your data:</strong> Go to<b> Settings → Data → Backup </b>to create a complete copy of your bookkeeping database. Transaction lists can also be exported in CSV, Excel, or PDF format.</li>
+      <li><strong data-start="154" data-end="192">Access, correction, and objection:</strong> Because your bookkeeping data is stored only on your device, these rights generally apply to the account and usage information we hold about you. To exercise these rights, contact us at <a data-start="379" data-end="400" class="decorated-link" rel="noopener" href="mailto:support@goodsvalu.com">support@goodsvalu.com</a>.</li>
+    </ul>
 
-<h2>7. 第三方</h2>
-<table>
-<tr><th>對象</th><th>會收到什麼</th><th>所在地</th></tr>
-<tr><td>Anthropic PBC</td><td>你送出的收據照片或文字,以及你的分類名稱</td><td>美國</td></tr>
-<tr><td>我們的郵件寄送服務商</td><td>你的電子郵件位址,用來把登入驗證碼寄給你</td><td>見其隱私政策</td></tr>
-<tr><td>RevenueCat(我們的訂閱服務商)</td><td>這次安裝或你的帳號的一個識別碼,以及「訂閱開始/續訂/取消/到期」這件事。絕不包含你的電子郵件位址,也絕不包含你帳本裡的任何東西。</td><td>美國</td></tr>
-<tr><td>Supabase(我們的主機與認證服務商)</td><td>第 4 節的用量紀錄。照片與文字只在記憶體中經過,不落地儲存。</td><td>伺服器位於日本東京</td></tr>
-</table>
-<p>
-Anthropic 處理你送出的內容以產生擷取後的金額、日期與商家。依 Anthropic 的商用 API
-條款,透過 API 送出的輸入不會被用於訓練其模型。Anthropic 自身的處理與保存方式,
-以其隱私政策為準:
-<a href="https://www.anthropic.com/legal/privacy" rel="noreferrer">anthropic.com/legal/privacy</a>。
-</p>
-<p>
-<strong>我們看不到你的付款資料。</strong>訂閱是由應用程式商店(Google Play 或 Apple)
-收款的,你的信用卡或付款方式一直留在他們那裡,不會經過我們,也不會經過 RevenueCat。
-</p>
-<p>我們不會為任何目的把你的資料販售或分享給其他人。</p>
+    <div class="hr" style="margin:var(--space-8) 0"></div>
 
-<h2>8. 跨境傳輸</h2>
-<p>
-我們是設立於美國的公司。若你不在美國境內,送出照片或文字做 AI 辨識時,該內容會傳輸
-到美國由 Anthropic PBC 處理。第一次傳輸之前,同意畫面上會先告知你這件事;而且這個
-傳輸只會因為你自己選擇使用該功能才發生。第 4 節所述的用量紀錄存放於日本的伺服器,
-我們在美國可以存取。
-</p>
+    <h2 class="pp-h2">12. Children</h2>
+    <p class="pp-p">The App is not directed to children under the age of 13, or under the applicable minimum age of digital consent in their country. We do not knowingly collect personal data from children below the applicable age. If we become aware that we have collected personal data from a child without the required consent, we will take reasonable steps to delete it.</p>
 
-<h2>9. 法律依據(歐洲經濟區/英國使用者)</h2>
-<ul>
-  <li><strong>同意</strong>——用於把照片或文字送給 AI 服務。你在同意畫面上給予,
-      並可隨時在「設定 → 隱私」撤回,不影響 App 其餘功能。</li>
-  <li><strong>正當利益</strong>——用於第 4 節的用量紀錄,以執行免費額度、偵測濫用,
-      並讓服務在財務上可持續。</li>
-</ul>
+    <div class="hr" style="margin:var(--space-8) 0"></div>
 
-<h2>10. 保存期限</h2>
-<ul>
-  <li><strong>照片與文字:</strong>我們在任何階段都不保存,僅在請求期間存在於記憶體中。</li>
-  <li><strong>逐次的用量紀錄:</strong>在你的帳號存在期間保留。</li>
-  <li><strong>額度雜湊值,以及記在雜湊上的本月已用次數:</strong>即使你刪除帳號之後仍然
-      保留。這是刻意的——刪掉就等於讓它唯一的用途失效,也就是防止「刪除帳號再重建」把額度
-      重置一次。雜湊無法還原成你的電子郵件位址或裝置識別碼,已用次數只是一個數字,兩者都
-      不會用於其他任何用途。本月的次數會在月份結束時作廢。</li>
-  <li><strong>你的訂閱紀錄:</strong>在你的帳號存在期間保留,並隨帳號一起刪除。已經過期的
-      紀錄在那之前不會清掉,這樣才回答得出關於過去訂閱的問題。</li>
-  <li><strong>你的帳目資料:</strong>留在你的裝置上直到你自己刪除。我們讀不到,也沒辦法替你刪。</li>
-</ul>
+    <h2 class="pp-h2">13. Changes to this policy</h2>
+    <p class="pp-p">If we change how we handle your data in a way that materially affects you, we will update this Privacy Policy. If a change affects how your data is processed for AI recognition and requires new consent, we will ask for your consent again within the App rather than relying on consent you previously provided.</p>
 
-<h2>11. 你的權利與控制方式</h2>
-<ul>
-  <li><strong>撤回 AI 同意:</strong>設定 → 隱私 → AI 辨識與資料處理。撤回後不會再送出任何東西。</li>
-  <li><strong>刪除帳號:</strong>設定 → 關於與支援 → 刪除帳號。會永久刪除你的帳號、電子郵件位址與
-      第 4 節所述的逐次用量紀錄,但有一個刻意的例外:那些單向雜湊值,以及記在雜湊上的本月
-      已用次數,會被保留——否則刪除帳號再重建就等於把額度重置一次(見第 10 節)。
-      <em>不會</em>刪除你手機裡的帳目,因為我們碰不到它;也<em>不會</em>取消已購買的訂閱
-      ——訂閱屬於你的 Google Play 或 Apple 帳戶,要取消請到那裡。</li>
-  <li><strong>刪除本機資料:</strong>設定 → 資料 → 重新設定,或直接解除安裝本 App。</li>
-  <li><strong>匯出你的資料:</strong>設定 → 資料 → 備份資料會產生完整的資料庫檔案;
-      交易清單另可匯出成 CSV、Excel 或 PDF。</li>
-  <li><strong>查閱、更正、反對:</strong>由於我們不持有任何個人內容,這些權利主要適用於
-      用量紀錄,請來信 <a href="mailto:support@goodsvalu.com">support@goodsvalu.com</a>。</li>
-</ul>
+    <div class="hr" style="margin:var(--space-8) 0"></div>
 
-<h2>12. 兒童</h2>
-<p>
-本 App 並非以未滿 13 歲(或你所在國家的數位同意最低年齡)的兒童為對象,我們也不會
-在知情的情況下蒐集他們的資料。
-</p>
+    <h2 class="pp-h2">14. Contact</h2>
+    <p class="pp-p"><a href="mailto:support@goodsvalu.com">support@goodsvalu.com</a></p>
 
-<h2>13. 本政策的變更</h2>
-<p>
-若我們變更資料處理方式且會影響到你,我們會更新本頁面;涉及 AI 處理的變更,我們會
-在 App 內重新請求你的同意,而不會沿用你先前的同意。
-</p>
+  </section>
 
-<h2>14. 聯絡我們</h2>
-<p><a href="mailto:support@goodsvalu.com">support@goodsvalu.com</a></p>
+  <footer style="margin-top:auto;background:var(--color-text);color:var(--color-bg)">
+    <div style="max-width:1200px;margin:0 auto;padding:var(--space-8) var(--space-6) var(--space-6);box-sizing:border-box;display:flex;justify-content:center">
+      <div style="display:flex;flex-wrap:wrap;gap:var(--space-4);justify-content:center">
+        <a href="../" style="color:var(--color-bg)">Home</a>
+        <a href="../contact/" style="color:var(--color-bg)">Contact</a>
+        <a href="../support/" style="color:var(--color-bg)">Support</a>
+        <a href="../terms/" style="color:var(--color-bg)">Terms of Service</a>
+      </div>
+    </div>
+    <div style="border-top:2px solid var(--color-neutral-800);padding:var(--space-4) var(--space-6);text-align:center;color:var(--color-neutral-400);font-size:0.9rem">© 2026 Goodsvalu Inc. All rights reserved.</div>
+  </footer>
 
 </div>
-
-<footer>
-  <a href="../">Siaupoa</a> ·
-  <a href="../terms/">Terms of Service 服務條款</a> ·
-  <a href="../support/">Support 支援</a>
-</footer>
-
-</main>
 </body>
 </html>

@@ -5,380 +5,403 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Terms of Service — Siaupoa</title>
 <style>
-  :root {
-    --bg: #f7f6f5; --fg: #1c1a19; --muted: #6b6767; --line: #ddd8d8;
-    --accent: #c62d12; --card: #ffffff;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root { --bg: #171514; --fg: #eceaea; --muted: #a19c9c; --line: #35312f;
-            --accent: #ff7a5e; --card: #201d1c; }
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0; background: var(--bg); color: var(--fg);
-    font: 16px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC",
-          "PingFang TC", "Microsoft JhengHei", Roboto, sans-serif;
-  }
-  main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
-  h1 { font-size: 1.75rem; line-height: 1.3; margin: 0 0 6px; }
-  h2 { font-size: 1.2rem; margin: 40px 0 10px; padding-top: 16px; border-top: 1px solid var(--line); }
-  .meta { color: var(--muted); font-size: .9rem; margin: 0 0 8px; }
-  .langbar { margin: 20px 0 8px; font-size: .9rem; }
-  .langbar a { color: var(--accent); }
-  a { color: var(--accent); }
-  ul { padding-left: 22px; }
-  li { margin: 6px 0; }
-  .callout {
-    background: var(--card); border: 1px solid var(--line);
-    border-left: 3px solid var(--accent); padding: 14px 16px; margin: 18px 0;
-  }
-  footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: .88rem; }
+/* Modernist — design-system tokens and component classes. This file is the source of truth for the system's look; retune it here and see readme.md. */
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap');
+
+:root {
+  --color-bg: #f3f2f2;
+  --color-surface: #eae9e9;
+  --color-text: #201e1d;
+  --color-accent: #ec3013;
+  --color-accent-2: #e15b47;
+  --color-divider: color-mix(in srgb, #201e1d 40%, transparent);
+
+  /* Tonal ramps — generated in OKLCH on one shared lightness scale, so the
+     same step of any role matches the others in visual value. */
+  --color-neutral-100: #f8f4f4;
+  --color-neutral-200: #eae7e7;
+  --color-neutral-300: #d7d3d3;
+  --color-neutral-400: #bab6b6;
+  --color-neutral-500: #9b9797;
+  --color-neutral-600: #7d7979;
+  --color-neutral-700: #605d5d;
+  --color-neutral-800: #444141;
+  --color-neutral-900: #2d2b2b;
+
+  --color-accent-100: #fff2ef;
+  --color-accent-200: #ffe0d9;
+  --color-accent-300: #ffc4b8;
+  --color-accent-400: #ff9783;
+  --color-accent-500: #ff563c;
+  --color-accent-600: #dd2b0f;
+  --color-accent-700: #ae1800;
+  --color-accent-800: #7c1405;
+  --color-accent-900: #4d170e;
+
+  --color-accent-2-100: #fff2ef;
+  --color-accent-2-200: #ffe0da;
+  --color-accent-2-300: #ffc4b9;
+  --color-accent-2-400: #ff9784;
+  --color-accent-2-500: #ef6853;
+  --color-accent-2-600: #c94b39;
+  --color-accent-2-700: #9e3526;
+  --color-accent-2-800: #71261b;
+  --color-accent-2-900: #471d16;
+
+  --font-heading: "Archivo", system-ui, sans-serif;
+  --font-heading-weight: 800;
+  --font-body: "Archivo", system-ui, sans-serif;
+
+  --space-1: 4.0px;
+  --space-2: 8.0px;
+  --space-3: 12.0px;
+  --space-4: 16.0px;
+  --space-6: 24.0px;
+  --space-8: 32.0px;
+
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+
+  /* Elevation — derived from the ground: soft ink-tinted shadows on a
+     light theme, a hairline edge + ambient darkness on a dark one. */
+  --shadow-sm: 0 1px 2px color-mix(in srgb, #2d2b2b 14%, transparent);
+  --shadow-md: 0 3px 10px color-mix(in srgb, #2d2b2b 16%, transparent);
+  --shadow-lg: 0 12px 32px color-mix(in srgb, #2d2b2b 22%, transparent);
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: var(--font-heading-weight); }
+
+.grayscale{filter:grayscale(1) contrast(1.08)}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Components — built with the tokens above. Plain CSS
+   on plain HTML: no JavaScript, no build step. Each class is documented in
+   readme.md and demonstrated in foundations/ and components/.
+   ══════════════════════════════════════════════════════════════════════ */
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; font-size: 15px; line-height: 1.55; font-weight: 400; }
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  line-height: 1.12; letter-spacing: -0.015em; margin: 0 0 var(--space-2);
+}
+h1 { font-size: 42px; }
+h2 { font-size: 32px; }
+h3 { font-size: 25px; }
+h4 { font-size: 20px; }
+h5 { font-size: 16px; }
+h6 { font-size: 13px; }
+h6 { letter-spacing: 0.08em; text-transform: uppercase; }
+p { margin: 0 0 var(--space-3); }
+a { color: var(--color-accent); text-underline-offset: 3px; }
+img { display: block; max-width: 100%; }
+figure { margin: 0; }
+figcaption {
+  font-size: 11px; margin-top: var(--space-1);
+  color: color-mix(in srgb, var(--color-text) 55%, transparent);
+}
+.text-muted { color: color-mix(in srgb, var(--color-text) 55%, transparent); }
+:focus { outline: none; }
+:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+::selection { background: color-mix(in srgb, var(--color-accent) 30%, transparent); }
+
+/* — rules — */
+.hr {
+  height: 2px; border: 0; margin: var(--space-4) 0;
+  background: var(--color-divider);
+}
+
+/* — buttons — */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  cursor: pointer; text-decoration: none;
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 14px; line-height: 1.2; color: var(--color-text); /* matches the .input's 14px —
+     the pair sits side by side in sign-up rows */
+  background: transparent; border: 1px solid transparent;
+  padding: var(--space-2) calc(var(--space-3) * 1.2);
+  border-radius: var(--radius-md);
+}
+.btn svg { display: block; }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn-primary { background: var(--color-accent); color: var(--color-bg); }
+.btn-primary:hover { background: var(--color-accent-600); }
+.btn-primary:active { background: var(--color-accent-700); }
+.btn-secondary { border-color: var(--color-divider); }
+.btn-secondary:hover { background: color-mix(in srgb, var(--color-text) 7%, transparent); }
+.btn-secondary:active { background: color-mix(in srgb, var(--color-text) 14%, transparent); }
+.btn-ghost { color: var(--color-accent); padding-inline: var(--space-1); }
+.btn-ghost:hover { background: color-mix(in srgb, var(--color-accent) 10%, transparent); }
+.btn-ghost:active { background: color-mix(in srgb, var(--color-accent) 18%, transparent); }
+.btn-icon { width: 36px; height: 36px; padding: 0; }
+.btn-block { width: 100%; margin-top: var(--space-2); justify-content: flex-start; text-align: left; }
+
+/* — forms — */
+.field > label {
+  display: block; font-size: 12px; margin-bottom: 5px;
+  color: color-mix(in srgb, var(--color-text) 70%, transparent);
+}
+.input {
+  width: 100%; min-height: 36px; padding: 6px 10px; font: inherit;
+  font-size: 14px; color: var(--color-text); caret-color: var(--color-accent);
+  background: var(--color-surface);
+  border: 1px solid var(--color-divider); border-radius: var(--radius-md);
+}
+.input:hover { border-color: color-mix(in srgb, var(--color-text) 45%, transparent); }
+.input:focus-visible { border-color: var(--color-accent); outline-offset: 0; }
+textarea.input { min-height: 90px; resize: vertical; }
+.radio { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px; }
+.radio input, .seg-opt input {
+  position: absolute; opacity: 0; width: 0; height: 0; pointer-events: none;
+}
+.radio .dot {
+  width: 16px; height: 16px; flex: none; border-radius: 50%;
+  border: 1.5px solid var(--color-divider);
+}
+.radio:hover .dot { border-color: var(--color-accent); }
+.radio input:checked + .dot {
+  border-color: var(--color-accent); background: var(--color-accent);
+  box-shadow: inset 0 0 0 4px var(--color-bg);
+}
+.radio input:focus-visible + .dot { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+.seg {
+  display: inline-flex; overflow: hidden;
+  border: 1px solid var(--color-divider); border-radius: var(--radius-md);
+}
+.seg-opt {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 12px; font-size: 13px; cursor: pointer;
+}
+.seg-opt + .seg-opt { border-left: 1px solid var(--color-divider); }
+.seg-opt:has(input:checked) { background: var(--color-accent); color: var(--color-bg); }
+.seg-opt:not(:has(input:checked)):hover { background: color-mix(in srgb, var(--color-text) 7%, transparent); }
+.seg-opt:has(input:focus-visible) { outline: 2px solid var(--color-accent); outline-offset: -2px; }
+
+/* — cards — */
+.card {
+  display: flex; flex-direction: column; gap: var(--space-2);
+  padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-surface);
+}
+.card-kicker { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent); }
+.card-title {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 17px; line-height: 1.2;
+}
+.card-body { margin: 0; font-size: 13px; opacity: 0.8; flex: 1; }
+.card-meta {
+  display: flex; align-items: center; gap: 6px; font-size: 11px;
+  color: color-mix(in srgb, var(--color-text) 50%, transparent);
+}
+.elev-sm { box-shadow: var(--shadow-sm); }
+.elev-md { box-shadow: var(--shadow-md); }
+.elev-lg { box-shadow: var(--shadow-lg); }
+
+/* — tags — */
+.tag {
+  display: inline-flex; align-items: center; font-size: 11px;
+  letter-spacing: 0.02em; padding: 3px 10px;
+  border-radius: calc(var(--radius-md) * 0.75);
+}
+.tag-accent { background: var(--color-accent-100); color: var(--color-accent-800); }
+.tag-accent-2 { background: var(--color-accent-2-100); color: var(--color-accent-2-800); }
+.tag-neutral { background: var(--color-neutral-100); color: var(--color-neutral-800); }
+.tag-outline { border: 1px solid var(--color-accent); color: var(--color-accent); }
+
+/* — navigation — */
+.nav {
+  display: flex; align-items: center; gap: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 2px solid var(--color-divider);
+}
+.nav-brand {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 18px; margin-right: auto;
+}
+.nav a { color: inherit; text-decoration: none; font-size: 14px; }
+.nav a:hover, .nav a[aria-current='page'] { color: var(--color-accent); }
+
+/* — tables — */
+.table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.table th {
+  text-align: left; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-text) 60%, transparent);
+  padding: var(--space-2); border-bottom: 2px solid var(--color-divider);
+}
+.table td {
+  padding: var(--space-2);
+  border-bottom: 1px solid var(--color-divider);
+}
+.table tbody tr:hover { background: color-mix(in srgb, var(--color-text) 4%, transparent); }
+
+/* — dialog — */
+.dialog-backdrop {
+  position: fixed; inset: 0; display: grid; place-items: center;
+  padding: var(--space-4);
+  background: color-mix(in srgb, var(--color-neutral-900) 50%, transparent);
+}
+.dialog {
+  width: min(440px, 100%); display: flex; flex-direction: column; gap: var(--space-3);
+  padding: var(--space-4); border-radius: var(--radius-lg);
+  background: var(--color-surface); box-shadow: var(--shadow-lg);
+}
+.dialog-title {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: 20px;
+}
+.dialog-body { font-size: 14px; opacity: 0.85; }
+.dialog-actions { display: flex; justify-content: flex-end; gap: var(--space-2); margin-top: var(--space-2); }
+body { margin: 0; background: var(--color-bg); color: var(--color-text); }
+    a { color: var(--color-accent-700); text-decoration: none; }
+    a:hover { color: var(--color-accent); text-decoration: underline; }
+    .tos-h2 { font-family: var(--font-heading); font-size: 1.4rem; margin: var(--space-8) 0 var(--space-4); }
+    .tos-h3 { font-weight: 700; margin: var(--space-4) 0 var(--space-2); }
+    .tos-p { margin: 0 0 var(--space-4); color: var(--color-text); line-height: 1.6; }
+    .tos-ul { margin: 0 0 var(--space-4); padding-left: 1.2em; line-height: 1.6; }
 </style>
 </head>
 <body>
-<main>
+<div style="min-height:100vh;display:flex;flex-direction:column;font-family:var(--font-body)">
 
-<h1>Terms of Service</h1>
-<p class="meta">Siaupoa · Last updated: 14 September 2026</p>
-<p class="langbar"><strong>English</strong> · <a href="#zh">繁體中文</a></p>
+  <nav class="nav" style="display:flex;align-items:center;justify-content:center;padding:var(--space-4) var(--space-6);border-bottom:2px solid var(--color-divider);position:sticky;top:0;background:var(--color-bg);z-index:10">
+    <div style="display:flex;gap:var(--space-6);align-items:center">
+      <a href="../" style="color:var(--color-text);font-weight:600">Home</a>
+      <a href="../#features" style="color:var(--color-text);font-weight:600">Features</a>
+      <a href="../#pricing" style="color:var(--color-text);font-weight:600">Pricing</a>
+      <a href="../contact/" style="color:var(--color-text);font-weight:600">Contact Us</a>
+    </div>
+  </nav>
 
-<p>
-By installing or using Siaupoa (“the App”) you agree to these terms. If
-you do not agree, please do not use the App.
-</p>
-<p>
-<strong>You must be at least 18 years old to use the App.</strong> It is not designed
-for or directed at children, and a paid subscription is an agreement we can only
-enter into with an adult.
-</p>
+  <div style="height:32px"></div>
 
-<h2>1. The service</h2>
-<p>
-The App is a personal bookkeeping tool operated by Goodsvalu Inc. (“we”, “us”). It runs
-on your device and stores your records there. It optionally uses an AI service to
-read a receipt photo or a spoken description and turn it into a draft transaction
-for you to confirm.
-</p>
+  <section style="padding:0 var(--space-6) var(--space-8);max-width:760px;margin:0 auto;width:100%;box-sizing:border-box">
 
-<h2>2. Your responsibility for your own data</h2>
-<p>
-Your records live on your device. We have no copy and cannot recover anything for
-you. If you lose your phone, uninstall the App, or reset it, unbacked-up data is
-gone permanently. <strong>Use Settings → Data → Backup regularly and keep the backup
-file somewhere safe.</strong>
-</p>
+    <h1 style="font-family:var(--font-heading);font-size:clamp(2rem,4vw,3rem);margin:0 0 var(--space-2)">Terms of Service</h1>
+    <p style="color:var(--color-neutral-700);margin:0 0 var(--space-6)">Siaupoa · Last updated: 14 September 2026</p>
 
-<h2>3. AI recognition is a draft, not a source of truth</h2>
-<div class="callout">
-AI recognition can be wrong. It can misread an amount, a date, a currency or a
-merchant name, and it can be confidently wrong. Every extracted result is shown to
-you for confirmation before it is saved — <strong>checking it is your
-responsibility</strong>. Do not rely on the App’s output for tax filing, accounting,
-reimbursement or any other purpose without verifying it against the original
-document.
-</div>
-<p>
-The App is not accounting, tax, legal or financial advice, and it is not a
-substitute for a professional.
-</p>
+    <p class="tos-p">By installing or using Siaupoa ("the App") you agree to these terms. If you do not agree, please do not use the App.</p>
+    <p class="tos-p"><strong data-start="187" data-end="240">You must be at least 18 years old to use the App.</strong> The App is intended for adults and is not designed for or directed at children. We do not knowingly allow anyone under 18 to create an account or use the App.</p>
 
-<h2>4. Free allowance and fair use</h2>
-<p>
-AI recognition is subject to a monthly allowance shown in the App; Siaupoa Plus
-raises it (section 5). We may change
-the allowance, and we may suspend or throttle the AI feature — for everyone or for
-an individual account — where it is necessary to keep the service running or to stop
-abuse. Everything that does not depend on the AI service (manual entry, reports,
-budgets, backup and restore) continues to work regardless.
-</p>
-<p>You agree not to:</p>
-<ul>
-  <li>use automated means to send requests through the App</li>
-  <li>attempt to circumvent the allowance, for example by repeatedly creating accounts</li>
-  <li>submit content that is unlawful, or that you have no right to submit</li>
-  <li>attempt to interfere with, probe or reverse-engineer our servers</li>
-</ul>
+    <div class="hr" style="margin:var(--space-8) 0"></div>
 
-<h2>5. Siaupoa Plus (paid subscription)</h2>
-<p>
-Siaupoa Plus is an optional paid subscription. It raises the monthly AI recognition
-allowance and unlocks the advanced reports. Everything else — manual entry, ledgers,
-accounts, budgets, the standard reports, recurring transactions, export, backup and
-restore — is free and stays free.
-</p>
+    <h2 class="tos-h2">1. The service</h2>
+    <p class="tos-p">The App is a personal bookkeeping tool operated by Goodsvalu Inc. (“we,” “us,” or “our”). Your bookkeeping data is stored on your device. The App also offers optional AI recognition, which can process a receipt photo or text you submit — including text created using your device’s built-in dictation feature — to create a draft transaction for you to review and confirm.</p>
 
-<h3>Price and billing</h3>
-<p>
-The price is shown inside the App before you buy, in your own currency, and that
-figure is the one that applies. <strong>Payment is charged by the app store</strong>
-— Google Play or Apple — to the payment method on your store account. We never see
-your card details.
-</p>
+    <div class="hr" style="margin:var(--space-8) 0"></div>
 
-<h3>Automatic renewal</h3>
-<p>
-<strong>A subscription renews automatically</strong> at the end of each period, and
-your store account is charged again, unless you cancel at least 24 hours before the
-period ends. A monthly plan renews every month; an annual plan renews every year.
-</p>
+    <h2 class="tos-h2">2. Your responsibility for your own data</h2>
+    <div class="tos-p"><p dir="auto" data-start="866" data-end="1140" class="PDq2pG_selectionAnchorContainer"><span data-start="866" data-end="1140">Your bookkeeping data is stored on your device. We do not keep a copy and cannot recover it for you. If you lose your device, uninstall the App, or reset its data without first creating a backup, any bookkeeping data that has not been backed up will be permanently lost.</span><span aria-hidden="true" class="PDq2pG_selectionAnchor"></span></p>
+<p dir="auto" data-start="1145" data-end="1233"><span data-start="1145" data-end="1233">Use <b>Settings → Data → Backup</b> regularly and keep your backup file in a safe location.</span></p></div>
 
-<h3>How to cancel</h3>
-<p>
-Cancel in the store, not in the App — we cannot cancel it for you:
-</p>
-<ul>
-  <li><strong>Google Play:</strong> Play Store → your profile → Payments &amp;
-      subscriptions → Subscriptions</li>
-  <li><strong>Apple:</strong> Settings → your name → Subscriptions</li>
-</ul>
-<p>
-Cancelling stops future charges. <strong>It does not end the period you have already
-paid for</strong> — Plus keeps working until that period runs out, and only then do
-the advanced reports lock and the allowance return to the free monthly amount.
-<strong>Deleting your account does not cancel a subscription</strong>, because the
-subscription belongs to your store account rather than to us.
-</p>
+    <div class="hr" style="margin:var(--space-8) 0"></div>
 
-<h3>Refunds</h3>
-<p>
-Refunds are handled by the store under its own policy, not by us. If you believe you
-are entitled to one, request it through Google Play or Apple. Write to
-<a href="mailto:support@goodsvalu.com">support@goodsvalu.com</a> if something has gone
-wrong and we will help where we can, but we cannot issue a refund for a purchase we
-did not process.
-</p>
+    <h2 class="tos-h2">3. AI recognition is a draft, not a source of truth</h2>
+    <div class="card elev-sm" style="border-left:4px solid var(--color-accent)">
+      <div><strong data-start="989" data-end="1039">AI recognition may produce inaccurate results.</strong> It may misread information such as an amount, date, currency, or merchant name. All AI-generated results are provided as drafts and must be reviewed and confirmed by you before they are saved. <strong data-start="1233" data-end="1333">You are responsible for verifying the accuracy and completeness of all AI-generated information.</strong> Do not rely on AI-generated results for tax filing, accounting, reimbursement, or other financial purposes without checking them against the original source.</div>
+    </div>
+    <p style="margin: 0"><br>The App does not provide accounting, tax, legal, or financial advice. It is intended only as a personal bookkeeping tool and is not a substitute for advice from a qualified professional.</p>
 
-<h3>Changes to the price or to what Plus includes</h3>
-<p>
-We may change the price or what the subscription includes. A price increase applies
-only from your next renewal, and the store will notify you in advance and ask you to
-confirm; you can cancel instead. We may add to what Plus includes at any time.
-</p>
+    <div class="hr" style="margin:var(--space-8) 0"></div>
 
-<h3>If your subscription ends</h3>
-<p>
-<strong>Nothing you have entered is lost or hidden.</strong> Your ledgers, accounts,
-categories and every transaction stay on your device exactly as they were, and the
-free features continue to work. Only the advanced reports lock, and the monthly AI
-allowance returns to the free amount.
-</p>
+    <h2 class="tos-h2">4. Free allowance and fair use</h2>
+    <p class="tos-p">AI recognition is subject to the monthly allowance shown in the App. Siaupoa Plus provides a higher allowance, as described in Section 5. We may change the applicable allowance or temporarily limit, suspend, or throttle access to AI recognition, either generally or for a specific account, when reasonably necessary to maintain the availability and reliability of the service, manage capacity, or prevent abuse. Features that do not depend on AI recognition — including manual entry, reports, budgets, backup, and restore — will continue to work independently of the AI service.</p>
+    <p class="tos-p">You agree not to:</p>
+    <ul class="tos-ul">
+      <li>use bots, scripts, or other automated means to submit requests through the App</li>
+      <li>attempt to circumvent the AI recognition allowance or usage limits, including by repeatedly deleting and re-creating accounts</li>
+      <li>submit content that is unlawful or that you do not have the right or authorization to submit</li>
+      <li>attempt to interfere with, disrupt, probe, access without authorization, or reverse-engineer our servers or related systems</li>
+    </ul>
 
-<h2>6. Your account</h2>
-<p>
-AI recognition requires an account. You sign in with an email address and a
-one-time code sent to it; there is no password. Everything else in the App works
-without an account. You may delete the account at any time in Settings → About &amp;
-Support → Delete Account — that removes the account, your email address and its
-usage records from our servers (other than the one-way hashes described in our
-privacy policy, which exist to stop the first-month allowance being claimed
-repeatedly), but does not delete the books stored on your phone.
-You are responsible for keeping access to the email address you sign in with. We may
-terminate an account that breaches these terms.
-</p>
+    <div class="hr" style="margin:var(--space-8) 0"></div>
 
-<h2>7. Availability</h2>
-<p>
-The App is provided as-is. We do not guarantee that the AI feature will be
-available, uninterrupted or error-free. It depends on a third-party service and on
-your network connection, and it may be unavailable at times.
-</p>
+    <h2 class="tos-h2">5. Siaupoa Plus (paid subscription)</h2>
+    <p class="tos-p">Siaupoa Plus is an optional paid subscription that provides a higher monthly AI recognition allowance and access to advanced reports. Core features — including manual entry, ledgers, accounts, budgets, standard reports, recurring transactions, export, backup, and restore — are available without a paid subscription.</p>
 
-<h2>8. Intellectual property</h2>
-<p>
-The App and its content are ours or our licensors’. You are granted a personal,
-non-exclusive, non-transferable licence to use the App. The data you enter remains
-yours; we claim no rights over it, and we do not have it.
-</p>
+    <h3 class="tos-h3" style="font-size: 1.2rem">Price and billing</h3>
+    <p class="tos-p">The subscription price is displayed in the App before you complete your purchase, in the currency applicable to your app store account. The price shown at the time of purchase is the price that applies. Payment is processed and charged by <b>Google Play</b> or <b>Apple’s App Store</b> using the payment method associated with your store account. We do not receive or have access to your card or other payment details.</p>
 
-<h2>9. Disclaimer and limitation of liability</h2>
-<p>
-To the fullest extent permitted by law, the App is provided without warranties of
-any kind, express or implied, including fitness for a particular purpose and
-accuracy of results. To the fullest extent permitted by law, we are not liable for
-indirect or consequential loss, lost profits, or loss of data, including loss
-arising from an incorrect AI result or from data you did not back up.
-</p>
-<p>
-Nothing in these terms limits any right you have under mandatory consumer protection
-law in your country of residence.
-</p>
+    <h3 class="tos-h3" style="font-size: 1.2rem">Automatic renewal</h3>
+    <p class="tos-p"><strong data-start="73" data-end="110">Subscriptions renew automatically</strong> at the end of each billing period unless you cancel before the renewal deadline set by <b>Google Play</b> or <b>Apple’s App Store</b>. Your app store account will be charged for each renewal. Monthly subscriptions renew each month, and annual subscriptions renew each year.</p>
 
-<h2>10. Changes</h2>
-<p>
-We may update these terms. Material changes will be reflected by the “last updated”
-date on this page. Continuing to use the App after a change means you accept it.
-</p>
+    <h3 class="tos-h3" style="font-size: 1.2rem">How to cancel</h3>
+    <p class="tos-p">Subscriptions must be cancelled through the app store where you purchased them. They cannot be cancelled through the App, and we cannot cancel a subscription on your behalf:</p>
+    <ul class="tos-ul">
+      <li><strong>Google Play:</strong> Play Store → your profile → Payments &amp; subscriptions → Subscriptions</li>
+      <li><strong>Apple:</strong> Settings → your name → Subscriptions</li>
+    </ul>
+    <div class="tos-p"><p dir="auto" data-start="125" data-end="466" class="PDq2pG_selectionAnchorContainer"><strong data-start="125" data-end="242">Cancelling your subscription stops future renewal charges. It does not end your current paid subscription period.</strong> You will continue to have access to Siaupoa Plus until the end of that period. After the subscription expires, access to advanced reports will end and your AI recognition allowance will return to the free monthly allowance.<span aria-hidden="true" class="PDq2pG_selectionAnchor"></span></p>
+<p dir="auto" data-start="471" data-end="674"><strong data-start="471" data-end="536">Deleting your account does not cancel an active subscription.</strong> Your subscription is managed through your Google Play or Apple account and must be cancelled separately through the applicable app store.</p></div>
 
-<h2>11. Governing law</h2>
-<p>
-These terms are governed by the laws of the State of New York, United States,
-without regard to conflict-of-law rules. The state and federal courts located in the
-State of New York shall have exclusive jurisdiction over any dispute arising out of
-or relating to these terms. This does not deprive you of the protection of mandatory
-provisions of the law of your country of residence, nor of any right that law gives
-you to bring proceedings there.
-</p>
+    <h3 class="tos-h3" style="font-size: 1.2rem">Refunds</h3>
+    <p class="tos-p">Refunds are handled by<b> Google Play</b> or <b>Apple’s App Store </b>in accordance with their respective refund policies. We do not process or issue refunds directly. If you believe you are entitled to a refund, you must request it through the app store where you made the purchase. If you experience a problem with your subscription or purchase, you may contact us at <a data-start="485" data-end="506" class="decorated-link cursor-pointer" rel="noopener">support@goodsvalu.com</a>, and we will assist where possible. However, we cannot issue a refund for a transaction processed by the app store.</p>
 
-<h2>12. Contact</h2>
-<p><a href="mailto:support@goodsvalu.com">support@goodsvalu.com</a></p>
+    <h3 class="tos-h3" style="font-size: 1.2rem">Changes to the price or to what Plus includes</h3>
+    <p class="tos-p">We may change the price or features included with Siaupoa Plus. Any price change will apply no earlier than your next renewal and will be handled in accordance with the applicable app store’s policies, including any required notice or consent. You may cancel your subscription before the new price takes effect. We may also add or improve features included with Siaupoa Plus at any time.</p>
 
-<hr id="zh" style="margin:64px 0 40px;border:0;border-top:1px solid var(--line)">
+    <h3 class="tos-h3" style="font-size: 1.2rem">If your subscription ends</h3>
+    <p class="tos-p"><strong data-start="110" data-end="160">Nothing you have entered is deleted or hidden.</strong> Your ledgers, accounts, categories, and transactions remain stored on your device, and features available without a paid subscription remain accessible. Only access to advanced reports ends, and your monthly AI recognition allowance returns to the free allowance.</p>
 
-<h1 lang="zh-Hant">服務條款</h1>
-<p class="meta">Siaupoa · 最後更新:2026 年 9 月 14 日</p>
-<p class="langbar"><a href="#">English</a> · <strong>繁體中文</strong></p>
+    <div class="hr" style="margin:var(--space-8) 0"></div>
 
-<div lang="zh-Hant">
+    <h2 class="tos-h2">6. Your account</h2>
+    <div class="tos-p"><p dir="auto" data-start="225" data-end="429" class="PDq2pG_selectionAnchorContainer"><strong data-start="225" data-end="264">AI recognition requires an account.</strong> You sign in with your email address and a one-time code sent to that address; no password is required. All other features of the App can be used without an account.<span aria-hidden="true" class="PDq2pG_selectionAnchor"></span></p>
+<p dir="auto" data-start="434" data-end="1008">You may delete your account at any time by going to Settings → About &amp; Support → Delete Account. Deleting your account removes your account, email address, and associated usage records from our servers, except for the limited allowance-related records described in our Privacy Policy. These records are retained only as necessary to prevent the free AI recognition allowance, including the introductory allowance, from being reset or claimed repeatedly by deleting and re-creating an account. Deleting your account does not delete the bookkeeping data stored on your device.</p>
+<p dir="auto" data-start="1013" data-end="1172">You are responsible for maintaining access to the email address associated with your account. We may suspend or terminate an account that violates these Terms.</p></div>
 
-<p>安裝或使用 Siaupoa(以下稱「本 App」)即表示你同意以下條款。若不同意,請勿使用本 App。</p>
-<p>
-<strong>你必須年滿 18 歲才能使用本 App。</strong>本 App 並非為兒童設計、也不以兒童
-為對象,而付費訂閱是一份我們只能與成年人締結的契約。
-</p>
+    <div class="hr" style="margin:var(--space-8) 0"></div>
 
-<h2>1. 服務內容</h2>
-<p>
-本 App 是由 Goodsvalu Inc.(以下稱「我們」)營運的個人記帳工具,在你的裝置上執行並將
-紀錄存放於裝置本機。它可選擇性地使用 AI 服務讀取收據照片或口述描述,產生一筆草稿
-交易供你確認。
-</p>
+    <h2 class="tos-h2">7. Availability</h2>
+    <p class="tos-p">The App is provided on an “as is” and “as available” basis. We do not guarantee that AI recognition will always be available, uninterrupted, error-free, or produce accurate results. AI recognition depends on third-party services and your internet connection and may occasionally be unavailable, delayed, or interrupted.</p>
 
-<h2>2. 你自己資料的保管責任</h2>
-<p>
-你的紀錄存在你的裝置上。我們沒有副本,也無法替你復原任何東西。若你遺失手機、解除
-安裝本 App 或重設資料,未備份的內容將永久消失。
-<strong>請定期使用「設定 → 資料 → 備份資料」,並把備份檔妥善保存。</strong>
-</p>
+    <div class="hr" style="margin:var(--space-8) 0"></div>
 
-<h2>3. AI 辨識結果是草稿,不是事實依據</h2>
-<div class="callout">
-AI 辨識可能出錯。它可能看錯金額、日期、幣別或商家名稱,而且可能錯得很有自信。
-每一筆擷取結果在存檔前都會顯示給你確認——<strong>核對是你的責任</strong>。請勿在
-未與原始單據核對的情況下,把本 App 的輸出用於報稅、會計、核銷或其他任何用途。
-</div>
-<p>本 App 不構成會計、稅務、法律或財務建議,也不能取代專業人士。</p>
+    <h2 class="tos-h2">8. Intellectual property</h2>
+    <div class="tos-p"><p dir="auto" data-start="186" data-end="418" class="PDq2pG_selectionAnchorContainer"><span data-start="186" data-end="418">The App and its content are owned by us or our licensors and are protected by applicable intellectual property laws. We grant you a personal, non-exclusive, non-transferable licence to use the App in accordance with these Terms.</span><span aria-hidden="true" class="PDq2pG_selectionAnchor"></span></p>
+<p dir="auto" data-start="423" data-end="686"><span data-start="423" data-end="686">Your bookkeeping data remains yours. We do not claim ownership of the data you enter into the App. Your bookkeeping data is stored on your device, except for content you choose to submit for AI recognition, which is handled as described in our Privacy Policy.</span></p></div>
 
-<h2>4. 免費額度與合理使用</h2>
-<p>
-AI 辨識受 App 內顯示的每月額度限制;Siaupoa Plus 會提高這個上限(見第 5 節)。
-我們可能調整該額度,並在必要時(為維持服務運作
-或阻止濫用)對全體或個別帳號暫停或限制 AI 功能。所有不依賴 AI 服務的功能(手動記帳、
-報表、預算、備份與還原)不受影響,照常可用。
-</p>
-<p>你同意不進行以下行為:</p>
-<ul>
-  <li>以自動化方式透過本 App 發送請求</li>
-  <li>試圖規避額度限制,例如反覆建立帳號</li>
-  <li>送出違法內容,或你無權送出的內容</li>
-  <li>試圖干擾、探測或逆向工程我們的伺服器</li>
-</ul>
+    <div class="hr" style="margin:var(--space-8) 0"></div>
 
-<h2>5. Siaupoa Plus(付費訂閱)</h2>
-<p>
-Siaupoa Plus 是選擇性的付費訂閱,它提高每月 AI 辨識額度,並解鎖進階報表。其餘功能
-——手動記帳、帳本、帳戶、預算、一般報表、循環交易、匯出、備份與還原——都是免費的,
-而且會一直免費。
-</p>
+    <h2 class="tos-h2">9. Disclaimer and limitation of liability</h2>
+    <div class="tos-p"><p dir="auto" data-start="118" data-end="401"><span data-start="118" data-end="401">To the fullest extent permitted by applicable law, the App is provided “as is” and “as available,” without warranties of any kind, whether express, implied, or statutory, including warranties of fitness for a particular purpose, reliability, availability, or accuracy of results.</span></p>
+<p dir="auto" data-start="406" data-end="785"><span data-start="406" data-end="785">To the fullest extent permitted by applicable law, we will not be liable for any indirect, incidental, special, consequential, or similar damages, including loss of profits or loss of data, arising out of or related to your use of the App. This includes losses resulting from inaccurate AI-generated results or from bookkeeping data that is lost because it was not backed up.</span></p></div>
+    <p class="tos-p">Nothing in these Terms limits or excludes any rights you may have under mandatory consumer protection laws applicable in your country of residence.</p>
 
-<h3>價格與收款</h3>
-<p>
-價格會在你購買之前顯示在 App 裡,以你自己的幣別呈現,以那個數字為準。
-<strong>款項由應用程式商店收取</strong>(Google Play 或 Apple),從你商店帳戶上的
-付款方式扣款。我們看不到你的信用卡資料。
-</p>
+    <div class="hr" style="margin:var(--space-8) 0"></div>
 
-<h3>自動續訂</h3>
-<p>
-<strong>訂閱會在每個週期結束時自動續訂</strong>並再次扣款,除非你在週期結束前至少
-24 小時取消。月方案每月續訂一次,年方案每年續訂一次。
-</p>
+    <h2 class="tos-h2">10. Changes</h2>
+    <p class="tos-p">We may update these Terms from time to time. If we make material changes, we will update the “Last Updated” date on this page and, where required by applicable law, provide additional notice or obtain your consent. Your continued use of the App after the updated Terms take effect constitutes your acceptance of the updated Terms, except where applicable law requires otherwise.</p>
 
-<h3>如何取消</h3>
-<p>取消要在商店裡操作,不是在 App 裡——我們沒有辦法代你取消:</p>
-<ul>
-  <li><strong>Google Play:</strong>Play 商店 → 你的個人資料 → 付款與訂閱 → 訂閱</li>
-  <li><strong>Apple:</strong>設定 → 你的名字 → 訂閱項目</li>
-</ul>
-<p>
-取消之後不會再扣款,但<strong>不會中止你已經付過錢的那個週期</strong>——Plus 會一直
-用到那個週期結束,到時進階報表才上鎖、額度才回到免費的每月數量。
-<strong>刪除帳號不會取消訂閱</strong>,因為訂閱屬於你的商店帳戶,不屬於我們。
-</p>
+    <div class="hr" style="margin:var(--space-8) 0"></div>
 
-<h3>退款</h3>
-<p>
-退款由商店依其自身政策處理,不是由我們處理。若你認為應該退款,請透過 Google Play
-或 Apple 提出。有任何狀況也歡迎寫信到
-<a href="mailto:support@goodsvalu.com">support@goodsvalu.com</a>,我們會在能力範圍內
-協助,但我們無法為一筆不是我們收款的交易辦理退款。
-</p>
+    <h2 class="tos-h2">11. Governing law</h2>
+    <div class="tos-p"><p dir="auto" data-start="105" data-end="458" class="PDq2pG_selectionAnchorContainer"><span data-start="105" data-end="458">These Terms are governed by the laws of the State of New York, United States, without regard to its conflict-of-law principles. Subject to any rights you may have under applicable mandatory law, the state and federal courts located in the State of New York will have exclusive jurisdiction over any dispute arising out of or relating to these Terms.</span><span aria-hidden="true" class="PDq2pG_selectionAnchor"></span></p>
+<p dir="auto" data-start="463" data-end="690"><span data-start="463" data-end="690">Nothing in this section deprives you of the protection of any mandatory provisions of the laws applicable in your country of residence or of any right you may have under those laws to bring proceedings in your local courts.</span></p></div>
 
-<h3>價格或內容的變更</h3>
-<p>
-我們可能調整價格或調整訂閱包含的內容。漲價只會從你的下一次續訂開始適用,商店會事先
-通知你並要求你確認;你也可以選擇取消。增加 Plus 包含的內容則可能隨時發生。
-</p>
+    <div class="hr" style="margin:var(--space-8) 0"></div>
 
-<h3>訂閱結束之後</h3>
-<p>
-<strong>你輸入過的任何資料都不會遺失、也不會被隱藏。</strong>帳本、帳戶、分類與每一筆
-交易都原封不動留在你的裝置上,免費功能照常運作。只有進階報表會上鎖,每月 AI 額度
-回到免費的數量。
-</p>
+    <h2 class="tos-h2">12. Contact</h2>
+    <p class="tos-p"><a href="mailto:support@goodsvalu.com">support@goodsvalu.com</a></p>
 
-<h2>6. 你的帳號</h2>
-<p>
-AI 辨識需要帳號。你用電子郵件加上寄給你的一次性驗證碼登入,沒有密碼;本 App 的其他
-功能都不需要帳號。你可隨時於「設定 → 關於與支援 → 刪除帳號」刪除它——那會移除我們
-伺服器上的帳號、你的電子郵件位址與用量紀錄(隱私政策所述、用於防止首月額度被反覆
-領取的單向雜湊值除外),但不會刪除你手機裡的帳目。你必須自行
-保管登入所用信箱的存取權。對於違反本條款的帳號,我們可予以終止。
-</p>
+  </section>
 
-<h2>7. 服務可用性</h2>
-<p>
-本 App 以現況提供。我們不保證 AI 功能必然可用、不中斷或無錯誤——它依賴第三方服務與
-你的網路連線,可能有無法使用的時候。
-</p>
-
-<h2>8. 智慧財產權</h2>
-<p>
-本 App 及其內容屬於我們或我們的授權人。你獲得的是個人、非專屬、不可轉讓的使用授權。
-你輸入的資料仍屬於你;我們不主張任何權利,也並未持有這些資料。
-</p>
-
-<h2>9. 免責聲明與責任限制</h2>
-<p>
-在法律允許的最大範圍內,本 App 以現況提供,不附帶任何明示或默示的擔保,包括特定用途
-適用性與結果正確性。在法律允許的最大範圍內,我們不對間接或衍生損失、利潤損失或資料
-損失負責,包括因 AI 結果錯誤或你未備份而產生的損失。
-</p>
-<p>本條款不影響你依居住國強制性消費者保護法規所享有的任何權利。</p>
-
-<h2>10. 條款變更</h2>
-<p>
-我們可能更新本條款。重大變更會反映在本頁面的「最後更新」日期上。變更後繼續使用本
-App 即表示你接受變更。
-</p>
-
-<h2>11. 準據法</h2>
-<p>
-本條款以美國紐約州法律為準據法,不適用其法律衝突規則。因本條款所生或與之相關之
-爭議,由紐約州境內之州法院與聯邦法院專屬管轄。本條不剝奪你依居住國強制性法律規定
-所享有的保護,亦不排除該等法律賦予你在當地起訴的權利。
-</p>
-
-<h2>12. 聯絡我們</h2>
-<p><a href="mailto:support@goodsvalu.com">support@goodsvalu.com</a></p>
+  <footer style="margin-top:auto;background:var(--color-text);color:var(--color-bg)">
+    <div style="max-width:1200px;margin:0 auto;padding:var(--space-8) var(--space-6) var(--space-6);box-sizing:border-box;display:flex;justify-content:center">
+      <div style="display:flex;flex-wrap:wrap;gap:var(--space-4);justify-content:center">
+        <a href="../" style="color:var(--color-bg)">Home</a>
+        <a href="../contact/" style="color:var(--color-bg)">Contact</a>
+        <a href="../support/" style="color:var(--color-bg)">Support</a>
+        <a href="../privacy/" style="color:var(--color-bg)">Privacy Policy</a>
+      </div>
+    </div>
+    <div style="border-top:2px solid var(--color-neutral-800);padding:var(--space-4) var(--space-6);text-align:center;color:var(--color-neutral-400);font-size:0.9rem">© 2026 Goodsvalu Inc. All rights reserved.</div>
+  </footer>
 
 </div>
-
-<footer>
-  <a href="../">Siaupoa</a> ·
-  <a href="../privacy/">Privacy Policy 隱私政策</a> ·
-  <a href="../support/">Support 支援</a>
-</footer>
-
-</main>
 </body>
 </html>
