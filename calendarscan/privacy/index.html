@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — CalendarScan</title>
+<style>
+:root{--paper:#F5F1E8;--ink:#19202E;--muted:#555C69;--line:#E3DDCF;--accent:#2A48A6;--card:#FFFFFF}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC",sans-serif}
+main{max-width:760px;margin:0 auto;padding:40px 20px 64px}
+nav{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:28px;font-size:14px}nav a{color:var(--accent);text-decoration:none}
+h1{font-family:Georgia,"Songti TC",serif;font-size:34px;line-height:1.2;margin:0 0 6px}
+h2{font-family:Georgia,"Songti TC",serif;font-size:22px;margin:32px 0 8px}
+.meta{color:var(--muted);font-size:14px;margin:0 0 20px}
+.summary{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:15px}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}th{background:#EFEAE0}
+a{color:var(--accent)}li{margin:4px 0}footer{margin-top:40px;color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+<main>
+<nav><a href="/calendarscan/">CalendarScan</a><a href="/calendarscan/privacy/">Privacy</a><a href="/calendarscan/terms/">Terms</a><a href="/calendarscan/support/">Support</a></nav>
+<h1>Privacy Policy</h1>
+<p class="meta">CalendarScan · Last updated: 29 September 2026</p>
+<p class="summary"><strong>In short:</strong> photos, files and text you choose to scan are sent to our server only to find dates and events, are passed to our AI provider for that purpose, and are not stored by us. The events you confirm are written to your iPhone Calendar and Reminders — we never upload your calendars. There are no ads and no tracking.</p>
+
+<h2>1. Who we are</h2>
+<p>CalendarScan (“the App”) is developed and operated by Goodsvalu Inc. (“we”, “us”). For any privacy question, contact <a href="mailto:support@goodsvalu.com">support@goodsvalu.com</a>.</p>
+
+<h2>2. What stays on your iPhone</h2>
+<ul>
+<li>The events and reminders you add, which the App writes to the iPhone Calendar and Reminders apps. The App reads your list of calendars and reminder lists, and events in the relevant dates, only to let you choose where to add, to warn about duplicates, and to undo an import.</li>
+<li>Your import history (so you can export, undo, re-add or compare a revised calendar), an unfinished review, the names and colors of children you add, and your settings.</li>
+<li>Items you share into the App from other apps, until you recognize or discard them.</li>
+<li>If you turn it on, a copy of pages you scan with the camera is saved to your Photos library. The App asks only for permission to add photos, not to read them.</li>
+</ul>
+<p>Deleting the App deletes this information from the App. Events already added to your Calendar and Reminders stay there until you delete them.</p>
+
+<h2>3. What is sent, and when</h2>
+<table>
+<tr><th>When you</th><th>What is sent</th><th>To whom</th></tr>
+<tr><td>Scan, pick photos or import a file, and start recognition</td><td>The pages as JPEG images, resized and re-encoded on your device (this removes location and other metadata), text read from them on your device, today’s date, your time zone and a device identifier</td><td>Our server, which forwards the images, text, date and time zone to our AI provider</td></tr>
+<tr><td>Paste or share text and start recognition</td><td>That text, today’s date, your time zone and a device identifier</td><td>Our server, then our AI provider</td></tr>
+<tr><td>Sign in</td><td>Your email address, to send you a one-time sign-in code</td><td>Our server and our email provider</td></tr>
+<tr><td>Open the home screen or Settings while signed in</td><td>A request for your remaining monthly allowance, with your account and device identifiers</td><td>Our server</td></tr>
+<tr><td>Add events after reviewing</td><td>Numbers only — how many items the AI found, how many you deleted, unchecked, edited or added, and the cost of the recognition. Never titles, dates or other content.</td><td>Our server</td></tr>
+<tr><td>Buy page credits (when available)</td><td>Your account identifier and the purchase. Payment is handled by Apple.</td><td>Apple and our purchase provider</td></tr>
+</table>
+<p>The device identifier is a random value created by the App. Our server turns it into a one-way hash and uses it, together with your account and email, only to keep the free monthly allowance from being claimed again by creating new accounts. It is not sent to our AI provider or used for advertising.</p>
+
+<h2>4. What our server stores</h2>
+<p>Our server does <strong>not</strong> store the images, files or text you submit, or the events the AI finds. It stores:</p>
+<ul>
+<li>Your email address and account identifier (Supabase Auth).</li>
+<li>For each recognized page: time, status, AI model, token usage, cost, response time and number of events found — to track costs and reliability.</li>
+<li>Monthly usage counts linked to one-way hashes of your email, account and device identifiers — to enforce the free allowance. These contain no content and are kept after you delete your account, so the allowance cannot be reset by re-registering.</li>
+<li>Your page-credit balance and purchase records, once purchases are available.</li>
+<li>The review numbers described above.</li>
+</ul>
+
+<h2>5. Service providers</h2>
+<table>
+<tr><th>Provider</th><th>What for</th><th>Where</th></tr>
+<tr><td>Anthropic (Claude API)</td><td>Reading dates and events from your pages or text. Anthropic processes this content to provide the service under its commercial terms, which do not allow it to train models on it; it may keep it for a limited period for safety review as described in its policies.</td><td>United States</td></tr>
+<tr><td>Supabase</td><td>Our server, database and sign-in</td><td>United States</td></tr>
+<tr><td>Resend</td><td>Sending sign-in codes</td><td>United States</td></tr>
+<tr><td>Apple, RevenueCat</td><td>In-app purchases (when available)</td><td>United States</td></tr>
+</table>
+<p>We do not sell your information, show ads, or use analytics or tracking SDKs.</p>
+
+<h2>6. Your choices</h2>
+<ul>
+<li><strong>Delete your account</strong> anytime in the App: Settings → Delete account. This deletes your sign-in account, recognition records and credits. It does not delete events in your Calendar or the App’s history on your phone.</li>
+<li>Turn off saving scans to Photos in Settings, and manage Calendar, Reminders, Camera and Photos permissions in iOS Settings.</li>
+<li>Email <a href="mailto:support@goodsvalu.com">support@goodsvalu.com</a> to ask what we hold about you or to request deletion.</li>
+</ul>
+
+<h2>7. Children</h2>
+<p>CalendarScan is intended for parents and other adults. It is not directed to children under 13, and we do not knowingly collect information from them.</p>
+
+<h2>8. Changes</h2>
+<p>If we change this policy, we will update the date above and, for significant changes, tell you in the App.</p>
+
+<footer>CalendarScan is made by Goodsvalu Inc. · <a href="mailto:support@goodsvalu.com">support@goodsvalu.com</a></footer>
+</main>
+</body>
+</html>
