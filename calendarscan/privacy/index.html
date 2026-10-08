@@ -22,20 +22,20 @@ a{color:var(--accent)}li{margin:4px 0}footer{margin-top:40px;color:var(--muted);
 <main>
 <nav><a href="/calendarscan/">CalendarScan</a><a href="/calendarscan/privacy/">Privacy</a><a href="/calendarscan/terms/">Terms</a><a href="/calendarscan/support/">Support</a></nav>
 <h1>Privacy Policy</h1>
-<p class="meta">CalendarScan · Last updated: 30 September 2026</p>
-<p class="summary"><strong>In short:</strong> photos, files and text you choose to scan are sent to our server only to find dates and events, are passed to our AI provider for that purpose, and are not stored by us. The events you confirm are written to your iPhone Calendar and Reminders — we never upload your calendars. There are no ads and no tracking.</p>
+<p class="meta">CalendarScan · Last updated: 8 October 2026</p>
+<p class="summary"><strong>In short:</strong> photos, files and text you choose to scan are sent to our server only to find dates and events, are passed to our AI provider for that purpose, and are not stored by us. The events you confirm are written to the calendar on your phone (and, on iPhone, to Reminders) — we never upload your calendars. There are no ads and no tracking.</p>
 
 <h2>1. Who we are</h2>
-<p>CalendarScan (“the App”) is developed and operated by Goodsvalu Inc. (“we”, “us”). For any privacy question, contact <a href="mailto:support@goodsvalu.com">support@goodsvalu.com</a>.</p>
+<p>CalendarScan (“the App”), for iPhone and Android, is developed and operated by Goodsvalu Inc. (“we”, “us”). For any privacy question, contact <a href="mailto:support@goodsvalu.com">support@goodsvalu.com</a>.</p>
 
-<h2>2. What stays on your iPhone</h2>
+<h2>2. What stays on your phone</h2>
 <ul>
-<li>The events and reminders you add, which the App writes to the iPhone Calendar and Reminders apps. The App reads your list of calendars and reminder lists, and events in the relevant dates, only to let you choose where to add, to warn about duplicates, and to undo an import.</li>
+<li>The events and reminders you add. On iPhone, the App writes them to the Calendar and Reminders apps. On Android, it writes them to the phone’s calendar (including calendars in your Google account, if you choose one); deadlines are added as calendar events marked ☐. The App reads your list of calendars and reminder lists, and events in the relevant dates, only to let you choose where to add, to warn about duplicates, and to undo an import.</li>
 <li>Your import history (so you can export, undo, re-add or compare a revised calendar), an unfinished review, the names and colors of children you add, and your settings.</li>
 <li>Items you share into the App from other apps, until you recognize or discard them.</li>
-<li>If you turn it on, a copy of pages you scan with the camera is saved to your Photos library. The App asks only for permission to add photos, not to read them.</li>
+<li>If you turn it on, a copy of pages you scan with the camera is saved to your photos (on iPhone, the Photos library; on Android, the Pictures/CalendarScan folder). The App never reads your photo library: on iPhone it asks only for permission to add photos, and on Android it needs no photo permission. Photos you pick to scan are chosen in the system photo picker, which shares only the photos you select.</li>
 </ul>
-<p>Deleting the App deletes this information from the App. Events already added to your Calendar and Reminders stay there until you delete them.</p>
+<p>Deleting the App deletes this information from the App. Events already added to your calendar (and Reminders) stay there until you delete them.</p>
 
 <h2>3. What is sent, and when</h2>
 <table>
@@ -45,7 +45,7 @@ a{color:var(--accent)}li{margin:4px 0}footer{margin-top:40px;color:var(--muted);
 <tr><td>Sign in</td><td>Your email address, to send you a one-time sign-in code</td><td>Our server and our email provider</td></tr>
 <tr><td>Open the home screen or Settings while signed in</td><td>A request for your remaining monthly allowance, with your account and device identifiers</td><td>Our server</td></tr>
 <tr><td>Add events after reviewing</td><td>Numbers only — how many items the AI found, how many you deleted, unchecked, edited or added, and the cost of the recognition. Never titles, dates or other content.</td><td>Our server</td></tr>
-<tr><td>Buy page credits (when available)</td><td>Your account identifier and the purchase. Payment is handled by Apple.</td><td>Apple and our purchase provider</td></tr>
+<tr><td>Buy page credits (when available)</td><td>Your account identifier and the purchase. Payment is handled by Apple (App Store) or Google (Google Play).</td><td>Apple or Google, and our purchase provider</td></tr>
 </table>
 <p>The device identifier is a random value created by the App. Our server turns it into a one-way hash and uses it, together with your account and email, only to keep the free monthly allowance from being claimed again by creating new accounts. It is not sent to our AI provider or used for advertising.</p>
 
@@ -56,6 +56,7 @@ a{color:var(--accent)}li{margin:4px 0}footer{margin-top:40px;color:var(--muted);
 <li>For each recognized page: time, status, AI model, token usage, cost, response time and number of events found — to track costs and reliability.</li>
 <li>Monthly usage counts linked to one-way hashes of your email, account and device identifiers — to enforce the free allowance. These contain no content and are kept after you delete your account, so the allowance cannot be reset by re-registering.</li>
 <li>Your page-credit balance and purchase records, once purchases are available.</li>
+<li>The store transaction IDs of purchases that have already been credited, without your account or email — so one purchase is never credited twice. These are kept after you delete your account.</li>
 <li>The review numbers described above.</li>
 </ul>
 
@@ -65,14 +66,14 @@ a{color:var(--accent)}li{margin:4px 0}footer{margin-top:40px;color:var(--muted);
 <tr><td>Anthropic (Claude API)</td><td>Reading dates and events from your pages or text. Anthropic processes this content to provide the service under its commercial terms, which do not allow it to train models on it; it may keep it for a limited period for safety review as described in its policies.</td><td>United States</td></tr>
 <tr><td>Supabase</td><td>Our server, database and sign-in</td><td>United States</td></tr>
 <tr><td>Resend</td><td>Sending sign-in codes</td><td>United States</td></tr>
-<tr><td>Apple, RevenueCat</td><td>In-app purchases. If you request a refund of a credit pack, we tell Apple how many pages of that pack you used and our suggested outcome; nothing else about your account or content is shared.</td><td>United States</td></tr>
+<tr><td>Apple, Google, RevenueCat</td><td>In-app purchases. If you request a refund from Apple of a credit pack, we tell Apple how many pages of that pack you used and our suggested outcome; nothing else about your account or content is shared.</td><td>United States</td></tr>
 </table>
 <p>We do not sell your information, show ads, or use analytics or tracking SDKs.</p>
 
 <h2>6. Your choices</h2>
 <ul>
-<li><strong>Delete your account</strong> anytime in the App: Settings → Delete account. This deletes your sign-in account, recognition records and credits. It does not delete events in your Calendar or the App’s history on your phone.</li>
-<li>Turn off saving scans to Photos in Settings, and manage Calendar, Reminders, Camera and Photos permissions in iOS Settings.</li>
+<li><strong>Delete your account</strong> anytime in the App: Settings → Delete Account. This deletes your sign-in account, recognition records and credits. It does not delete events in your calendar or the App’s history on your phone. If you no longer have the App, see <a href="/calendarscan/support/#delete-account">how to request deletion by email</a>.</li>
+<li>Turn off saving scans to photos in the App’s Settings. Manage permissions in iOS Settings → CalendarScan, or on Android in Settings → Apps → CalendarScan → Permissions.</li>
 <li>Email <a href="mailto:support@goodsvalu.com">support@goodsvalu.com</a> to ask what we hold about you or to request deletion.</li>
 </ul>
 
