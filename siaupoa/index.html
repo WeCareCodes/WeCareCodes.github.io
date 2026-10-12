@@ -265,9 +265,10 @@ body { margin: 0; background: var(--color-bg); color: var(--color-text); }
 <div style="min-height:100vh;display:flex;flex-direction:column;font-family:var(--font-body)">
 
   <div style="height:24px"></div>
-  <nav class="nav" style="display:flex;align-items:center;justify-content:center;padding:var(--space-4) var(--space-6);border-bottom:2px solid var(--color-divider);position:sticky;top:0;background:var(--color-bg);z-index:10">
-    
-    <div style="display:flex;gap:var(--space-6);align-items:center">
+  <nav class="nav" style="display:flex;align-items:center;flex-wrap:wrap;justify-content:space-between;row-gap:var(--space-2);padding:var(--space-4) var(--space-6);border-bottom:2px solid var(--color-divider);position:sticky;top:0;background:var(--color-bg);z-index:10">
+    <!-- 回到 goodsvalu.com 首頁，看其他 App -->
+    <a href="/" class="nav-brand" style="color:var(--color-text)">Goodsvalu</a>
+    <div style="display:flex;flex-wrap:wrap;gap:var(--space-6);align-items:center">
       <a href="./" style="color:var(--color-text);font-weight:600">Home</a>
       <a href="#features" style="color:var(--color-text);font-weight:600">Features</a>
       <a href="#pricing" style="color:var(--color-text);font-weight:600">Pricing</a>
