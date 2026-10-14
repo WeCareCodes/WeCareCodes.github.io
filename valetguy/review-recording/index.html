@@ -45,11 +45,11 @@ code{font:14px ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--blue
 <h1>App Review 錄影腳本（逐步）</h1>
 <p>Apple Guideline 2.1 要求：<b>實機、最新 iOS、從點 App 圖示開始</b>，錄到一般使用流程，以及<b>登入、建立帳號、刪除帳號、訂閱畫面</b>（方案名稱、期間、價格、使用條款與隱私權政策連結）。錄好的影片附在 App Review 的回覆裡（Notes 第 1 題）。</p>
 <ul>
-<li>帳號：錄影帳號（錄影專用，用 Email 驗證碼登入；錄完在 App 裡刪除帳號）。
+<li>帳號：錄影帳號（公司信箱，用 Email 驗證碼登入；錄完在 App 裡刪除帳號）。它在免費試用的例外名單裡（<code>private.trial_exempt_emails()</code>，migration 0087），同一支手機重錄也有 7 天專業版試用。
 </li>
-<li>驗證碼收件匣：（見內部文件）
+<li>驗證碼：寄到上面那個信箱，用 iPhone 的「郵件」App 收。
 </li>
-<li>版本：從 TestFlight 安裝送審的 build（目前 <b>Build 6</b>）。
+<li>版本：從 TestFlight 安裝送審的 build（目前 <b>Build 7</b>）。
 </li>
 <li>長度：約 5–7 分鐘，不用剪輯；中間停頓沒關係。按鈕名稱是英文介面（括號是中文）。
 </li></ul>
@@ -61,9 +61,9 @@ code{font:14px ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--blue
 </li>
 <li><b>勿擾模式</b>打開，避免通知跳出來。
 </li>
-<li>確認 錄影帳號 目前<b>不屬於任何組織</b>（第一次用就是）。
+<li>確認 錄影帳號 目前<b>不屬於任何組織</b>。如果已經在組織裡，先用它登入，在「設定 › 刪除帳號」刪除（會一併刪除那個組織和資料），再登出。
 </li>
-<li>Safari 先開好 收件匣分頁（上面的網址），方便切過去拿驗證碼。
+<li>「郵件」App 先登入 錄影帳號，方便切過去拿驗證碼。
 </li>
 <li>ValetGuy 如果已登入別的帳號，先登出（左上角名稱 › Settings › Sign out），回到登入畫面。然後<b>把 App 從背景關掉</b>，讓錄影從啟動開始。
 </li>
@@ -77,7 +77,7 @@ code{font:14px ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--blue
 </li>
 <li>在 <b>Work email</b> 輸入 錄影帳號 → <b>Send code</b>（寄送驗證碼）。
 </li>
-<li>切到 Safari 的 收件匣分頁 → 重新整理 → 打開最新一封 → 看驗證碼。
+<li>切到「郵件」App → 打開最新一封 → 看驗證碼。
 </li>
 <li>切回 ValetGuy → 輸入驗證碼 → 登入。
 </li></ol>
@@ -189,7 +189,7 @@ code{font:14px ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--blue
 </li></ul>
 <h2>常見狀況</h2>
 <ul>
-<li><b>收不到驗證碼</b>：收件匣重新整理；或按 App 裡的「重新寄送」。驗證碼是最新那封。
+<li><b>收不到驗證碼</b>：看垃圾郵件匣；或按 App 裡的「重新寄送」。驗證碼是最新那封。
 </li>
 <li><b>車主頁面打不開</b>：確認是 TestFlight 版，而且有網路；連結是 <code><a href="https://valet.goodsvalu.com/t/#…">https://valet.goodsvalu.com/t/#…</a></code>。
 </li>
