@@ -40,9 +40,13 @@ h2{font-size:clamp(28px,3.6vw,40px);font-weight:800;margin-bottom:14px}
 h3{font-size:19px;font-weight:700;margin-bottom:6px}
 .lead{font-size:clamp(17px,1.6vw,20px);color:var(--muted);max-width:620px;margin:18px 0 0}
 .sub{color:var(--muted);max-width:680px;margin:0}
-/* hero */
-.hero{padding:72px 0 88px;background:linear-gradient(180deg,#fff 0%,var(--bg) 100%)}
+/* hero: brand gradient, as the App Store header artwork (Docs/app-store/screenshots/header-16x9.png) */
+.hero{padding:72px 0 96px;color:#fff;background:radial-gradient(900px 600px at 82% 28%,rgba(255,138,0,.26),transparent 60%),radial-gradient(1000px 700px at 12% 90%,rgba(30,107,255,.55),transparent 60%),linear-gradient(135deg,#1450D8 0%,#0F3FA8 45%,#0B1220 100%)}
 .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.hero .eyebrow{color:#BFD3FF}
+.hero h1,.hero .slogan{color:#fff}.slogan em{font-style:normal;color:#FFB04D;white-space:nowrap}
+.hero .lead{color:#DCE6FF}.hero .fine{color:#C4CCDB}
+.hero .title svg{box-shadow:0 18px 36px -14px rgba(0,0,0,.5)}
 .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px;align-items:center}
 .btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:12px 22px;border-radius:14px;font-weight:700;text-decoration:none;font-size:16px}
 .btn-primary{background:var(--blue-deep);color:#fff}.btn-primary:hover{background:var(--blue-ink);color:#fff}
@@ -52,26 +56,13 @@ h3{font-size:19px;font-weight:700;margin-bottom:6px}
 .fine{font-size:14px;color:var(--muted);margin-top:14px}
 .for{display:flex;gap:8px;flex-wrap:wrap;margin-top:28px}
 .chip{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-size:14px;font-weight:600;color:var(--ink)}
-/* hero visual: the team board and the owner's ticket */
-.visual{position:relative;min-height:520px}
-.phone{position:absolute;left:0;top:0;width:272px;border-radius:40px;background:var(--navy);padding:12px;box-shadow:0 30px 60px -20px rgba(14,22,38,.35)}
-.screen{background:#F3F6FB;border-radius:30px;padding:22px 14px 18px;min-height:500px}
-.screen-title{display:flex;justify-content:space-between;align-items:baseline;font-weight:800;font-size:20px;margin:0 4px 12px}
-.screen-title span{font-size:12px;font-weight:600;color:var(--muted)}
-.row{display:flex;align-items:center;gap:10px;background:#fff;border-radius:14px;padding:10px 12px;margin-bottom:8px;border:1px solid var(--line)}
-.row b{font-size:15px;letter-spacing:.02em}.row .m{font-size:12px;color:var(--muted);line-height:1.3}
-.row .st{margin-left:auto;font-size:11px;font-weight:700;padding:4px 8px;border-radius:999px;white-space:nowrap}
-.st-in{background:#EEF1F6;color:#3B4558}.st-park{background:var(--blue-soft);color:var(--blue-ink)}.st-req{background:var(--orange);color:#2B1500}.st-ret{background:var(--orange-soft);color:var(--orange-ink)}.st-ready{background:#E3F6EA;color:#135C2E}
-.row.req{border-color:var(--orange);box-shadow:0 0 0 2px rgba(255,138,0,.18)}
-.ticket{position:absolute;right:0;bottom:-24px;width:200px;background:#fff;border-radius:22px;padding:18px;border:1px solid var(--line);box-shadow:0 24px 50px -18px rgba(14,22,38,.3)}
-.ticket .k{font-size:12px;color:var(--muted);font-weight:600}.ticket .no{font-size:24px;font-weight:800;margin:2px 0 12px}
-.qr{width:80px;height:80px;border-radius:10px;background:
-linear-gradient(90deg,var(--navy) 50%,transparent 0) 0 0/16px 16px,
-linear-gradient(var(--navy) 50%,transparent 0) 0 0/16px 16px;opacity:.9;position:relative;margin-bottom:14px}
-.qr::before,.qr::after{content:"";position:absolute;width:30px;height:30px;border:6px solid var(--navy);background:#fff;border-radius:6px;box-shadow:inset 0 0 0 5px #fff,inset 0 0 0 20px var(--navy)}
-.qr::before{left:0;top:0}.qr::after{right:0;bottom:0}
-.req-btn{display:block;text-align:center;background:var(--orange);color:#2B1500;font-weight:800;border-radius:12px;padding:12px}
-.steps-mini{display:flex;gap:4px;margin:0 0 14px}.steps-mini i{flex:1;height:5px;border-radius:3px;background:var(--line)}.steps-mini i.on{background:var(--blue)}
+.hero .chip{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.24);color:#fff}
+/* hero visual: two real screens (board, issued ticket), tilted */
+.shots{position:relative;height:560px}
+.shot{position:absolute;width:250px;border-radius:44px;background:var(--navy);padding:10px;box-shadow:0 40px 80px -30px rgba(0,0,0,.65)}
+.shot img{display:block;width:100%;height:auto;border-radius:35px}
+.shot.s1{left:6%;top:0;transform:rotate(-5deg)}
+.shot.s2{right:4%;top:44px;transform:rotate(6deg)}
 /* flow */
 .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px;counter-reset:s}
 .step{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px}
@@ -121,15 +112,15 @@ details p{margin:0 0 18px;color:var(--muted)}
 .closing .btn-ghost{margin-left:auto;flex:none}
 @media (max-width:960px){
 .hero-grid,.regions{grid-template-columns:1fr}
-.visual{min-height:560px;max-width:440px}
+.shots{max-width:560px;margin:0 auto;width:100%}
 .flow,.priv{grid-template-columns:1fr 1fr}
 .grid3{grid-template-columns:1fr 1fr}
 }
 @media (max-width:640px){
 section{padding:56px 0}.hero{padding:40px 0 56px}
 .flow,.priv,.grid3,.plans{grid-template-columns:1fr}
-.visual{min-height:auto;display:flex;flex-direction:column;gap:16px}
-.phone,.ticket{position:static;width:100%;max-width:340px}
+.shots{height:400px}.shot{width:170px;border-radius:30px;padding:7px}.shot img{border-radius:24px}
+.shot.s1{left:2%}.shot.s2{right:2%;top:30px}
 .closing{padding:32px 24px}.closing .btn-ghost{margin-left:0}
 .title{gap:14px}.title svg{width:64px;height:64px;border-radius:15px}
 .topnav{margin-left:0;width:100%}
@@ -149,7 +140,7 @@ section{padding:56px 0}.hero{padding:40px 0 56px}
 <div>
 <p class="eyebrow">Valet parking software</p>
 <div class="title"><svg role="img" aria-label="ValetGuy app icon" width="84" height="84" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><rect width="1024" height="1024" rx="225" fill="#1E6BFF"/><g transform="rotate(-8 512 512)"><rect x="302" y="170" width="420" height="704" rx="64" fill="#FFFFFF"/><circle cx="512" cy="262" r="36" fill="#1E6BFF"/><circle cx="302" cy="594" r="24" fill="#1E6BFF"/><circle cx="722" cy="594" r="24" fill="#1E6BFF"/><line x1="350" y1="594" x2="674" y2="594" stroke="#1E6BFF" stroke-width="12" stroke-linecap="round" stroke-dasharray="22 26"/><g transform="translate(512 440) scale(0.78)"><path d="M-104 -17 L-72 -107 Q-66 -123 -48 -123 H48 Q66 -123 72 -107 L104 -17 Z" fill="#1E6BFF"/><rect x="-134" y="73" width="56" height="50" rx="16" fill="#1E6BFF"/><rect x="78" y="73" width="56" height="50" rx="16" fill="#1E6BFF"/><rect x="-150" y="-27" width="300" height="120" rx="44" fill="#1E6BFF"/><path d="M-80 -27 L-56 -91 Q-53 -99 -44 -99 H44 Q53 -99 56 -91 L80 -27 Z" fill="#FFFFFF"/><circle cx="-100" cy="23" r="22" fill="#FFFFFF"/><circle cx="100" cy="23" r="22" fill="#FFFFFF"/><rect x="-40" y="40" width="80" height="18" rx="9" fill="#FFFFFF"/></g><rect x="352" y="650" width="150" height="150" rx="22" fill="#1E6BFF"/><rect x="378" y="676" width="98" height="98" rx="12" fill="#FFFFFF"/><rect x="401" y="699" width="52" height="52" rx="8" fill="#1E6BFF"/><rect x="536" y="650" width="46" height="46" rx="8" fill="#1E6BFF"/><rect x="626" y="650" width="46" height="46" rx="8" fill="#1E6BFF"/><rect x="581" y="704" width="46" height="46" rx="8" fill="#1E6BFF"/><rect x="536" y="754" width="46" height="46" rx="8" fill="#1E6BFF"/><rect x="626" y="754" width="46" height="46" rx="8" fill="#1E6BFF"/><path d="M512 262 C 516 160, 610 112, 716 128" fill="none" stroke="#FF8A00" stroke-width="26" stroke-linecap="round"/></g></svg><h1>ValetGuy</h1></div>
-<p class="slogan">Run your valet stand from one app.</p>
+<p class="slogan">Run your valet stand from <em>one app</em>.</p>
 <p class="lead">Digital QR tickets, a live board for the whole team, key hooks and parking spots, staff shifts and attendance. Car owners request their car from their own phone — no paper stubs, no shouting across the lobby.</p>
 <div class="cta"><span class="soon"><svg aria-hidden="true" width="28" height="28" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><rect width="1024" height="1024" rx="225" fill="#1E6BFF"/><g transform="rotate(-8 512 512)"><rect x="302" y="170" width="420" height="704" rx="64" fill="#FFFFFF"/><circle cx="512" cy="262" r="36" fill="#1E6BFF"/><circle cx="302" cy="594" r="24" fill="#1E6BFF"/><circle cx="722" cy="594" r="24" fill="#1E6BFF"/><line x1="350" y1="594" x2="674" y2="594" stroke="#1E6BFF" stroke-width="12" stroke-linecap="round" stroke-dasharray="22 26"/><g transform="translate(512 440) scale(0.78)"><path d="M-104 -17 L-72 -107 Q-66 -123 -48 -123 H48 Q66 -123 72 -107 L104 -17 Z" fill="#1E6BFF"/><rect x="-134" y="73" width="56" height="50" rx="16" fill="#1E6BFF"/><rect x="78" y="73" width="56" height="50" rx="16" fill="#1E6BFF"/><rect x="-150" y="-27" width="300" height="120" rx="44" fill="#1E6BFF"/><path d="M-80 -27 L-56 -91 Q-53 -99 -44 -99 H44 Q53 -99 56 -91 L80 -27 Z" fill="#FFFFFF"/><circle cx="-100" cy="23" r="22" fill="#FFFFFF"/><circle cx="100" cy="23" r="22" fill="#FFFFFF"/><rect x="-40" y="40" width="80" height="18" rx="9" fill="#FFFFFF"/></g><rect x="352" y="650" width="150" height="150" rx="22" fill="#1E6BFF"/><rect x="378" y="676" width="98" height="98" rx="12" fill="#FFFFFF"/><rect x="401" y="699" width="52" height="52" rx="8" fill="#1E6BFF"/><rect x="536" y="650" width="46" height="46" rx="8" fill="#1E6BFF"/><rect x="626" y="650" width="46" height="46" rx="8" fill="#1E6BFF"/><rect x="581" y="704" width="46" height="46" rx="8" fill="#1E6BFF"/><rect x="536" y="754" width="46" height="46" rx="8" fill="#1E6BFF"/><rect x="626" y="754" width="46" height="46" rx="8" fill="#1E6BFF"/><path d="M512 262 C 516 160, 610 112, 716 128" fill="none" stroke="#FF8A00" stroke-width="26" stroke-linecap="round"/></g></svg><span><small>For iPhone and iPad</small>Coming soon to the App Store</span></span><a class="btn btn-ghost" href="#how">See how it works</a></div>
 <p class="fine">New organizations get a 7-day Pro trial (once per phone and email). Or try it offline on one device, with a built-in demo of a busy stand.</p>
@@ -157,24 +148,9 @@ section{padding:56px 0}.hero{padding:40px 0 56px}
 <span class="chip">Hotels</span><span class="chip">Restaurants</span><span class="chip">Hospitals</span>
 </div>
 </div>
-<div class="visual" aria-label="Illustration: the team board in the app, and a car owner's ticket page with a Request my car button" role="img">
-<div class="phone" aria-hidden="true"><div class="screen">
-<div class="screen-title">Board <span>Lobby stand</span></div>
-<div class="row req"><div><b>ABC 1234</b><div class="m">Black sedan · Spot B12 · Hook 7</div></div><span class="st st-req">Requested</span></div>
-<div class="row"><div><b>KLM 5521</b><div class="m">White SUV · Retrieving</div></div><span class="st st-ret">Retrieving</span></div>
-<div class="row"><div><b>XYZ 9087</b><div class="m">Silver hatchback · Spot A03</div></div><span class="st st-park">Parked</span></div>
-<div class="row"><div><b>QRS 3310</b><div class="m">Blue coupe · Spot A07</div></div><span class="st st-park">Parked</span></div>
-<div class="row"><div><b>DEF 7742</b><div class="m">Red pickup · At the curb</div></div><span class="st st-ready">Ready</span></div>
-<div class="row"><div><b>GHJ 2058</b><div class="m">Gray minivan · Photos</div></div><span class="st st-in">Checking in</span></div>
-</div></div>
-<div class="ticket" aria-hidden="true">
-<div class="k">Your valet ticket</div>
-<div class="no">#0142</div>
-<div class="qr"></div>
-<div class="steps-mini"><i class="on"></i><i class="on"></i><i></i><i></i></div>
-<div class="k" style="margin-bottom:12px">Parked · Lobby stand</div>
-<span class="req-btn">Request my car</span>
-</div>
+<div class="shots" role="img" aria-label="ValetGuy on iPhone: the team board, and a ticket with its QR code for the car owner">
+<div class="shot s1"><img src="/valetguy/img/board.jpg" alt="" width="600" height="1304"></div>
+<div class="shot s2"><img src="/valetguy/img/ticket.jpg" alt="" width="600" height="1304"></div>
 </div>
 </div>
 </section>
