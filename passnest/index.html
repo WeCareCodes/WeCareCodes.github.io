@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PassNest — 離線密碼管理器 / Offline password manager</title>
+<meta name="description" content="PassNest keeps your passwords, notes and two-factor codes encrypted on your own computer. No account, no cloud, no network connection. Windows and Mac.">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" href="/passnest/app-icon.png">
+<link rel="stylesheet" href="/passnest/passnest.css">
+</head>
+<body>
+<!-- 中英切換：與首頁相同的 radio＋CSS。網址 #en／#zh 開頭時照網址，否則依瀏覽器語言 -->
+<input class="lang-radio" type="radio" name="lang" id="lang-zh" checked aria-label="中文">
+<input class="lang-radio" type="radio" name="lang" id="lang-en" aria-label="English">
+<script>(function(){try{var h=location.hash,l=(navigator.language||"").toLowerCase();if(h.indexOf("#en")===0||(h.indexOf("#zh")!==0&&l&&l.indexOf("zh")!==0)){document.getElementById("lang-en").checked=true;document.documentElement.lang="en"}}catch(e){}})();</script>
+
+<div class="lang lang-zh" lang="zh-Hant">
+<header class="top"><div class="wrap bar">
+<a class="logo" href="/" aria-label="Goodsvalu 首頁"><span class="wm"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#7CC73F"/><path d="M9.5 23.2 L12.6 21.5 L20 25.6 L27.4 21.5 L30.5 23.2 L20 29 Z" fill="#FFFFFF" fill-opacity="0.8"/><path d="M9.5 18.6 L12.6 16.9 L20 21 L27.4 16.9 L30.5 18.6 L20 24.4 Z" fill="#FFFFFF" fill-opacity="0.9"/><path d="M20 8.5 L30.5 14.2 L20 19.9 L9.5 14.2 Z" fill="#FFFFFF"/></svg><span><span class="wm-goods">goods</span><span class="wm-valu">valu</span></span></span></a>
+<nav aria-label="主要導覽" class="nav">
+<a href="/#zh-apps">自有產品</a><a href="/passnest/#zh" aria-current="page">PassNest</a><a href="/passnest/support/#zh">客服支援</a>
+<div class="seg" role="group" aria-label="語言"><label for="lang-zh" class="seg-zh">中文</label><label for="lang-en" class="seg-en">EN</label></div>
+</nav></div></header>
+
+<main>
+<section class="hero"><div class="wrap hero-in">
+<div class="hero-text">
+<div class="hero-app"><img src="/passnest/app-icon.png" alt="PassNest 圖示" width="56" height="56"><div><b>PassNest</b><div class="kicker">離線密碼管理器</div></div></div>
+<h1>你的密碼，只在你的電腦裡。</h1>
+<p class="hero-body">PassNest 把密碼加密存放在你的電腦上，從不連網。我們沒有伺服器，也不需要你註冊帳號，所以我們也看不到你的任何資料。</p>
+<!-- 上架後：Microsoft Store 換成官方徽章連結，Mac 換成 GitHub Release 的 DMG 下載連結 -->
+<div class="ctas">
+<span class="soon-pill"><b>Microsoft Store</b>即將上架</span>
+<span class="soon-pill"><b>Mac 版</b>即將推出</span>
+</div>
+<p class="fine">免費下載・Windows 10／11 與 macOS</p>
+</div>
+<div class="shot" role="img" aria-label="PassNest 介面示意">
+<div class="shot-bar"><i></i><i></i><i></i></div>
+<div class="shot-body">
+<div class="glass"><span class="ln g w70"></span><span class="ln w85"></span><span class="ln w60"></span><span class="ln w75"></span><span class="ln w50"></span></div>
+<div class="glass"><div class="it"><i></i><span class="ln"></span></div><div class="it"><i></i><span class="ln"></span></div><div class="it"><i></i><span class="ln"></span></div><div class="it"><i></i><span class="ln"></span></div><div class="it"><i></i><span class="ln"></span></div></div>
+<div class="glass"><span class="ln t w55"></span><span class="ln w90"></span><span class="ln w80"></span><span class="ln g w40"></span><span class="ln w70"></span></div>
+</div>
+</div>
+</div></section>
+
+<section class="sec" id="zh-why"><div class="wrap">
+<div class="kicker">01 · WHY OFFLINE</div>
+<h2>為什麼離線</h2>
+<p class="lead">多數密碼管理器會把你的密碼庫同步到雲端。PassNest 選擇不這麼做，這有好處，也有代價。</p>
+<div class="sec-body two">
+<div class="card"><h3>這代表</h3><ul class="plain">
+<li><b>沒有伺服器可以被入侵</b>你的密碼庫只在你的電腦上，不會因為某家公司的伺服器出事而外洩。</li>
+<li><b>沒有帳號可以被盜</b>不需要註冊，也就沒有帳號被釣魚或被撞庫的問題。</li>
+<li><b>不依賴網路</b>斷網、出國或在飛機上，密碼庫照樣能打開。</li>
+</ul></div>
+<div class="card"><h3>代價，先說清楚</h3><ul class="plain">
+<li><b>忘記主密碼就無法找回</b>我們沒有你的金鑰，也沒有「重設密碼」可以按。</li>
+<li><b>裝置之間要自己搬移</b>沒有雲端同步。換電腦或在兩台電腦上使用，要用加密備份檔自己移動。</li>
+<li><b>備份由你負責</b>建議開啟排程自動匯出，並把備份檔另外存放一份。</li>
+</ul></div>
+</div>
+</div></section>
+
+<section class="sec alt" id="zh-features"><div class="wrap">
+<div class="kicker">02 · FEATURES</div>
+<h2>功能</h2>
+<div class="sec-body feats">
+<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4C7A1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div><h3>帳號密碼與安全筆記</h3><p>網站登入、Wi-Fi 密碼、軟體序號，或任何需要保密的文字。</p></div>
+<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4C7A1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2"/><path d="M10 2h4"/></svg></div><h3>雙重驗證碼（TOTP）</h3><p>在 PassNest 裡產生一次性驗證碼，可直接掃描 QR 碼圖片設定。</p></div>
+<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4C7A1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg></div><h3>密碼健康檢查</h3><p>找出弱密碼與重複使用的密碼，所有計算都在本機完成。</p></div>
+<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4C7A1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/></svg></div><h3>多個密碼庫</h3><p>工作、家庭等不同用途的資料，分開存放。</p></div>
+<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4C7A1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4V3h6v1"/><path d="m10 13 4 4m0-4-4 4"/></svg></div><h3>剪貼簿自動清除</h3><p>複製的密碼會自動清除，也不會進入剪貼簿歷程記錄或雲端剪貼簿。</p></div>
+<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4C7A1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg></div><h3>自動鎖定</h3><p>閒置一段時間或電腦進入睡眠時，PassNest 會自動上鎖。</p></div>
+<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4C7A1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 19h16"/></svg></div><h3>加密備份</h3><p>匯出加密的 <code>.passnest</code> 備份檔，也可以排程自動匯出。</p></div>
+<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4C7A1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16"/></svg></div><h3>CSV／Excel 匯入匯出</h3><p>從其他密碼管理器搬過來，不必一筆一筆重打。</p></div>
+</div>
+</div></section>
+
+<section class="sec tint" id="zh-encryption"><div class="wrap">
+<div class="kicker">03 · ENCRYPTION</div>
+<h2>加密方式</h2>
+<p class="lead">給在意技術細節的人。以下是 PassNest 保護你資料的方式。</p>
+<div class="sec-body"><details class="tech" open>
+<summary>技術細節</summary>
+<dl>
+<dt>金鑰衍生</dt><dd>主密碼經 Argon2id 衍生出加密金鑰。參數：記憶體 ≥ 64 MB、迭代 ≥ 3、平行度 ≥ 4。</dd>
+<dt>資料加密</dt><dd>每一筆資料都以 AES-256-GCM 加密，每次加密都使用新的隨機 96-bit nonce。</dd>
+<dt>記憶體處理</dt><dd>金鑰與敏感資料用完後立即從記憶體清除。</dd>
+<dt>只解密需要的</dt><dd>介面只解密你正在看的那一筆，其餘資料維持加密。</dd>
+</dl>
+</details></div>
+</div></section>
+
+<section class="sec" id="zh-platforms"><div class="wrap">
+<div class="kicker">04 · PLATFORMS</div>
+<h2>支援平台</h2>
+<ul class="sec-body plat">
+<li><div><b>Windows 10（1903 版起）與 Windows 11</b><p>透過 Microsoft Store 安裝與更新。</p></div><span class="tag">Microsoft Store</span></li>
+<li><div><b>macOS</b><p>支援 Apple Silicon 與 Intel，已簽章並經 Apple 公證。</p></div><span class="tag">官網下載</span></li>
+<li><div><b>Android 唯讀檢視版</b><p>在手機上查看你的 <code>.passnest</code> 備份檔。</p></div><span class="tag soon">開發中</span></li>
+</ul>
+</div></section>
+
+<section class="sec alt" id="zh-pricing"><div class="wrap">
+<div class="kicker">05 · PRICING</div>
+<h2>價格</h2>
+<div class="sec-body price">
+<div class="card"><h3>免費版</h3><div class="amt">免費</div><p>下載後即可使用，不需要帳號。</p></div>
+<div class="card"><h3>Pro 授權 <span class="tag soon">即將推出</span></h3><p>買斷制，在官網購買。授權檔在你的電腦上離線驗證。價格與 Pro 功能會在開賣時公布。</p></div>
+</div>
+</div></section>
+
+<section class="sec" id="zh-faq"><div class="wrap">
+<div class="kicker">06 · FAQ</div>
+<h2>常見問題</h2>
+<div class="sec-body faq">
+<details open><summary>忘記主密碼怎麼辦？</summary><p>無法找回。我們沒有你的主密碼，也沒有任何方式能重設它。請妥善保管主密碼，並定期匯出備份。</p></details>
+<details><summary>怎麼搬到新電腦？</summary><p>在舊電腦匯出 <code>.passnest</code> 備份檔，複製到新電腦後，在 PassNest 裡匯入即可。</p></details>
+<details><summary>解除安裝會刪掉密碼庫嗎？</summary><p>不會。密碼庫留在你電腦上的 PassNest 資料夾，解除安裝不會刪除它。</p></details>
+<details><summary>為什麼沒有雲端同步？</summary><p>離線是 PassNest 的設計原則。同步需要伺服器與帳號，也就多了可以被攻擊的地方。需要在兩台電腦間使用時，請用加密備份檔搬移。</p></details>
+<details><summary>你們看得到我的密碼嗎？</summary><p>看不到。PassNest 不連網，我們也沒有任何伺服器接收你的資料。</p></details>
+</div>
+</div></section>
+</main>
+
+<footer class="foot"><div class="wrap foot-in"><div class="foot-brand"><span aria-label="Goodsvalu"><span class="wm wm-sm"><svg width="26" height="26" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#7CC73F"/><path d="M9.5 23.2 L12.6 21.5 L20 25.6 L27.4 21.5 L30.5 23.2 L20 29 Z" fill="#FFFFFF" fill-opacity="0.8"/><path d="M9.5 18.6 L12.6 16.9 L20 21 L27.4 16.9 L30.5 18.6 L20 24.4 Z" fill="#FFFFFF" fill-opacity="0.9"/><path d="M20 8.5 L30.5 14.2 L20 19.9 L9.5 14.2 Z" fill="#FFFFFF"/></svg><span><span class="wm-goods">goods</span><span class="wm-valu">valu</span></span></span></span><span>© 2026 Goodsvalu Inc. 版權所有</span></div>
+<nav aria-label="頁尾導覽"><a href="/passnest/privacy/#zh">隱私權政策</a><a href="/passnest/support/#zh">客服支援</a><a href="mailto:support@goodsvalu.com">support@goodsvalu.com</a></nav></div></footer>
+</div>
+
+<div class="lang lang-en" lang="en">
+<header class="top"><div class="wrap bar">
+<a class="logo" href="/" aria-label="Goodsvalu home"><span class="wm"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#7CC73F"/><path d="M9.5 23.2 L12.6 21.5 L20 25.6 L27.4 21.5 L30.5 23.2 L20 29 Z" fill="#FFFFFF" fill-opacity="0.8"/><path d="M9.5 18.6 L12.6 16.9 L20 21 L27.4 16.9 L30.5 18.6 L20 24.4 Z" fill="#FFFFFF" fill-opacity="0.9"/><path d="M20 8.5 L30.5 14.2 L20 19.9 L9.5 14.2 Z" fill="#FFFFFF"/></svg><span><span class="wm-goods">goods</span><span class="wm-valu">valu</span></span></span></a>
+<nav aria-label="Main navigation" class="nav">
+<a href="/#en-apps">Our Apps</a><a href="/passnest/#en" aria-current="page">PassNest</a><a href="/passnest/support/#en">Support</a>
+<div class="seg" role="group" aria-label="Language"><label for="lang-zh" class="seg-zh">中文</label><label for="lang-en" class="seg-en">EN</label></div>
+</nav></div></header>
+
+<main>
+<section class="hero"><div class="wrap hero-in">
+<div class="hero-text">
+<div class="hero-app"><img src="/passnest/app-icon.png" alt="PassNest app icon" width="56" height="56"><div><b>PassNest</b><div class="kicker">OFFLINE PASSWORD MANAGER</div></div></div>
+<h1>Your passwords, on your computer only.</h1>
+<p class="hero-body">PassNest keeps your passwords encrypted on your computer and never goes online. We run no server and you never sign up, so we can't see any of your data either.</p>
+<!-- After launch: replace with the official Microsoft Store badge link and the GitHub Release DMG link -->
+<div class="ctas">
+<span class="soon-pill"><b>Microsoft Store</b>Coming soon</span>
+<span class="soon-pill"><b>Mac</b>Coming soon</span>
+</div>
+<p class="fine">Free to download · Windows 10/11 and macOS</p>
+</div>
+<div class="shot" role="img" aria-label="Illustration of the PassNest interface">
+<div class="shot-bar"><i></i><i></i><i></i></div>
+<div class="shot-body">
+<div class="glass"><span class="ln g w70"></span><span class="ln w85"></span><span class="ln w60"></span><span class="ln w75"></span><span class="ln w50"></span></div>
+<div class="glass"><div class="it"><i></i><span class="ln"></span></div><div class="it"><i></i><span class="ln"></span></div><div class="it"><i></i><span class="ln"></span></div><div class="it"><i></i><span class="ln"></span></div><div class="it"><i></i><span class="ln"></span></div></div>
+<div class="glass"><span class="ln t w55"></span><span class="ln w90"></span><span class="ln w80"></span><span class="ln g w40"></span><span class="ln w70"></span></div>
+</div>
+</div>
+</div></section>
+
+<section class="sec" id="en-why"><div class="wrap">
+<div class="kicker">01 · WHY OFFLINE</div>
+<h2>Why offline</h2>
+<p class="lead">Most password managers sync your vault to the cloud. PassNest doesn't. That has benefits, and it has costs.</p>
+<div class="sec-body two">
+<div class="card"><h3>What it means</h3><ul class="plain">
+<li><b>No server to break into</b>Your vault lives only on your computer. It can't leak because some company's server was breached.</li>
+<li><b>No account to steal</b>There's nothing to sign up for, so there's no account to phish or hit with reused passwords.</li>
+<li><b>No dependence on the network</b>Offline, abroad or on a plane, your vault still opens.</li>
+</ul></div>
+<div class="card"><h3>The costs, stated up front</h3><ul class="plain">
+<li><b>A forgotten master password can't be recovered</b>We don't have your key, and there's no "reset password" button.</li>
+<li><b>You move data between devices yourself</b>There's no cloud sync. To switch computers or use two, you carry an encrypted backup file across.</li>
+<li><b>Backups are your responsibility</b>We suggest turning on scheduled exports and keeping a copy somewhere else.</li>
+</ul></div>
+</div>
+</div></section>
+
+<section class="sec alt" id="en-features"><div class="wrap">
+<div class="kicker">02 · FEATURES</div>
+<h2>Features</h2>
+<div class="sec-body feats">
+<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4C7A1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div><h3>Logins and secure notes</h3><p>Website logins, Wi-Fi passwords, license keys, or any text you need to keep private.</p></div>
+<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4C7A1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2"/><path d="M10 2h4"/></svg></div><h3>Two-factor codes (TOTP)</h3><p>Generate one-time codes inside PassNest. Set them up by scanning a QR code image.</p></div>
+<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4C7A1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg></div><h3>Password health check</h3><p>Finds weak and reused passwords. Every check runs on your computer.</p></div>
+<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4C7A1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/></svg></div><h3>Multiple vaults</h3><p>Keep work, family and other items in separate vaults.</p></div>
+<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4C7A1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4V3h6v1"/><path d="m10 13 4 4m0-4-4 4"/></svg></div><h3>Clipboard auto-clear</h3><p>Copied passwords are cleared automatically and kept out of clipboard history and cloud clipboard.</p></div>
+<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4C7A1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg></div><h3>Auto-lock</h3><p>PassNest locks itself when you're idle or your computer goes to sleep.</p></div>
+<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4C7A1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 19h16"/></svg></div><h3>Encrypted backups</h3><p>Export encrypted <code>.passnest</code> backup files, by hand or on a schedule.</p></div>
+<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4C7A1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16"/></svg></div><h3>CSV / Excel import and export</h3><p>Move over from another password manager without retyping every entry.</p></div>
+</div>
+</div></section>
+
+<section class="sec tint" id="en-encryption"><div class="wrap">
+<div class="kicker">03 · ENCRYPTION</div>
+<h2>How encryption works</h2>
+<p class="lead">For those who care about the technical details, here is how PassNest protects your data.</p>
+<div class="sec-body"><details class="tech" open>
+<summary>Technical details</summary>
+<dl>
+<dt>Key derivation</dt><dd>Your master password is turned into an encryption key with Argon2id. Parameters: memory ≥ 64 MB, iterations ≥ 3, parallelism ≥ 4.</dd>
+<dt>Data encryption</dt><dd>Every item is encrypted with AES-256-GCM, using a fresh random 96-bit nonce each time.</dd>
+<dt>Memory handling</dt><dd>Keys and sensitive data are wiped from memory as soon as they're no longer needed.</dd>
+<dt>Decrypt only what's shown</dt><dd>The interface decrypts only the item you're viewing. Everything else stays encrypted.</dd>
+</dl>
+</details></div>
+</div></section>
+
+<section class="sec" id="en-platforms"><div class="wrap">
+<div class="kicker">04 · PLATFORMS</div>
+<h2>Platforms</h2>
+<ul class="sec-body plat">
+<li><div><b>Windows 10 (version 1903 and later) and Windows 11</b><p>Installed and updated through the Microsoft Store.</p></div><span class="tag">Microsoft Store</span></li>
+<li><div><b>macOS</b><p>Apple Silicon and Intel. Signed and notarized by Apple.</p></div><span class="tag">Direct download</span></li>
+<li><div><b>Android read-only viewer</b><p>View your <code>.passnest</code> backup files on your phone.</p></div><span class="tag soon">In development</span></li>
+</ul>
+</div></section>
+
+<section class="sec alt" id="en-pricing"><div class="wrap">
+<div class="kicker">05 · PRICING</div>
+<h2>Pricing</h2>
+<div class="sec-body price">
+<div class="card"><h3>Free</h3><div class="amt">Free</div><p>Download it and start using it. No account needed.</p></div>
+<div class="card"><h3>Pro license <span class="tag soon">Coming soon</span></h3><p>A one-time purchase on our website. The license file is verified offline on your computer. Pricing and Pro features will be announced at launch.</p></div>
+</div>
+</div></section>
+
+<section class="sec" id="en-faq"><div class="wrap">
+<div class="kicker">06 · FAQ</div>
+<h2>FAQ</h2>
+<div class="sec-body faq">
+<details open><summary>What if I forget my master password?</summary><p>It can't be recovered. We don't have your master password and have no way to reset it. Keep your master password safe and export backups regularly.</p></details>
+<details><summary>How do I move to a new computer?</summary><p>Export a <code>.passnest</code> backup on your old computer, copy it to the new one, and import it in PassNest.</p></details>
+<details><summary>Does uninstalling delete my vaults?</summary><p>No. Your vaults stay in the PassNest folder on your computer. Uninstalling doesn't remove them.</p></details>
+<details><summary>Why is there no cloud sync?</summary><p>Staying offline is a design principle of PassNest. Sync needs a server and an account, and both are more things to attack. To use PassNest on two computers, move an encrypted backup file between them.</p></details>
+<details><summary>Can you see my passwords?</summary><p>No. PassNest never connects to the network, and we have no server that receives your data.</p></details>
+</div>
+</div></section>
+</main>
+
+<footer class="foot"><div class="wrap foot-in"><div class="foot-brand"><span aria-label="Goodsvalu"><span class="wm wm-sm"><svg width="26" height="26" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#7CC73F"/><path d="M9.5 23.2 L12.6 21.5 L20 25.6 L27.4 21.5 L30.5 23.2 L20 29 Z" fill="#FFFFFF" fill-opacity="0.8"/><path d="M9.5 18.6 L12.6 16.9 L20 21 L27.4 16.9 L30.5 18.6 L20 24.4 Z" fill="#FFFFFF" fill-opacity="0.9"/><path d="M20 8.5 L30.5 14.2 L20 19.9 L9.5 14.2 Z" fill="#FFFFFF"/></svg><span><span class="wm-goods">goods</span><span class="wm-valu">valu</span></span></span></span><span>© 2026 Goodsvalu Inc. All rights reserved.</span></div>
+<nav aria-label="Footer navigation"><a href="/passnest/privacy/#en">Privacy Policy</a><a href="/passnest/support/#en">Support</a><a href="mailto:support@goodsvalu.com">support@goodsvalu.com</a></nav></div></footer>
+</div>
+</body>
+</html>
