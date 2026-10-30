@@ -92,6 +92,7 @@ details.tech summary{cursor:pointer;padding:18px 24px;font-weight:600;color:var(
 .price{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:24px;max-width:860px}
 .price .amt{font-size:30px;font-weight:800;color:var(--ink);line-height:1.2}
 .price p{color:var(--body)}
+.price .per{font-size:16px;font-weight:600;color:var(--muted);margin-left:2px}
 
 /* 隱私權政策 */
 .doc{max-width:760px;margin:0 auto;padding:72px 24px 96px}
