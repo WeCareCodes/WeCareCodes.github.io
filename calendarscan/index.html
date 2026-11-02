@@ -56,6 +56,8 @@ p{margin:0}
 .pitch{font-size:clamp(18px,2vw,20px);color:var(--muted);max-width:32em;margin:0 0 30px}
 .badges{display:flex;flex-wrap:wrap;gap:12px}
 .badge{display:inline-flex;align-items:center;gap:12px;background:var(--ink);color:#fff;border-radius:12px;padding:8px 18px 8px 14px;min-height:54px;opacity:.6;cursor:default;-webkit-user-select:none;user-select:none}
+a.badge{opacity:1;cursor:pointer;color:#fff;text-decoration:none;-webkit-user-select:auto;user-select:auto}
+a.badge:hover{color:#fff;opacity:.85}
 .badge svg{flex:none}
 .badge span{display:flex;flex-direction:column;line-height:1.2}
 .badge small{font-size:11px;letter-spacing:.05em;text-transform:uppercase}
@@ -168,16 +170,15 @@ footer ul a:hover{color:var(--blue);text-decoration:underline}
         </div>
         <p class="sub"><span class="mark">Snap to Calendar</span></p>
         <p class="pitch">Snap a school calendar, notice or appointment card. AI finds every date and deadline, and you check them before anything is added to your calendar.</p>
-        <!-- Replace with links after release: Google Play https://play.google.com/store/apps/details?id=com.goodsvalu.calendarscan ; App Store URL TBD -->
         <div class="badges">
-          <div class="badge" role="img" aria-label="Coming soon to the App Store">
+          <a class="badge" href="https://apps.apple.com/app/id6817465282" target="_blank" rel="noopener" aria-label="Download CalendarScan on the App Store">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg>
-            <span><small>Coming soon to</small><b>App Store</b></span>
-          </div>
-          <div class="badge" role="img" aria-label="Coming soon to Google Play">
+            <span><small>Download on the</small><b>App Store</b></span>
+          </a>
+          <a class="badge" href="https://play.google.com/store/apps/details?id=com.goodsvalu.calendarscan" target="_blank" rel="noopener" aria-label="Get CalendarScan on Google Play">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.5v17l14-8.5z"/></svg>
-            <span><small>Coming soon to</small><b>Google Play</b></span>
-          </div>
+            <span><small>Get it on</small><b>Google Play</b></span>
+          </a>
         </div>
         <p class="platforms">For iPhone and Android.</p>
       </div>
