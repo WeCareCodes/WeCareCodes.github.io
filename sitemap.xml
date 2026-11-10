@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://goodsvalu.com/</loc></url>
-  <url><loc>https://goodsvalu.com/services/app/</loc></url>
-  <url><loc>https://goodsvalu.com/services/web/</loc></url>
-  <url><loc>https://goodsvalu.com/services/ai/</loc></url>
+  <url><loc>https://goodsvalu.com/products/</loc></url>
+  <url><loc>https://goodsvalu.com/services/</loc></url>
+  <url><loc>https://goodsvalu.com/about/</loc></url>
+  <url><loc>https://goodsvalu.com/contact/</loc></url>
   <url><loc>https://goodsvalu.com/calendarscan/</loc></url>
   <url><loc>https://goodsvalu.com/calendarscan/privacy/</loc></url>
   <url><loc>https://goodsvalu.com/calendarscan/support/</loc></url>
