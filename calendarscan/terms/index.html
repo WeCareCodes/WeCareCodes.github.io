@@ -30,13 +30,32 @@ a{color:var(--accent)}li{margin:4px 0}footer{margin-top:40px;color:var(--muted);
 .site-foot ul a:hover{color:var(--accent);text-decoration:underline}
 @media (max-width:560px){.wrap{padding:0 16px}.nav ul a{padding:0 9px;font-size:14px}}
 </style>
+<style id="gv-dark">
+/* 深藍主題：與公司網站一致 */
+html{color-scheme:dark}
+::selection{background:rgba(30,94,255,.45);color:#fff}
+:root{--paper:#060E1D;--paper-2:#0A1529;--card:#0F1F3C;--line:rgba(120,160,255,.18);--ink:#F2F6FF;--muted:#AEBBD2;--blue:#7FB0FF;--blue-dk:#A9CAFF;--accent:#7FB0FF;--shadow:0 1px 0 rgba(255,255,255,.03) inset,0 12px 30px rgba(0,0,0,.35)}
+html{background:#060E1D}
+.nav{background:rgba(6,14,29,.9)}
+.nav ul a:hover,.nav ul a[aria-current]{background:rgba(30,94,255,.16);color:#fff}
+.mark{background:linear-gradient(transparent 58%,rgba(30,94,255,.55) 58%,rgba(30,94,255,.55) 94%,transparent 94%)}
+.badge{background:#02060F;border:1px solid rgba(255,255,255,.32)}
+a.badge:hover{border-color:#7FB0FF;opacity:1}
+.num{background:#1E5EFF}
+.ill{background:#F5F1E8;border-color:transparent}
+.phones::before{background:radial-gradient(60% 60% at 50% 60%,rgba(30,94,255,.35),transparent 70%),#0A1529}
+.phone{box-shadow:0 2px 4px rgba(0,0,0,.4),0 28px 56px rgba(0,0,0,.5),0 0 0 1px rgba(140,175,255,.25)}
+#features{background:#0A1529}
+th{background:#112241;color:#F2F6FF}
+.skip{background:#1E5EFF;color:#fff;border-color:#1E5EFF}
+</style>
 </head>
 <body>
 <header class="nav">
   <nav class="wrap" aria-label="Main">
     <!-- 回到 goodsvalu.com 首頁，看其他 App（和 CalendarScan、Siaupoa 首頁一致） -->
     <div class="crumbs">
-    <a class="home" href="/" aria-label="Goodsvalu"><svg width="26" height="26" viewBox="0 0 40 40" aria-hidden="true" style="flex:none"><rect width="40" height="40" rx="10" fill="#7CC73F"/><path d="M9.5 23.2 L12.6 21.5 L20 25.6 L27.4 21.5 L30.5 23.2 L20 29 Z" fill="#FFFFFF" fill-opacity="0.8"/><path d="M9.5 18.6 L12.6 16.9 L20 21 L27.4 16.9 L30.5 18.6 L20 24.4 Z" fill="#FFFFFF" fill-opacity="0.9"/><path d="M20 8.5 L30.5 14.2 L20 19.9 L9.5 14.2 Z" fill="#FFFFFF"/></svg><span style="font-family:system-ui,-apple-system,'Segoe UI',sans-serif;font-weight:700;font-size:19px;letter-spacing:-.04em;line-height:1"><span style="color:#5C4033">goods</span><span style="color:#7CC73F">valu</span></span></a>
+    <a class="home" href="/" aria-label="Goodsvalu"><svg width="26" height="26" viewBox="0 0 40 40" aria-hidden="true" style="flex:none"><rect width="40" height="40" rx="10" fill="#1E5EFF"/><path d="M9.5 23.2 L12.6 21.5 L20 25.6 L27.4 21.5 L30.5 23.2 L20 29 Z" fill="#FFFFFF" fill-opacity="0.8"/><path d="M9.5 18.6 L12.6 16.9 L20 21 L27.4 16.9 L30.5 18.6 L20 24.4 Z" fill="#FFFFFF" fill-opacity="0.9"/><path d="M20 8.5 L30.5 14.2 L20 19.9 L9.5 14.2 Z" fill="#FFFFFF"/></svg><span style="font-family:system-ui,-apple-system,'Segoe UI',sans-serif;font-weight:700;font-size:19px;letter-spacing:-.04em;line-height:1"><span style="color:#FFFFFF">goods</span><span style="color:#3D7BFF">valu</span></span></a>
     </div>
     <ul>
       <li><a href="/calendarscan/">Home</a></li>

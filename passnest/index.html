@@ -5,9 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>PassNest — 離線密碼管理器 / Offline password manager</title>
 <meta name="description" content="PassNest keeps your passwords, notes and two-factor codes encrypted on your own computer. No account, no cloud, no network connection. Windows and Mac.">
-<meta name="theme-color" content="#FFFFFF">
+<meta name="theme-color" content="#060E1D">
 <link rel="icon" href="/passnest/app-icon.png">
 <link rel="stylesheet" href="/passnest/passnest.css">
+<style id="gv-dark">
+/* 深藍主題：與公司網站一致 */
+html{color-scheme:dark}
+::selection{background:rgba(30,94,255,.45);color:#fff}
+:root{--ink:#F2F6FF;--body:#B6C3D9;--muted:#8C9DBA;--line:rgba(120,160,255,.16);--line2:rgba(120,160,255,.28);--soft:#0A1529;--tint:#0A1529;--accent:#1E5EFF;--accent-dk:#3A74FF;--on-accent:#FFFFFF;--link:#7FB0FF;--link-dk:#A9CAFF;--accent-soft:rgba(30,94,255,.18);--goods:#FFFFFF}
+html,body{background:#060E1D}
+.top{background:rgba(6,14,29,.9);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.wm-valu{color:#3D7BFF}
+.seg{background:transparent;border-color:rgba(120,160,255,.28)}
+#lang-zh:checked~.lang-zh .seg-zh,#lang-en:checked~.lang-en .seg-en{background:rgba(30,94,255,.22);color:#CFE0FF;box-shadow:none}
+.hero,.page-head{background:radial-gradient(900px 420px at 80% 20%,rgba(30,94,255,.18),transparent 70%),#0A1529;border-bottom:1px solid rgba(120,160,255,.16)}
+.card,details.tech{background:linear-gradient(180deg,#0F1F3C,#0C1932)}
+.feat{background:linear-gradient(180deg,#0F1F3C,#0C1932)}
+.soon-pill{background:rgba(255,255,255,.04);border-color:rgba(127,176,255,.45)}
+.shot{background:#02060F;border:1px solid rgba(140,175,255,.3);box-shadow:0 24px 48px -24px rgba(0,0,0,.7),0 0 30px rgba(30,94,255,.2)}
+.ln.g{background:rgba(61,123,255,.65)}
+.warn{background:#112241}
+.btn,.mail{box-shadow:0 8px 24px rgba(30,94,255,.35)}
+</style>
 </head>
 <body>
 <!-- 中英切換：與首頁相同的 radio＋CSS。網址 #en／#zh 開頭時照網址，否則依瀏覽器語言 -->
@@ -17,7 +36,7 @@
 
 <div class="lang lang-zh" lang="zh-Hant">
 <header class="top"><div class="wrap bar">
-<a class="logo" href="/" aria-label="Goodsvalu 首頁"><span class="wm"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#7CC73F"/><path d="M9.5 23.2 L12.6 21.5 L20 25.6 L27.4 21.5 L30.5 23.2 L20 29 Z" fill="#FFFFFF" fill-opacity="0.8"/><path d="M9.5 18.6 L12.6 16.9 L20 21 L27.4 16.9 L30.5 18.6 L20 24.4 Z" fill="#FFFFFF" fill-opacity="0.9"/><path d="M20 8.5 L30.5 14.2 L20 19.9 L9.5 14.2 Z" fill="#FFFFFF"/></svg><span><span class="wm-goods">goods</span><span class="wm-valu">valu</span></span></span></a>
+<a class="logo" href="/" aria-label="Goodsvalu 首頁"><span class="wm"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#1E5EFF"/><path d="M9.5 23.2 L12.6 21.5 L20 25.6 L27.4 21.5 L30.5 23.2 L20 29 Z" fill="#FFFFFF" fill-opacity="0.8"/><path d="M9.5 18.6 L12.6 16.9 L20 21 L27.4 16.9 L30.5 18.6 L20 24.4 Z" fill="#FFFFFF" fill-opacity="0.9"/><path d="M20 8.5 L30.5 14.2 L20 19.9 L9.5 14.2 Z" fill="#FFFFFF"/></svg><span><span class="wm-goods">goods</span><span class="wm-valu">valu</span></span></span></a>
 <nav aria-label="主要導覽" class="nav">
 <a href="/#zh-apps">自有產品</a><a href="/passnest/#zh" aria-current="page">PassNest</a><a href="/passnest/support/#zh">客服支援</a>
 <div class="seg" role="group" aria-label="語言"><label for="lang-zh" class="seg-zh">中文</label><label for="lang-en" class="seg-en">EN</label></div>
@@ -68,14 +87,14 @@
 <div class="kicker">02 · FEATURES</div>
 <h2>功能</h2>
 <div class="sec-body feats">
-<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4C7A1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div><h3>帳號密碼與安全筆記</h3><p>網站登入、Wi-Fi 密碼、軟體序號，或任何需要保密的文字。</p></div>
-<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4C7A1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2"/><path d="M10 2h4"/></svg></div><h3>雙重驗證碼（TOTP）</h3><p>在 PassNest 裡產生一次性驗證碼，可直接掃描 QR 碼圖片設定。</p></div>
-<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4C7A1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg></div><h3>密碼健康檢查</h3><p>找出弱密碼與重複使用的密碼，所有計算都在本機完成。</p></div>
-<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4C7A1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/></svg></div><h3>多個密碼庫</h3><p>工作、家庭等不同用途的資料，分開存放。</p></div>
-<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4C7A1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4V3h6v1"/><path d="m10 13 4 4m0-4-4 4"/></svg></div><h3>剪貼簿自動清除</h3><p>複製的密碼會自動清除，也不會進入剪貼簿歷程記錄或雲端剪貼簿。</p></div>
-<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4C7A1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg></div><h3>自動鎖定</h3><p>閒置一段時間或電腦進入睡眠時，PassNest 會自動上鎖。</p></div>
-<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4C7A1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 19h16"/></svg></div><h3>加密備份</h3><p>匯出加密的 <code>.passnest</code> 備份檔，也可以排程自動匯出。</p></div>
-<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4C7A1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16"/></svg></div><h3>CSV／Excel 匯入匯出</h3><p>從其他密碼管理器搬過來，不必一筆一筆重打。</p></div>
+<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7FB0FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div><h3>帳號密碼與安全筆記</h3><p>網站登入、Wi-Fi 密碼、軟體序號，或任何需要保密的文字。</p></div>
+<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7FB0FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2"/><path d="M10 2h4"/></svg></div><h3>雙重驗證碼（TOTP）</h3><p>在 PassNest 裡產生一次性驗證碼，可直接掃描 QR 碼圖片設定。</p></div>
+<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7FB0FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg></div><h3>密碼健康檢查</h3><p>找出弱密碼與重複使用的密碼，所有計算都在本機完成。</p></div>
+<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7FB0FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/></svg></div><h3>多個密碼庫</h3><p>工作、家庭等不同用途的資料，分開存放。</p></div>
+<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7FB0FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4V3h6v1"/><path d="m10 13 4 4m0-4-4 4"/></svg></div><h3>剪貼簿自動清除</h3><p>複製的密碼會自動清除，也不會進入剪貼簿歷程記錄或雲端剪貼簿。</p></div>
+<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7FB0FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg></div><h3>自動鎖定</h3><p>閒置一段時間或電腦進入睡眠時，PassNest 會自動上鎖。</p></div>
+<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7FB0FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 19h16"/></svg></div><h3>加密備份</h3><p>匯出加密的 <code>.passnest</code> 備份檔，也可以排程自動匯出。</p></div>
+<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7FB0FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16"/></svg></div><h3>CSV／Excel 匯入匯出</h3><p>從其他密碼管理器搬過來，不必一筆一筆重打。</p></div>
 </div>
 </div></section>
 
@@ -126,13 +145,13 @@
 </div></section>
 </main>
 
-<footer class="foot"><div class="wrap foot-in"><div class="foot-brand"><span aria-label="Goodsvalu"><span class="wm wm-sm"><svg width="26" height="26" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#7CC73F"/><path d="M9.5 23.2 L12.6 21.5 L20 25.6 L27.4 21.5 L30.5 23.2 L20 29 Z" fill="#FFFFFF" fill-opacity="0.8"/><path d="M9.5 18.6 L12.6 16.9 L20 21 L27.4 16.9 L30.5 18.6 L20 24.4 Z" fill="#FFFFFF" fill-opacity="0.9"/><path d="M20 8.5 L30.5 14.2 L20 19.9 L9.5 14.2 Z" fill="#FFFFFF"/></svg><span><span class="wm-goods">goods</span><span class="wm-valu">valu</span></span></span></span><span>© 2026 Goodsvalu Inc. 版權所有</span></div>
+<footer class="foot"><div class="wrap foot-in"><div class="foot-brand"><span aria-label="Goodsvalu"><span class="wm wm-sm"><svg width="26" height="26" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#1E5EFF"/><path d="M9.5 23.2 L12.6 21.5 L20 25.6 L27.4 21.5 L30.5 23.2 L20 29 Z" fill="#FFFFFF" fill-opacity="0.8"/><path d="M9.5 18.6 L12.6 16.9 L20 21 L27.4 16.9 L30.5 18.6 L20 24.4 Z" fill="#FFFFFF" fill-opacity="0.9"/><path d="M20 8.5 L30.5 14.2 L20 19.9 L9.5 14.2 Z" fill="#FFFFFF"/></svg><span><span class="wm-goods">goods</span><span class="wm-valu">valu</span></span></span></span><span>© 2026 Goodsvalu Inc. 版權所有</span></div>
 <nav aria-label="頁尾導覽"><a href="/passnest/privacy/#zh">隱私權政策</a><a href="/passnest/support/#zh">客服支援</a><a href="mailto:support@goodsvalu.com">support@goodsvalu.com</a></nav></div></footer>
 </div>
 
 <div class="lang lang-en" lang="en">
 <header class="top"><div class="wrap bar">
-<a class="logo" href="/" aria-label="Goodsvalu home"><span class="wm"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#7CC73F"/><path d="M9.5 23.2 L12.6 21.5 L20 25.6 L27.4 21.5 L30.5 23.2 L20 29 Z" fill="#FFFFFF" fill-opacity="0.8"/><path d="M9.5 18.6 L12.6 16.9 L20 21 L27.4 16.9 L30.5 18.6 L20 24.4 Z" fill="#FFFFFF" fill-opacity="0.9"/><path d="M20 8.5 L30.5 14.2 L20 19.9 L9.5 14.2 Z" fill="#FFFFFF"/></svg><span><span class="wm-goods">goods</span><span class="wm-valu">valu</span></span></span></a>
+<a class="logo" href="/" aria-label="Goodsvalu home"><span class="wm"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#1E5EFF"/><path d="M9.5 23.2 L12.6 21.5 L20 25.6 L27.4 21.5 L30.5 23.2 L20 29 Z" fill="#FFFFFF" fill-opacity="0.8"/><path d="M9.5 18.6 L12.6 16.9 L20 21 L27.4 16.9 L30.5 18.6 L20 24.4 Z" fill="#FFFFFF" fill-opacity="0.9"/><path d="M20 8.5 L30.5 14.2 L20 19.9 L9.5 14.2 Z" fill="#FFFFFF"/></svg><span><span class="wm-goods">goods</span><span class="wm-valu">valu</span></span></span></a>
 <nav aria-label="Main navigation" class="nav">
 <a href="/#en-apps">Our Apps</a><a href="/passnest/#en" aria-current="page">PassNest</a><a href="/passnest/support/#en">Support</a>
 <div class="seg" role="group" aria-label="Language"><label for="lang-zh" class="seg-zh">中文</label><label for="lang-en" class="seg-en">EN</label></div>
@@ -183,14 +202,14 @@
 <div class="kicker">02 · FEATURES</div>
 <h2>Features</h2>
 <div class="sec-body feats">
-<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4C7A1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div><h3>Logins and secure notes</h3><p>Website logins, Wi-Fi passwords, license keys, or any text you need to keep private.</p></div>
-<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4C7A1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2"/><path d="M10 2h4"/></svg></div><h3>Two-factor codes (TOTP)</h3><p>Generate one-time codes inside PassNest. Set them up by scanning a QR code image.</p></div>
-<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4C7A1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg></div><h3>Password health check</h3><p>Finds weak and reused passwords. Every check runs on your computer.</p></div>
-<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4C7A1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/></svg></div><h3>Multiple vaults</h3><p>Keep work, family and other items in separate vaults.</p></div>
-<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4C7A1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4V3h6v1"/><path d="m10 13 4 4m0-4-4 4"/></svg></div><h3>Clipboard auto-clear</h3><p>Copied passwords are cleared automatically and kept out of clipboard history and cloud clipboard.</p></div>
-<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4C7A1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg></div><h3>Auto-lock</h3><p>PassNest locks itself when you're idle or your computer goes to sleep.</p></div>
-<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4C7A1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 19h16"/></svg></div><h3>Encrypted backups</h3><p>Export encrypted <code>.passnest</code> backup files, by hand or on a schedule.</p></div>
-<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4C7A1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16"/></svg></div><h3>CSV / Excel import and export</h3><p>Move over from another password manager without retyping every entry.</p></div>
+<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7FB0FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div><h3>Logins and secure notes</h3><p>Website logins, Wi-Fi passwords, license keys, or any text you need to keep private.</p></div>
+<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7FB0FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2"/><path d="M10 2h4"/></svg></div><h3>Two-factor codes (TOTP)</h3><p>Generate one-time codes inside PassNest. Set them up by scanning a QR code image.</p></div>
+<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7FB0FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg></div><h3>Password health check</h3><p>Finds weak and reused passwords. Every check runs on your computer.</p></div>
+<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7FB0FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/></svg></div><h3>Multiple vaults</h3><p>Keep work, family and other items in separate vaults.</p></div>
+<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7FB0FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4V3h6v1"/><path d="m10 13 4 4m0-4-4 4"/></svg></div><h3>Clipboard auto-clear</h3><p>Copied passwords are cleared automatically and kept out of clipboard history and cloud clipboard.</p></div>
+<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7FB0FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg></div><h3>Auto-lock</h3><p>PassNest locks itself when you're idle or your computer goes to sleep.</p></div>
+<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7FB0FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 19h16"/></svg></div><h3>Encrypted backups</h3><p>Export encrypted <code>.passnest</code> backup files, by hand or on a schedule.</p></div>
+<div class="feat"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7FB0FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16"/></svg></div><h3>CSV / Excel import and export</h3><p>Move over from another password manager without retyping every entry.</p></div>
 </div>
 </div></section>
 
@@ -241,7 +260,7 @@
 </div></section>
 </main>
 
-<footer class="foot"><div class="wrap foot-in"><div class="foot-brand"><span aria-label="Goodsvalu"><span class="wm wm-sm"><svg width="26" height="26" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#7CC73F"/><path d="M9.5 23.2 L12.6 21.5 L20 25.6 L27.4 21.5 L30.5 23.2 L20 29 Z" fill="#FFFFFF" fill-opacity="0.8"/><path d="M9.5 18.6 L12.6 16.9 L20 21 L27.4 16.9 L30.5 18.6 L20 24.4 Z" fill="#FFFFFF" fill-opacity="0.9"/><path d="M20 8.5 L30.5 14.2 L20 19.9 L9.5 14.2 Z" fill="#FFFFFF"/></svg><span><span class="wm-goods">goods</span><span class="wm-valu">valu</span></span></span></span><span>© 2026 Goodsvalu Inc. All rights reserved.</span></div>
+<footer class="foot"><div class="wrap foot-in"><div class="foot-brand"><span aria-label="Goodsvalu"><span class="wm wm-sm"><svg width="26" height="26" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#1E5EFF"/><path d="M9.5 23.2 L12.6 21.5 L20 25.6 L27.4 21.5 L30.5 23.2 L20 29 Z" fill="#FFFFFF" fill-opacity="0.8"/><path d="M9.5 18.6 L12.6 16.9 L20 21 L27.4 16.9 L30.5 18.6 L20 24.4 Z" fill="#FFFFFF" fill-opacity="0.9"/><path d="M20 8.5 L30.5 14.2 L20 19.9 L9.5 14.2 Z" fill="#FFFFFF"/></svg><span><span class="wm-goods">goods</span><span class="wm-valu">valu</span></span></span></span><span>© 2026 Goodsvalu Inc. All rights reserved.</span></div>
 <nav aria-label="Footer navigation"><a href="/passnest/privacy/#en">Privacy Policy</a><a href="/passnest/support/#en">Support</a><a href="mailto:support@goodsvalu.com">support@goodsvalu.com</a></nav></div></footer>
 </div>
 </body>
