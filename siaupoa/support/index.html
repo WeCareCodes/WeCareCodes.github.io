@@ -276,6 +276,11 @@ footer{background:#050B18!important;color:#B6C3D9!important;border-top:1px solid
 footer a{color:#DCE5F5!important}footer a:hover{color:#FFFFFF!important}
 span[style*="background:var(--color-accent)"]{background:#C8260E!important}
 .card-kicker{color:#FF8A75}
+/* 首頁主視覺：白底卡片，套回 Siaupoa 原本的淺色配色，讓產品截圖的白底融入 */
+.sp-hero{--color-bg:#f3f2f2;--color-surface:#eae9e9;--color-text:#201e1d;--color-divider:color-mix(in srgb,#201e1d 40%,transparent);--color-neutral-400:#bab6b6;--color-neutral-600:#7d7979;--color-neutral-700:#605d5d;--color-neutral-800:#444141;
+background:#FFFFFF;color:#201e1d;border-radius:20px;padding:48px!important;box-shadow:0 20px 50px rgba(0,0,0,.45)}
+.sp-hero a{color:#ae1800}
+@media (max-width:640px){.sp-hero{padding:28px 20px!important;border-radius:16px;width:calc(100% - 32px)!important}}
 </style>
 </head>
 <body>
