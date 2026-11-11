@@ -27,6 +27,23 @@
     if (r) r.addEventListener('change', function () { d.documentElement.lang = l === 'zh' ? 'zh-Hant' : 'en'; });
   });
 
+  // 複製需求範本：Outlook 會把中文預填內文弄成亂碼，改由訪客自行貼上
+  d.querySelectorAll('[data-copy]').forEach(function (b) {
+    var label = b.textContent;
+    b.addEventListener('click', function () {
+      var text = b.getAttribute('data-copy');
+      function ok() { b.textContent = b.dataset.done; setTimeout(function () { b.textContent = label; }, 2500); }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(ok, fallback);
+      } else { fallback(); }
+      function fallback() {
+        var ta = d.createElement('textarea'); ta.value = text; ta.setAttribute('readonly', '');
+        ta.style.cssText = 'position:fixed;opacity:0'; d.body.appendChild(ta); ta.select();
+        try { d.execCommand('copy'); ok(); } catch (e) {} d.body.removeChild(ta);
+      }
+    });
+  });
+
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduce || !('IntersectionObserver' in window)) return;
   d.documentElement.classList.add('js-reveal');
