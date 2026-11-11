@@ -27,6 +27,36 @@
     if (r) r.addEventListener('change', function () { d.documentElement.lang = l === 'zh' ? 'zh-Hant' : 'en'; });
   });
 
+  // 詢價表單（Formspree）：前端驗證 → fetch 送出 → 成功導向感謝頁（Google Ads 轉換點）
+  d.querySelectorAll('form[data-gv-form]').forEach(function (form) {
+    var err = form.querySelector('.qf-err');
+    var btn = form.querySelector('button[type="submit"]');
+    function showErr(msg) { if (err) { err.textContent = msg; err.hidden = !msg; } }
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var bad = form.querySelector(':invalid');
+      if (bad) {
+        showErr(bad.type === 'email' && bad.value ? 'Please enter a valid email address.' : 'Please fill in the required fields marked with *.');
+        bad.focus();
+        return;
+      }
+      if (/FORM_ID/.test(form.action)) { showErr('The form is not configured yet. Please email support@goodsvalu.com.'); return; }
+      showErr('');
+      var label = btn.textContent;
+      btn.disabled = true; btn.textContent = btn.dataset.busy || label;
+      fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
+        .then(function (r) {
+          if (!r.ok) throw new Error(r.status);
+          try { sessionStorage.setItem('gv_lead_pending', '1'); } catch (x) {}
+          location.href = '/contact/thanks/#en';
+        })
+        .catch(function () {
+          btn.disabled = false; btn.textContent = label;
+          showErr('Sorry, something went wrong. Please try again or email support@goodsvalu.com.');
+        });
+    });
+  });
+
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduce || !('IntersectionObserver' in window)) return;
   d.documentElement.classList.add('js-reveal');

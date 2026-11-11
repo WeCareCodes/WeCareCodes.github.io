@@ -233,6 +233,24 @@ p{margin:0}
 .sup span:not([aria-hidden]){flex:1}
 .social{display:flex;flex-wrap:wrap;gap:10px}
 
+/* 詢價表單 */
+.qform{display:flex;flex-direction:column;gap:16px;margin-top:8px}
+.qf-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.qf{display:flex;flex-direction:column;gap:6px;min-width:0}
+.qf label{font-size:14.5px;font-weight:600;color:#fff}
+.qf .req{color:var(--blue-l)}
+.qf .opt{font-weight:400;color:var(--muted)}
+.qf input,.qf select,.qf textarea{width:100%;min-height:48px;padding:11px 14px;border-radius:10px;border:1px solid var(--line);background:rgba(6,14,29,.6);color:#fff;font:inherit;font-size:16px}
+.qf textarea{min-height:132px;resize:vertical;line-height:1.5}
+.qf select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23AEBBD0' stroke-width='1.8'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:38px}
+.qf select option{background:#0C1932;color:#fff}
+.qf input::placeholder,.qf textarea::placeholder{color:var(--muted);opacity:.8}
+.qf input:focus,.qf select:focus,.qf textarea:focus{outline:none;border-color:var(--blue-l);box-shadow:0 0 0 3px rgba(30,94,255,.3)}
+.qform button[disabled]{opacity:.7;cursor:wait}
+.qf-err{color:#FF9B9B;font-size:14.5px}
+.hp{position:absolute!important;left:-9999px;width:1px;height:1px;overflow:hidden}
+@media (max-width:640px){.qf-row{grid-template-columns:minmax(0,1fr)}}
+
 /* 結尾 CTA */
 .cta{position:relative;overflow:hidden;background:radial-gradient(600px 360px at 85% 30%,rgba(30,94,255,.35),transparent 70%),#0B1B33;border:1px solid var(--line2);border-radius:24px;padding:80px 64px;display:flex;flex-direction:column;align-items:flex-start;gap:20px;box-shadow:0 0 60px rgba(30,94,255,.15)}
 .cta-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(91,141,255,.14) 1px,transparent 1px),linear-gradient(90deg,rgba(91,141,255,.14) 1px,transparent 1px);background-size:40px 40px;-webkit-mask-image:radial-gradient(ellipse at 85% 40%,#000 0%,transparent 70%);mask-image:radial-gradient(ellipse at 85% 40%,#000 0%,transparent 70%);pointer-events:none}
@@ -327,3 +345,11 @@ p{margin:0}
 .faq details{padding:0 18px}
 .btn{white-space:normal;text-align:center}
 }
+
+/* 公司隱私權政策 */
+.policy{max-width:860px;padding:44px;gap:12px}
+.policy h2{font-size:22px;margin-top:20px}
+.policy h2:first-child{margin-top:0}
+.policy ul{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:8px}
+.policy a{color:var(--blue-l)}
+@media (max-width:640px){.policy{padding:28px 20px}}
