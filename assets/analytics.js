@@ -2,8 +2,8 @@
  * 只要改這裡的三個值；還是 placeholder（含 XXXX）時整支腳本不做任何事。 */
 (function () {
   var GA4_ID = 'G-HERCHT8155';         // GA4 評估 ID
-  var ADS_ID = 'AW-XXXXXXXXXX';        // Google Ads 轉換 ID
-  var ADS_LEAD_LABEL = 'XXXXXXXXXX';   // 「詢價表單送出」轉換動作的標籤
+  var ADS_ID = 'AW-18561450803';       // Google Ads 轉換 ID
+  var ADS_LEAD_LABEL = 'yfjwCPq6trYdELOG5ZJF'; // 「Quote request」轉換動作的標籤
 
   function ok(id) { return id && id.indexOf('XXXX') === -1; }
   var hasGA = ok(GA4_ID), hasAds = ok(ADS_ID);
