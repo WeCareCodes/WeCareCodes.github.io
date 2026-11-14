@@ -77,6 +77,9 @@ section{padding:96px 0}
 .h2{font-size:clamp(30px,4.2vw,46px);max-width:18em}
 .lede{color:var(--muted);font-size:19px;max-width:36em;margin-top:16px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
+.video{position:relative;aspect-ratio:16/9;margin-top:28px;overflow:hidden;padding:0}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video-link{margin-top:16px}
 
 /* Features */
 #features{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -318,6 +321,18 @@ th{background:#112241;color:#F2F6FF}
     </div>
   </section>
 
+  <!-- Videos -->
+  <section id="videos" aria-labelledby="videos-title">
+    <div class="wrap">
+      <p class="eyebrow">Videos</p>
+      <h2 class="h2" id="videos-title">See CalendarScan in action</h2>
+      <div class="card video">
+        <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PLDwV8kb9ON8k" title="CalendarScan video playlist on YouTube" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <p class="video-link"><a href="https://www.youtube.com/playlist?list=PLDwV8kb9ON8k" target="_blank" rel="noopener">Watch the full playlist on YouTube</a></p>
+    </div>
+  </section>
+
   <!-- Pricing -->
   <section id="pricing" aria-labelledby="pricing-title">
     <div class="wrap">
@@ -363,6 +378,7 @@ th{background:#112241;color:#F2F6FF}
       <li><a href="/calendarscan/terms/">Terms of Use</a></li>
       <li><a href="https://www.facebook.com/calendarscanapp" target="_blank" rel="noopener">Facebook</a></li>
       <li><a href="https://www.instagram.com/calendarscanapp/" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a href="https://www.youtube.com/playlist?list=PLDwV8kb9ON8k" target="_blank" rel="noopener">YouTube</a></li>
       <li><a href="mailto:calendarscan@goodsvalu.com">calendarscan@goodsvalu.com</a></li>
     </ul>
   </div>
